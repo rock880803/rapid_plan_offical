@@ -60,9 +60,6 @@ const FloatingChatbot: React.FC = () => {
           className="w-8 h-8 text-white filter brightness-0 invert group-hover:brightness-0 group-hover:invert transition-all duration-300 drop-shadow-lg"
         />
         
-        {/* Pulse Animation */}
-        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 animate-ping opacity-20 group-hover:opacity-30"></div>
-        
         {/* Tooltip */}
         <div className="absolute left-full ml-3 px-3 py-2 bg-gray-900 dark:bg-gray-700 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
           聯絡我們
