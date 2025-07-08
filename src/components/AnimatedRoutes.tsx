@@ -41,30 +41,6 @@ const AnimatedRoutes = () => {
           } 
         />
         <Route 
-          path="/portfolio/branding" 
-          element={
-            <PageTransition>
-              <BrandingPage />
-            </PageTransition>
-          } 
-        />
-        <Route 
-          path="/portfolio/development" 
-          element={
-            <PageTransition>
-              <DevelopmentPage />
-            </PageTransition>
-          } 
-        />
-        <Route 
-          path="/portfolio/graphic" 
-          element={
-            <PageTransition>
-              <GraphicPage />
-            </PageTransition>
-          } 
-        />
-        <Route 
           path="/about" 
           element={
             <PageTransition>

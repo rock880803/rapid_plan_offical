@@ -77,6 +77,183 @@ export const projectsData: Project[] = [
 },
   {
     id: 2,
+    title: '企業年報設計',
+    description: '為科技公司設計的年度報告，結合數據視覺化與現代設計美學',
+    fullDescription: '為一家科技公司設計的年度報告，整合了公司營運數據、財務報表、未來展望等內容。設計風格現代簡約，運用數據視覺化技術讓複雜資訊更易理解，並確保印刷品質與閱讀體驗的最佳化。',
+    image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
+    images: [
+      'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=1200'
+    ],
+    category: '平面設計',
+    technologies: ['InDesign', 'Illustrator', 'Photoshop'],
+    features: [
+      '版面設計規劃',
+      '數據視覺化圖表',
+      '印刷品質控制',
+      '多語言版本製作',
+      '互動式 PDF 功能',
+      '品牌一致性維護',
+      '圖像處理優化',
+      '色彩管理',
+      '字體排版設計',
+      '封面與內頁設計'
+    ],
+    challenges: [
+      '大量數據的視覺化呈現',
+      '保持設計一致性與可讀性',
+      '平衡美觀與資訊密度',
+      '印刷與數位版本的最佳化',
+      '多語言版本的版面調整'
+    ],
+    solutions: [
+      '建立模組化的設計系統',
+      '運用圖表和資訊圖表簡化複雜數據',
+      '採用網格系統確保版面一致性',
+      '建立完整的色彩和字體規範',
+      '製作詳細的印刷規格文件'
+    ],
+    results: [
+      '年報獲得業界設計獎項肯定',
+      '股東滿意度提升 40%',
+      '印刷品質達到國際標準',
+      '數位版本下載量增加 60%',
+      '客戶續約率達 95%'
+    ],
+    timeline: '3 個月',
+    client: 'TechCorp Inc.',
+    year: '2024',
+    status: '已完成',
+    teamSize: 3,
+    role: '主視覺設計師',
+    testimonial: {
+      text: '年報設計專業且具有現代感，完美呈現了我們公司的成長軌跡。股東們都給予高度評價！',
+      author: '王總經理',
+      position: '總經理',
+      company: 'TechCorp Inc.'
+    }
+  },
+  {
+    id: 3,
+    title: '咖啡品牌識別',
+    description: '為新興咖啡品牌設計的完整視覺識別系統',
+    fullDescription: '為一家精品咖啡品牌打造的完整視覺識別系統，從品牌 Logo 設計到包裝設計、店面視覺規劃等。設計理念融合了現代簡約風格與咖啡文化的溫暖感受，創造出獨特且具有辨識度的品牌形象。',
+    image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
+    images: [
+      'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=1200'
+    ],
+    category: '品牌設計',
+    technologies: ['Illustrator', 'Photoshop', 'InDesign', 'Figma'],
+    features: [
+      'Logo 設計',
+      '品牌色彩規劃',
+      '字體系統設計',
+      '包裝設計系列',
+      '店面視覺規劃',
+      '名片與文具設計',
+      '社群媒體模板',
+      '品牌指南手冊',
+      '廣告素材設計',
+      '網站視覺規劃'
+    ],
+    challenges: [
+      '在競爭激烈的咖啡市場中建立獨特性',
+      '平衡現代感與溫暖感的視覺表現',
+      '確保品牌在不同媒介上的一致性',
+      '符合目標客群的審美偏好',
+      '控制製作成本與品質'
+    ],
+    solutions: [
+      '深入研究目標市場和競爭對手',
+      '創造獨特的視覺語言和色彩系統',
+      '建立完整的品牌應用規範',
+      '進行多輪用戶測試和反饋收集',
+      '選擇高品質且經濟的製作方案'
+    ],
+    results: [
+      '品牌知名度提升 80%',
+      '社群媒體關注度增長 150%',
+      '獲得設計獎項肯定',
+      '客戶滿意度達 98%',
+      '成功拓展至 5 個城市'
+    ],
+    timeline: '2 個月',
+    client: 'Artisan Coffee Co.',
+    year: '2024',
+    status: '已完成',
+    teamSize: 2,
+    role: '品牌設計主導',
+    testimonial: {
+      text: '新的品牌識別完全改變了我們的形象！顧客們都說我們看起來更專業、更有質感了。銷售額也有明顯提升。',
+      author: '陳老闆',
+      position: '創辦人',
+      company: 'Artisan Coffee Co.'
+    }
+  },
+  {
+    id: 4,
+    title: '音樂節海報系列',
+    description: '為夏日音樂節設計的視覺識別系列，包含主視覺、海報、周邊商品',
+    fullDescription: '為大型夏日音樂節設計的完整視覺識別系列，包含主視覺海報、宣傳物料、舞台背景、周邊商品等。設計風格融合了音樂的律動感與夏日的活力，運用鮮明的色彩和動感的圖形元素，成功營造出節慶的熱鬧氛圍。',
+    image: 'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=800',
+    images: [
+      'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=1200'
+    ],
+    category: '平面設計',
+    technologies: ['Illustrator', 'Photoshop'],
+    features: [
+      '主視覺海報設計',
+      '系列宣傳物料',
+      '舞台背景設計',
+      '周邊商品設計',
+      '社群媒體素材',
+      '票券設計',
+      '指標系統設計',
+      '活動手冊設計',
+      '數位廣告素材',
+      '品牌應用規範'
+    ],
+    challenges: [
+      '在眾多音樂節中建立獨特視覺識別',
+      '平衡多位藝人的視覺呈現',
+      '確保設計在不同尺寸媒介上的效果',
+      '符合年輕族群的審美趣味',
+      '控制大量印刷品的成本與品質'
+    ],
+    solutions: [
+      '建立強烈的視覺主題和色彩系統',
+      '設計模組化的版面系統',
+      '進行多種尺寸的測試和調整',
+      '研究目標族群的視覺偏好',
+      '選擇合適的印刷工藝和材質'
+    ],
+    results: [
+      '音樂節門票銷售提升 45%',
+      '社群媒體分享率增加 200%',
+      '獲得平面設計獎項肯定',
+      '周邊商品銷售額增長 80%',
+      '品牌知名度大幅提升'
+    ],
+    timeline: '1.5 個月',
+    client: 'Summer Beats Festival',
+    year: '2024',
+    status: '已完成',
+    teamSize: 2,
+    role: '主視覺設計師',
+    testimonial: {
+      text: '海報設計充滿活力且具有強烈的視覺衝擊力，完美捕捉了音樂節的精神。參與者都對視覺設計讚不絕口！',
+      author: '李製作人',
+      position: '活動製作人',
+      company: 'Summer Beats Festival'
+    }
+  },
+  {
+    id: 5,
     title: '任務管理系統',
     description: '團隊協作的任務管理和專案追蹤系統',
     fullDescription: '為企業團隊開發的綜合性任務管理和專案追蹤系統，支援多人協作、即時通訊、進度追蹤、報表分析等功能。系統採用現代化的介面設計，提供直觀的操作體驗，幫助團隊提高工作效率和協作品質。',
@@ -86,7 +263,7 @@ export const projectsData: Project[] = [
       'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1200',
       'https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
-    category: 'development',
+    category: '專案開發',
     technologies: ['Vue.js', 'Express', 'PostgreSQL', 'Socket.io', 'Redis', 'Docker', 'AWS'],
     features: [
       '即時協作功能',
@@ -137,188 +314,68 @@ export const projectsData: Project[] = [
     }
   },
   {
-    id: 3,
-    title: '咖啡品牌識別',
-    description: '為新興咖啡品牌設計的完整視覺識別系統',
-    fullDescription: '為一家精品咖啡品牌打造的完整視覺識別系統，從品牌 Logo 設計到包裝設計、店面視覺規劃等。設計理念融合了現代簡約風格與咖啡文化的溫暖感受，創造出獨特且具有辨識度的品牌形象。',
-    image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
-    images: [
-      'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=1200'
-    ],
-    category: 'branding',
-    technologies: ['Illustrator', 'Photoshop', 'InDesign', 'Figma'],
-    features: [
-      'Logo 設計',
-      '品牌色彩規劃',
-      '字體系統設計',
-      '包裝設計系列',
-      '店面視覺規劃',
-      '名片與文具設計',
-      '社群媒體模板',
-      '品牌指南手冊',
-      '廣告素材設計',
-      '網站視覺規劃'
-    ],
-    challenges: [
-      '在競爭激烈的咖啡市場中建立獨特性',
-      '平衡現代感與溫暖感的視覺表現',
-      '確保品牌在不同媒介上的一致性',
-      '符合目標客群的審美偏好',
-      '控制製作成本與品質'
-    ],
-    solutions: [
-      '深入研究目標市場和競爭對手',
-      '創造獨特的視覺語言和色彩系統',
-      '建立完整的品牌應用規範',
-      '進行多輪用戶測試和反饋收集',
-      '選擇高品質且經濟的製作方案'
-    ],
-    results: [
-      '品牌知名度提升 80%',
-      '社群媒體關注度增長 150%',
-      '獲得設計獎項肯定',
-      '客戶滿意度達 98%',
-      '成功拓展至 5 個城市'
-    ],
-    timeline: '2 個月',
-    client: 'Artisan Coffee Co.',
-    year: '2024',
-    status: '已完成',
-    teamSize: 2,
-    role: '品牌設計主導',
-    testimonial: {
-      text: '新的品牌識別完全改變了我們的形象！顧客們都說我們看起來更專業、更有質感了。銷售額也有明顯提升。',
-      author: '陳老闆',
-      position: '創辦人',
-      company: 'Artisan Coffee Co.'
-    }
-  },
-  {
-    id: 4,
-    title: '美食部落格',
-    description: '響應式美食部落格網站設計',
-    fullDescription: '為美食愛好者打造的精美部落格網站，具備文章發布、食譜分享、評論互動、分類搜尋等功能。網站採用響應式設計，在各種裝置上都能提供優質的閱讀體驗，並整合了 SEO 優化和社群分享功能。',
-    image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
-    images: [
-      'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=1200'
-    ],
-    category: 'web',
-    technologies: ['Next.js', 'Tailwind CSS', 'Sanity CMS', 'Vercel', 'TypeScript'],
-    features: [
-      '響應式設計',
-      '內容管理系統',
-      '食譜分類搜尋',
-      '評論互動系統',
-      '社群分享功能',
-      'SEO 優化',
-      '圖片優化載入',
-      '訂閱電子報',
-      '相關文章推薦',
-      '多語言支援'
-    ],
-    challenges: [
-      '大量圖片的載入優化',
-      'SEO 效果最大化',
-      '內容管理的便利性',
-      '跨裝置的閱讀體驗',
-      '網站載入速度優化'
-    ],
-    solutions: [
-      '實作圖片懶載入和 WebP 格式',
-      '優化 meta 標籤和結構化數據',
-      '整合無頭 CMS 系統',
-      '採用行動優先的設計策略',
-      '使用 CDN 和快取機制'
-    ],
-    results: [
-      '網站流量增長 200%',
-      'SEO 排名進入前 10',
-      '用戶停留時間增加 45%',
-      '社群分享率提升 80%',
-      '獲得美食部落格獎項'
-    ],
-    timeline: '2 個月',
-    client: 'FoodieLife 美食家',
-    year: '2024',
-    liveUrl: 'https://foodie-blog.com',
-    githubUrl: 'https://github.com/example/food-blog',
-    status: '已上線',
-    teamSize: 2,
-    role: '前端開發 & 設計',
-    testimonial: {
-      text: '網站的設計非常精美，功能也很完整。自從上線後，我的讀者數量大幅增加，真的很感謝！',
-      author: '美食達人小王',
-      position: '部落客',
-      company: 'FoodieLife'
-    }
-  },
-  {
-    id: 5,
-    title: '美食部落格',
-    description: '響應式美食部落格網站設計',
-    fullDescription: '為美食愛好者打造的精美部落格網站，具備文章發布、食譜分享、評論互動、分類搜尋等功能。網站採用響應式設計，在各種裝置上都能提供優質的閱讀體驗，並整合了 SEO 優化和社群分享功能。',
-    image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
-    images: [
-      'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=1200'
-    ],
-    category: 'web',
-    technologies: ['Next.js', 'Tailwind CSS', 'Sanity CMS', 'Vercel', 'TypeScript'],
-    features: [
-      '響應式設計',
-      '內容管理系統',
-      '食譜分類搜尋',
-      '評論互動系統',
-      '社群分享功能',
-      'SEO 優化',
-      '圖片優化載入',
-      '訂閱電子報',
-      '相關文章推薦',
-      '多語言支援'
-    ],
-    challenges: [
-      '大量圖片的載入優化',
-      'SEO 效果最大化',
-      '內容管理的便利性',
-      '跨裝置的閱讀體驗',
-      '網站載入速度優化'
-    ],
-    solutions: [
-      '實作圖片懶載入和 WebP 格式',
-      '優化 meta 標籤和結構化數據',
-      '整合無頭 CMS 系統',
-      '採用行動優先的設計策略',
-      '使用 CDN 和快取機制'
-    ],
-    results: [
-      '網站流量增長 200%',
-      'SEO 排名進入前 10',
-      '用戶停留時間增加 45%',
-      '社群分享率提升 80%',
-      '獲得美食部落格獎項'
-    ],
-    timeline: '2 個月',
-    client: 'FoodieLife 美食家',
-    year: '2024',
-    liveUrl: 'https://foodie-blog.com',
-    githubUrl: 'https://github.com/example/food-blog',
-    status: '已上線',
-    teamSize: 2,
-    role: '前端開發 & 設計',
-    testimonial: {
-      text: '網站的設計非常精美，功能也很完整。自從上線後，我的讀者數量大幅增加，真的很感謝！',
-      author: '美食達人小王',
-      position: '部落客',
-      company: 'FoodieLife'
-    }
-  },
-  {
     id: 6,
+    title: '美食部落格',
+    description: '響應式美食部落格網站設計',
+    fullDescription: '為美食愛好者打造的精美部落格網站，具備文章發布、食譜分享、評論互動、分類搜尋等功能。網站採用響應式設計，在各種裝置上都能提供優質的閱讀體驗，並整合了 SEO 優化和社群分享功能。',
+    image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
+    images: [
+      'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=1200'
+    ],
+    category: '專案開發',
+    technologies: ['Next.js', 'Tailwind CSS', 'Sanity CMS', 'Vercel', 'TypeScript'],
+    features: [
+      '響應式設計',
+      '內容管理系統',
+      '食譜分類搜尋',
+      '評論互動系統',
+      '社群分享功能',
+      'SEO 優化',
+      '圖片優化載入',
+      '訂閱電子報',
+      '相關文章推薦',
+      '多語言支援'
+    ],
+    challenges: [
+      '大量圖片的載入優化',
+      'SEO 效果最大化',
+      '內容管理的便利性',
+      '跨裝置的閱讀體驗',
+      '網站載入速度優化'
+    ],
+    solutions: [
+      '實作圖片懶載入和 WebP 格式',
+      '優化 meta 標籤和結構化數據',
+      '整合無頭 CMS 系統',
+      '採用行動優先的設計策略',
+      '使用 CDN 和快取機制'
+    ],
+    results: [
+      '網站流量增長 200%',
+      'SEO 排名進入前 10',
+      '用戶停留時間增加 45%',
+      '社群分享率提升 80%',
+      '獲得美食部落格獎項'
+    ],
+    timeline: '2 個月',
+    client: 'FoodieLife 美食家',
+    year: '2024',
+    liveUrl: 'https://foodie-blog.com',
+    githubUrl: 'https://github.com/example/food-blog',
+    status: '已上線',
+    teamSize: 2,
+    role: '前端開發 & 設計',
+    testimonial: {
+      text: '網站的設計非常精美，功能也很完整。自從上線後，我的讀者數量大幅增加，真的很感謝！',
+      author: '美食達人小王',
+      position: '部落客',
+      company: 'FoodieLife'
+    }
+  },
+  {
+    id: 7,
     title: '線上學習平台',
     description: '提供課程管理、影片播放、作業提交、成績管理的完整學習管理系統',
     fullDescription: '為教育機構開發的綜合性線上學習平台，整合了課程管理、影片串流、互動測驗、作業提交、成績管理等完整功能。平台採用現代化設計，提供直觀的學習體驗，支援多種學習模式和評估方式。',
@@ -328,7 +385,7 @@ export const projectsData: Project[] = [
       'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200',
       'https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
-    category: 'development',
+    category: '專案開發',
     technologies: ['Next.js', 'Prisma', 'MySQL', 'AWS', 'TypeScript', 'Tailwind CSS'],
     features: [
       '課程管理系統',

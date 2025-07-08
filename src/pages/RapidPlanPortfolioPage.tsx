@@ -25,9 +25,9 @@ const RapidPlanPortfolioPage = () => {
 
   const categories = [
     { id: 'all', name: '全部專案' },
-    { id: 'web', name: '網頁設計' },
-    { id: 'branding', name: '品牌設計' },
-    { id: 'development', name: '開發專案' }
+    { id: '品牌設計', name: '品牌設計' },
+    { id: '平面設計', name: '平面設計' },
+    { id: '專案開發', name: '專案開發' }
   ];
 
   const filteredProjects = activeFilter === 'all' 
@@ -36,20 +36,15 @@ const RapidPlanPortfolioPage = () => {
 
   const getCategoryColor = (category: string) => {
     const colors = {
-      'web': 'bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400',
-      'branding': 'bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400',
-      'development': 'bg-orange-100 dark:bg-orange-900 text-orange-600 dark:text-orange-400'
+      '品牌設計': 'bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400',
+      '平面設計': 'bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400',
+      '專案開發': 'bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400'
     };
     return colors[category as keyof typeof colors] || 'bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400';
   };
 
   const getCategoryName = (category: string) => {
-    const names = {
-      'web': '網頁設計',
-      'branding': '品牌設計',
-      'development': '開發專案'
-    };
-    return names[category as keyof typeof names] || category;
+    return category;
   };
 
   return (

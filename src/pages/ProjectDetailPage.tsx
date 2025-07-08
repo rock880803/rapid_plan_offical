@@ -53,20 +53,15 @@ const ProjectDetailPage = () => {
 
   const getCategoryColor = (category: string) => {
     const colors = {
-      'web': 'from-blue-500 to-cyan-500',
-      'branding': 'from-purple-500 to-pink-500',
-      'development': 'from-orange-500 to-red-500'
+      '品牌設計': 'from-purple-500 to-pink-500',
+      '平面設計': 'from-green-500 to-emerald-500',
+      '專案開發': 'from-blue-500 to-cyan-500'
     };
     return colors[category as keyof typeof colors] || 'from-gray-500 to-gray-600';
   };
 
   const getCategoryName = (category: string) => {
-    const names = {
-      'web': '網頁設計',
-      'branding': '品牌設計',
-      'development': '開發專案'
-    };
-    return names[category as keyof typeof names] || category;
+    return category;
   };
 
   const nextImage = () => {
