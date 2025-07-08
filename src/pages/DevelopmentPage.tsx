@@ -23,11 +23,11 @@ const DevelopmentPage = () => {
    {
   id: 1,
   title: '臺科大國手計畫 LOGO',
-  description: '國際技能競賽「臺科大國手計畫」專屬識別設計，展現專業與國際感',
+  description: '國際技能競賽「臺科大國手計畫」專屬識別設計，展現專業與國手精神',
   image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800', // ✅ 可替換為實際 LOGO 縮圖網址
   category: '品牌設計',
   technologies: ['Adobe Illustrator'],
-  features: ['品牌識別設計', 'Logo 設計', '視覺一致性', '活動應用場景'],
+  features: ['品牌識別 Logo 設計', '設計提案與版本迭代', '活動應用展示', 'AI 向量圖格式輸出'],
   liveUrl: 'https://example.com',
   githubUrl: 'https://github.com/example',
   status: '已交付'
