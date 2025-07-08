@@ -253,6 +253,7 @@ const ProjectDetailPage = () => {
                   onClick={() => setCurrentImageIndex(index)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  loading="lazy"
                 />
               ))}
             </div>
@@ -482,6 +483,7 @@ const ProjectDetailPage = () => {
                         src={relatedProject.image}
                         alt={relatedProject.title}
                         className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
                     </div>
