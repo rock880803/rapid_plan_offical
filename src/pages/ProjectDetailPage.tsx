@@ -153,38 +153,6 @@ const ProjectDetailPage = () => {
             </div>
           </motion.div>
 
-          {/* Action Buttons */}
-          <motion.div 
-            variants={fadeInUp}
-            className="flex flex-wrap gap-4 mt-6"
-          >
-            {project.liveUrl && (
-              <motion.a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-lg glow-button"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <FontAwesomeIcon icon={faExternalLinkAlt} />
-                查看線上版本
-              </motion.a>
-            )}
-            {project.githubUrl && (
-              <motion.a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-lg"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <FontAwesomeIcon icon={faGithub} />
-                查看原始碼
-              </motion.a>
-            )}
-          </motion.div>
         </motion.div>
 
         {/* Image Gallery */}
