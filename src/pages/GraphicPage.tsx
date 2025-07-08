@@ -270,7 +270,7 @@ const GraphicPage = () => {
               whileTap={{ scale: 0.95 }}
             >
               聯絡設計
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
       </div>
