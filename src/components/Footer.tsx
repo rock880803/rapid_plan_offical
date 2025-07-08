@@ -9,7 +9,7 @@ const Footer = () => {
     { icon: faLinkedin, href: 'https://www.linkedin.com/in/rapid-plan/', label: 'LinkedIn' },
     { icon: faInstagram, href: 'https://www.instagram.com/rapid.plan_offical/?next=%2F', label: 'Instagram' },
     { icon: faLine, href: 'https://lin.ee/KPpHUTJ', label: 'Line' },
-    { icon: faEnvelope, href: 'mailto:rock880803@gmail.com', label: 'Email' },
+    { icon: faEnvelope, href: 'https://rock83-n8n-free.hf.space/form/9eac0b65-e87c-43f5-949e-93b2c54d8382', label: 'Email' },
   ];
 
   return (
