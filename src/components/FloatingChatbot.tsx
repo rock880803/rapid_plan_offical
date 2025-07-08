@@ -61,7 +61,7 @@ const FloatingChatbot: React.FC = () => {
         <img 
           src="/images/fontawesome-chatbot.svg" 
           alt="聊天機器人" 
-          className="relative z-10 w-8 h-8 filter brightness-0 dark:invert group-hover:brightness-0 group-hover:invert transition-all duration-500 ease-out drop-shadow-lg"
+          className="relative z-10 w-8 h-8 text-white filter brightness-0 invert group-hover:brightness-0 group-hover:invert transition-all duration-500 ease-out drop-shadow-lg"
         />
         
         {/* Tooltip */}
