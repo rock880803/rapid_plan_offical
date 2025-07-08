@@ -176,7 +176,7 @@ const HomePage = () => {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <img 
-                src="/images/logo_transparent.png" 
+                src="https://i.imgur.com/YourImageId.png" 
                 alt="Rapid Plan Logo" 
                 className="w-full h-full object-contain"
               />
