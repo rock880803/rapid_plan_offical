@@ -2,22 +2,14 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faInstagram, faLine } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import ContactModal from './ContactModal';
 
 const Footer = () => {
-  const [isContactModalOpen, setIsContactModalOpen] = React.useState(false);
-
   const socialLinks = [
     { icon: faGithub, href: 'https://github.com/rock880803', label: 'GitHub' },
     { icon: faLinkedin, href: 'https://www.linkedin.com/in/rapid-plan/', label: 'LinkedIn' },
     { icon: faInstagram, href: 'https://www.instagram.com/rapid.plan_offical/?next=%2F', label: 'Instagram' },
     { icon: faLine, href: 'https://lin.ee/KPpHUTJ', label: 'Line' },
-    { 
-      icon: faEnvelope, 
-      href: '#', 
-      label: 'Email',
-      onClick: () => setIsContactModalOpen(true)
-    }
+    { icon: faEnvelope, href: 'mailto:rock880803@gmail.com', label: 'Email' },
   ];
 
   return (
@@ -27,27 +19,16 @@ const Footer = () => {
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 glow-subtitle">聯絡我</h3>
           <div className="flex justify-center space-x-6 mb-8">
             {socialLinks.map((social, index) => (
-              social.onClick ? (
-                <button
-                  key={index}
-                  onClick={social.onClick}
-                  className="w-12 h-12 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 glow-icon"
-                  aria-label={social.label}
-                >
-                  <FontAwesomeIcon icon={social.icon} size="lg" />
-                </button>
-              ) : (
-                <a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 glow-icon"
-                  aria-label={social.label}
-                >
-                  <FontAwesomeIcon icon={social.icon} size="lg" />
-                </a>
-              )
+              <a
+                key={index}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 glow-icon"
+                aria-label={social.label}
+              >
+                <FontAwesomeIcon icon={social.icon} size="lg" />
+              </a>
             ))}
           </div>
           <p className="text-gray-600 dark:text-gray-400 glow-text">
@@ -55,12 +36,6 @@ const Footer = () => {
           </p>
         </div>
       </div>
-
-      {/* Contact Modal */}
-      <ContactModal 
-        isOpen={isContactModalOpen} 
-        onClose={() => setIsContactModalOpen(false)} 
-      />
     </footer>
   );
 };

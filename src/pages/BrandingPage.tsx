@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt, faPalette, faBullseye, faAward } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import ContactModal from '../components/ContactModal';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -20,8 +19,6 @@ const staggerContainer = {
 };
 
 const BrandingPage = () => {
-  const [isContactModalOpen, setIsContactModalOpen] = React.useState(false);
-
   const brandingProjects = [
     {
       id: 1,
@@ -237,22 +234,16 @@ const BrandingPage = () => {
               讓我們一起創造令人難忘的品牌體驗
             </p>
             <motion.a
-              onClick={() => setIsContactModalOpen(true)}
+              href="mailto:your.email@example.com"
               className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-200 transition-colors shadow-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               開始合作
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
       </div>
-
-      {/* Contact Modal */}
-      <ContactModal 
-        isOpen={isContactModalOpen} 
-        onClose={() => setIsContactModalOpen(false)} 
-      />
     </div>
   );
 };

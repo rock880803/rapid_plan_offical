@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faEnvelope, faPhone, faCalendarAlt, faAward, faUsers, faCoffee } from '@fortawesome/free-solid-svg-icons';
-import ContactModal from '../components/ContactModal';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -18,8 +17,6 @@ const staggerContainer = {
   }
 };
 const AboutPage = () => {
-  const [isContactModalOpen, setIsContactModalOpen] = React.useState(false);
-
   const experiences = [
     {
       company: '兵役局 × 台北市政府 城鎮韌性演習系統專案',
@@ -365,23 +362,17 @@ const AboutPage = () => {
                 我很樂意聽取您的想法並討論如何將它們變為現實
               </p>
               <motion.a
-                onClick={() => setIsContactModalOpen(true)}
+                href="mailto:john.doe@example.com"
                 className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-200 transition-colors shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 立即聯絡
-              </motion.button>
+              </motion.a>
             </motion.div>
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Contact Modal */}
-      <ContactModal 
-        isOpen={isContactModalOpen} 
-        onClose={() => setIsContactModalOpen(false)} 
-      />
     </div>
   );
 };
