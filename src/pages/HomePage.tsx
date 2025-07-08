@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faLightbulb, faBullseye, faShield, faUsers, faAward, faZap, faChevronDown, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { projectsData } from '../data/projectsData';
+import ContactModal from '../components/ContactModal';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -62,6 +63,7 @@ const iconHover = {
 const HomePage = () => {
   const { scrollYProgress } = useScroll();
   const navigate = useNavigate();
+  const [isContactModalOpen, setIsContactModalOpen] = React.useState(false);
   
   // 視差滾動變換
   const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
@@ -635,14 +637,14 @@ const HomePage = () => {
             <motion.div
               className="flex flex-col sm:flex-row gap-6 sm:gap-4 justify-center items-center"
             >
-              <motion.a
-                href="mailto:contact@digitalsolutions.com"
+              <motion.button
+                onClick={() => setIsContactModalOpen(true)}
                 className="bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 dark:hover:bg-gray-200 transition-colors shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 立即聯絡我們
-              </motion.a>
+              </motion.button>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -658,6 +660,12 @@ const HomePage = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Contact Modal */}
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
+      />
     </div>
   );
 };

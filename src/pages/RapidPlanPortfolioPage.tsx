@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { projectsData } from '../data/projectsData';
+import ContactModal from '../components/ContactModal';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -22,6 +23,7 @@ const staggerContainer = {
 
 const RapidPlanPortfolioPage = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [isContactModalOpen, setIsContactModalOpen] = React.useState(false);
 
   const categories = [
     { id: 'all', name: '全部專案' },
@@ -171,15 +173,21 @@ const RapidPlanPortfolioPage = () => {
             我們很樂意和您討論新的專案機會
           </p>
           <motion.a
-            href="mailto:contact@rapidplan.com"
+            onClick={() => setIsContactModalOpen(true)}
             className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             聯絡我們
-          </motion.a>
+          </motion.button>
         </motion.div>
       </div>
+
+      {/* Contact Modal */}
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
+      />
     </div>
   );
 };
