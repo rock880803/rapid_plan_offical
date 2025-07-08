@@ -17,7 +17,7 @@ const Footer = () => {
       href: '#', 
       label: 'Email',
       onClick: () => setIsContactModalOpen(true)
-    },
+    }
   ];
 
   return (
@@ -27,7 +27,7 @@ const Footer = () => {
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 glow-subtitle">聯絡我</h3>
           <div className="flex justify-center space-x-6 mb-8">
             {socialLinks.map((social, index) => (
-              {social.onClick ? (
+              social.onClick ? (
                 <button
                   key={index}
                   onClick={social.onClick}
@@ -47,7 +47,7 @@ const Footer = () => {
                 >
                   <FontAwesomeIcon icon={social.icon} size="lg" />
                 </a>
-              ))}
+              )
             ))}
           </div>
           <p className="text-gray-600 dark:text-gray-400 glow-text">
@@ -61,27 +61,6 @@ const Footer = () => {
         isOpen={isContactModalOpen} 
         onClose={() => setIsContactModalOpen(false)} 
       />
-    </footer>
-  );
-};
-
-export default Footer;
-                key={index}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 glow-icon"
-                aria-label={social.label}
-              >
-                <FontAwesomeIcon icon={social.icon} size="lg" />
-              </a>
-            ))}
-          </div>
-          <p className="text-gray-600 dark:text-gray-400 glow-text">
-            © 2025 個人作品集. 保留所有權利.
-          </p>
-        </div>
-      </div>
     </footer>
   );
 };
