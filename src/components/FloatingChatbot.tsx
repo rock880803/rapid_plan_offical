@@ -48,7 +48,7 @@ const FloatingChatbot: React.FC = () => {
         href="https://rock83-n8n-free.hf.space/form/9eac0b65-e87c-43f5-949e-93b2c54d8382"
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative w-16 h-16 bg-transparent hover:bg-gradient-to-r hover:from-blue-700 hover:to-purple-700 rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300"
+        className="group relative w-16 h-16 bg-transparent hover:bg-gradient-to-r hover:from-blue-700 hover:to-purple-700 rounded-full hover:shadow-xl flex items-center justify-center transition-all duration-300"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         title="聯絡我們"
@@ -57,7 +57,7 @@ const FloatingChatbot: React.FC = () => {
         <img 
           src="/images/fontawesome-chatbot.svg" 
           alt="聊天機器人" 
-          className="w-8 h-8 text-white filter brightness-0 invert group-hover:brightness-0 group-hover:invert transition-all duration-300"
+          className="w-8 h-8 text-white filter brightness-0 invert group-hover:brightness-0 group-hover:invert transition-all duration-300 drop-shadow-lg"
         />
         
         {/* Pulse Animation */}
