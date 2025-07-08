@@ -54,7 +54,6 @@ const ProjectDetailPage = () => {
   const getCategoryColor = (category: string) => {
     const colors = {
       'web': 'from-blue-500 to-cyan-500',
-      'mobile': 'from-green-500 to-emerald-500',
       'branding': 'from-purple-500 to-pink-500',
       'development': 'from-orange-500 to-red-500'
     };
@@ -64,7 +63,6 @@ const ProjectDetailPage = () => {
   const getCategoryName = (category: string) => {
     const names = {
       'web': '網頁設計',
-      'mobile': '移動應用',
       'branding': '品牌設計',
       'development': '開發專案'
     };

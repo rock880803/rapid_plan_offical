@@ -26,7 +26,6 @@ const RapidPlanPortfolioPage = () => {
   const categories = [
     { id: 'all', name: '全部專案' },
     { id: 'web', name: '網頁設計' },
-    { id: 'mobile', name: '移動應用' },
     { id: 'branding', name: '品牌設計' },
     { id: 'development', name: '開發專案' }
   ];

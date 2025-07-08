@@ -92,63 +92,63 @@ export const projectsData: Project[] = [
   },
   {
     id: 2,
-    title: '健身追蹤應用',
-    description: '幫助使用者記錄運動數據和制定健身計劃的移動應用',
-    fullDescription: '一款專為健身愛好者設計的移動應用程式，提供完整的運動追蹤、計劃制定和進度分析功能。應用整合了多種運動類型的記錄功能，並提供個人化的健身建議和社群分享功能，幫助使用者建立健康的運動習慣。',
-    image: 'https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: '任務管理系統',
+    description: '團隊協作的任務管理和專案追蹤系統',
+    fullDescription: '為企業團隊開發的綜合性任務管理和專案追蹤系統，支援多人協作、即時通訊、進度追蹤、報表分析等功能。系統採用現代化的介面設計，提供直觀的操作體驗，幫助團隊提高工作效率和協作品質。',
+    image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
-      'https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1200'
+      'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
-    category: 'mobile',
-    technologies: ['React Native', 'Firebase', 'Redux', 'Expo', 'Chart.js', 'AsyncStorage'],
+    category: 'development',
+    technologies: ['Vue.js', 'Express', 'PostgreSQL', 'Socket.io', 'Redis', 'Docker', 'AWS'],
     features: [
-      '運動記錄與追蹤',
-      '個人化健身計劃',
-      '進度統計圖表',
-      '社群分享功能',
-      '目標設定與提醒',
-      '運動影片教學',
-      '卡路里計算',
-      '體重管理',
-      '成就系統',
-      '離線模式支援'
+      '即時協作功能',
+      '甘特圖專案視圖',
+      '時間追蹤系統',
+      '報表分析儀表板',
+      '檔案共享管理',
+      '通知提醒系統',
+      '權限管理',
+      '多專案支援',
+      '行動裝置適配',
+      'API 整合能力'
     ],
     challenges: [
-      '跨平台一致性問題',
-      '大量數據的本地儲存',
-      '複雜的圖表渲染效能',
-      '推播通知的精準度',
-      '使用者隱私保護'
+      '即時協作的技術實現',
+      '大量數據的效能優化',
+      '複雜的權限管理邏輯',
+      '跨時區的時間處理',
+      '系統擴展性設計'
     ],
     solutions: [
-      '使用 React Native 確保 iOS 和 Android 一致體驗',
-      '實作高效的本地數據庫架構',
-      '優化圖表組件的渲染邏輯',
-      '建立智能推播系統',
-      '實施嚴格的數據加密和隱私政策'
+      '使用 WebSocket 實現即時通訊',
+      '實作數據庫索引和快取機制',
+      '設計靈活的角色權限系統',
+      '統一使用 UTC 時間處理',
+      '採用微服務架構確保擴展性'
     ],
     results: [
-      'App Store 評分 4.8/5.0',
-      '下載量突破 10 萬次',
-      '用戶日活躍度達 70%',
-      '獲得健康類 App 推薦',
-      '用戶平均使用時長 25 分鐘'
+      '團隊工作效率提升 35%',
+      '專案完成率提高 28%',
+      '用戶滿意度達 92%',
+      '系統穩定性達 99.9%',
+      '成功服務 50+ 企業客戶'
     ],
-    timeline: '4 個月',
-    client: 'FitLife 健身工作室',
+    timeline: '5 個月',
+    client: 'ProductivePro 企業',
     year: '2024',
-    liveUrl: 'https://apps.apple.com/app/fittracker',
-    githubUrl: 'https://github.com/example/fitness-app',
-    status: '已上線',
-    teamSize: 3,
-    role: '移動應用開發主導',
+    liveUrl: 'https://taskmanager-pro.com',
+    githubUrl: 'https://github.com/example/task-manager',
+    status: '開發中',
+    teamSize: 5,
+    role: '全端開發 & 系統架構',
     testimonial: {
-      text: '這款 App 真的改變了我們會員的健身體驗！功能豐富且易於使用，會員們都非常喜歡。',
-      author: '李教練',
-      position: '健身教練',
-      company: 'FitLife 健身工作室'
+      text: '這套系統大幅改善了我們的專案管理流程，團隊協作變得更加順暢，強烈推薦給其他企業！',
+      author: '張經理',
+      position: '專案經理',
+      company: 'ProductivePro 企業'
     }
   },
   {
@@ -212,67 +212,6 @@ export const projectsData: Project[] = [
   },
   {
     id: 4,
-    title: '任務管理系統',
-    description: '團隊協作的任務管理和專案追蹤系統',
-    fullDescription: '為企業團隊開發的綜合性任務管理和專案追蹤系統，支援多人協作、即時通訊、進度追蹤、報表分析等功能。系統採用現代化的介面設計，提供直觀的操作體驗，幫助團隊提高工作效率和協作品質。',
-    image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
-    images: [
-      'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=1200'
-    ],
-    category: 'development',
-    technologies: ['Vue.js', 'Express', 'PostgreSQL', 'Socket.io', 'Redis', 'Docker', 'AWS'],
-    features: [
-      '即時協作功能',
-      '甘特圖專案視圖',
-      '時間追蹤系統',
-      '報表分析儀表板',
-      '檔案共享管理',
-      '通知提醒系統',
-      '權限管理',
-      '多專案支援',
-      '行動裝置適配',
-      'API 整合能力'
-    ],
-    challenges: [
-      '即時協作的技術實現',
-      '大量數據的效能優化',
-      '複雜的權限管理邏輯',
-      '跨時區的時間處理',
-      '系統擴展性設計'
-    ],
-    solutions: [
-      '使用 WebSocket 實現即時通訊',
-      '實作數據庫索引和快取機制',
-      '設計靈活的角色權限系統',
-      '統一使用 UTC 時間處理',
-      '採用微服務架構確保擴展性'
-    ],
-    results: [
-      '團隊工作效率提升 35%',
-      '專案完成率提高 28%',
-      '用戶滿意度達 92%',
-      '系統穩定性達 99.9%',
-      '成功服務 50+ 企業客戶'
-    ],
-    timeline: '5 個月',
-    client: 'ProductivePro 企業',
-    year: '2024',
-    liveUrl: 'https://taskmanager-pro.com',
-    githubUrl: 'https://github.com/example/task-manager',
-    status: '開發中',
-    teamSize: 5,
-    role: '全端開發 & 系統架構',
-    testimonial: {
-      text: '這套系統大幅改善了我們的專案管理流程，團隊協作變得更加順暢，強烈推薦給其他企業！',
-      author: '張經理',
-      position: '專案經理',
-      company: 'ProductivePro 企業'
-    }
-  },
-  {
-    id: 5,
     title: '美食部落格',
     description: '響應式美食部落格網站設計',
     fullDescription: '為美食愛好者打造的精美部落格網站，具備文章發布、食譜分享、評論互動、分類搜尋等功能。網站採用響應式設計，在各種裝置上都能提供優質的閱讀體驗，並整合了 SEO 優化和社群分享功能。',
@@ -333,63 +272,64 @@ export const projectsData: Project[] = [
     }
   },
   {
-    id: 6,
-    title: '旅遊規劃 App',
-    description: '智能旅遊規劃和行程管理應用',
-    fullDescription: '一款智能化的旅遊規劃應用，幫助用戶輕鬆規劃旅行行程、預訂住宿、尋找景點、記錄旅行回憶。應用整合了地圖導航、天氣預報、匯率換算等實用功能，並提供個人化的旅遊建議。',
+    id: 5,
+    title: '線上學習平台',
+    description: '提供課程管理、影片播放、作業提交、成績管理的完整學習管理系統',
+    fullDescription: '為教育機構開發的綜合性線上學習平台，整合了課程管理、影片串流、互動測驗、作業提交、成績管理等完整功能。平台採用現代化設計，提供直觀的學習體驗，支援多種學習模式和評估方式。',
     image: 'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
       'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=1200',
       'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200',
       'https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=1200'
     ],
-    category: 'mobile',
-    technologies: ['Flutter', 'Firebase', 'Google Maps API', 'Weather API', 'Dart'],
+    category: 'development',
+    technologies: ['Next.js', 'Prisma', 'MySQL', 'AWS', 'TypeScript', 'Tailwind CSS'],
     features: [
-      '智能行程規劃',
-      '地圖導航整合',
-      '景點推薦系統',
-      '住宿預訂功能',
-      '旅行記錄分享',
-      '天氣預報查詢',
-      '匯率換算工具',
-      '離線地圖支援',
-      '預算管理',
-      '多人協作規劃'
+      '課程管理系統',
+      '影片串流播放',
+      '互動測驗功能',
+      '作業提交系統',
+      '成績管理',
+      '學習進度追蹤',
+      '討論區功能',
+      '證書生成',
+      '多媒體支援',
+      '行動裝置適配'
     ],
     challenges: [
-      '多個 API 的整合複雜度',
-      '離線功能的實現',
-      '地圖效能優化',
-      '跨平台一致性',
-      '用戶隱私保護'
+      '大容量影片串流優化',
+      '多用戶同時存取效能',
+      '複雜的權限管理系統',
+      '學習數據分析',
+      '跨裝置同步問題'
     ],
     solutions: [
-      '建立統一的 API 管理層',
-      '實作本地數據快取機制',
-      '優化地圖渲染和載入邏輯',
-      '使用 Flutter 確保跨平台體驗',
-      '實施嚴格的數據加密政策'
+      '使用 CDN 和影片壓縮技術',
+      '實作負載平衡和快取機制',
+      '設計彈性的角色權限架構',
+      '建立完整的學習分析系統',
+      '採用響應式設計和 PWA 技術'
     ],
     results: [
-      '用戶滿意度達 94%',
-      '月活躍用戶 5 萬+',
-      '平均使用時長 30 分鐘',
-      '獲得旅遊類 App 推薦',
-      '用戶推薦率達 85%'
+      '學習完成率提升 45%',
+      '用戶滿意度達 96%',
+      '系統穩定性達 99.8%',
+      '成功服務 100+ 教育機構',
+      '學習效果提升 30%'
     ],
-    timeline: '4 個月',
-    client: 'TravelSmart 旅遊公司',
+    timeline: '6 個月',
+    client: 'EduTech 教育科技',
     year: '2024',
-    liveUrl: 'https://play.google.com/store/apps/travelplanner',
+    liveUrl: 'https://learning-platform.com',
+    githubUrl: 'https://github.com/example/learning-platform',
     status: '已上線',
-    teamSize: 3,
-    role: '移動應用開發',
+    teamSize: 6,
+    role: '全端開發 & 系統架構',
     testimonial: {
-      text: '這款 App 讓旅行規劃變得超級簡單！所有需要的功能都有，介面也很直觀好用。',
-      author: '旅行愛好者小李',
-      position: '用戶',
-      company: '個人用戶'
+      text: '這個學習平台大幅提升了我們的教學效率，學生們的學習成效也有顯著改善。功能完整且易於使用！',
+      author: '李教授',
+      position: '教務主任',
+      company: 'EduTech 教育科技'
     }
   }
 ];

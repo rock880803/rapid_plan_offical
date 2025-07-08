@@ -74,7 +74,6 @@ const HomePage = () => {
   const getCategoryColor = (category: string) => {
     const colors = {
       'web': 'bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400',
-      'mobile': 'bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400',
       'branding': 'bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400',
       'development': 'bg-orange-100 dark:bg-orange-900 text-orange-600 dark:text-orange-400'
     };
@@ -84,7 +83,6 @@ const HomePage = () => {
   const getCategoryName = (category: string) => {
     const names = {
       'web': '網頁設計',
-      'mobile': '移動應用',
       'branding': '品牌設計',
       'development': '開發專案'
     };
