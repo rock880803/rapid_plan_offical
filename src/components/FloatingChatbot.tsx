@@ -58,11 +58,110 @@ const FloatingChatbot: React.FC = () => {
         <div className="absolute inset-0 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></div>
         
         {/* Chatbot Icon */}
-        <img 
-          src="/images/fontawesome-chatbot.svg" 
-          alt="聊天機器人" 
-          className="relative z-10 w-8 h-8 text-white filter brightness-0 invert group-hover:brightness-0 group-hover:invert transition-all duration-500 ease-out drop-shadow-lg"
-        />
+        <div className="relative z-10 w-8 h-8 flex items-center justify-center">
+          <svg 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            className="w-full h-full drop-shadow-lg"
+          >
+            <defs>
+              <linearGradient id="chatbot-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#3B82F6" />
+                <stop offset="100%" stopColor="#8B5CF6" />
+              </linearGradient>
+              <linearGradient id="chatbot-gradient-hover" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#FFFFFF" />
+                <stop offset="100%" stopColor="#F8FAFC" />
+              </linearGradient>
+            </defs>
+            
+            {/* Robot Head */}
+            <rect 
+              x="6" 
+              y="6" 
+              width="12" 
+              height="10" 
+              rx="2" 
+              fill="url(#chatbot-gradient)" 
+              className="group-hover:fill-[url(#chatbot-gradient-hover)] transition-all duration-500 ease-out"
+            />
+            
+            {/* Robot Eyes */}
+            <circle 
+              cx="9" 
+              cy="10" 
+              r="1" 
+              fill="currentColor" 
+              className="text-white group-hover:text-blue-600 transition-colors duration-500 ease-out"
+            />
+            <circle 
+              cx="15" 
+              cy="10" 
+              r="1" 
+              fill="currentColor" 
+              className="text-white group-hover:text-blue-600 transition-colors duration-500 ease-out"
+            />
+            
+            {/* Robot Mouth */}
+            <path 
+              d="M10 13h4" 
+              stroke="currentColor" 
+              strokeWidth="1.5" 
+              strokeLinecap="round" 
+              className="text-white group-hover:text-blue-600 transition-colors duration-500 ease-out"
+            />
+            
+            {/* Robot Antenna */}
+            <line 
+              x1="12" 
+              y1="6" 
+              x2="12" 
+              y2="4" 
+              stroke="url(#chatbot-gradient)" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              className="group-hover:stroke-[url(#chatbot-gradient-hover)] transition-all duration-500 ease-out"
+            />
+            <circle 
+              cx="12" 
+              cy="3" 
+              r="1" 
+              fill="url(#chatbot-gradient)" 
+              className="group-hover:fill-[url(#chatbot-gradient-hover)] transition-all duration-500 ease-out"
+            />
+            
+            {/* Robot Body */}
+            <rect 
+              x="8" 
+              y="16" 
+              width="8" 
+              height="4" 
+              rx="1" 
+              fill="url(#chatbot-gradient)" 
+              className="group-hover:fill-[url(#chatbot-gradient-hover)] transition-all duration-500 ease-out"
+            />
+            
+            {/* Robot Arms */}
+            <rect 
+              x="4" 
+              y="12" 
+              width="2" 
+              height="6" 
+              rx="1" 
+              fill="url(#chatbot-gradient)" 
+              className="group-hover:fill-[url(#chatbot-gradient-hover)] transition-all duration-500 ease-out"
+            />
+            <rect 
+              x="18" 
+              y="12" 
+              width="2" 
+              height="6" 
+              rx="1" 
+              fill="url(#chatbot-gradient)" 
+              className="group-hover:fill-[url(#chatbot-gradient-hover)] transition-all duration-500 ease-out"
+            />
+          </svg>
+        </div>
         
         {/* Tooltip */}
         <div className="absolute left-full ml-3 px-3 py-2 bg-gray-900 dark:bg-gray-700 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out whitespace-nowrap pointer-events-none z-20">
