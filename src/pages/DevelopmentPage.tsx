@@ -20,18 +20,18 @@ const staggerContainer = {
 
 const DevelopmentPage = () => {
   const developmentProjects = [
-    {
-      id: 1,
-      title: '電商購物平台',
-      description: '完整的電商解決方案，包含商品管理、購物車、結帳流程、會員系統等功能',
-      image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-      category: 'Web 應用',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      features: ['響應式設計', '支付整合', '庫存管理', '訂單追蹤'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example',
-      status: '已上線'
-    },
+   {
+  id: 1,
+  title: '臺科大國手計畫 LOGO',
+  description: '國際技能競賽「臺科大國手計畫」專屬識別設計，展現專業與國際感',
+  image: 'https://images.pexels.com/photos/1629212/pexels-photo-1629212.jpeg?auto=compress&cs=tinysrgb&w=800', // ✅ 可替換為實際 LOGO 縮圖網址
+  category: '品牌設計',
+  technologies: ['Adobe Illustrator'],
+  features: ['品牌識別設計', 'Logo 設計', '視覺一致性', '活動應用場景'],
+  liveUrl: '',
+  githubUrl: '',
+  status: '已交付'
+}
     {
       id: 2,
       title: '任務管理系統',
