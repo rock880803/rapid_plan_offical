@@ -76,63 +76,50 @@ export const projectsData: Project[] = [
   }
 },
   {
-    id: 2,
-    title: '企業年報設計',
-    description: '為科技公司設計的年度報告，結合數據視覺化與現代設計美學',
-    fullDescription: '為一家科技公司設計的年度報告，整合了公司營運數據、財務報表、未來展望等內容。設計風格現代簡約，運用數據視覺化技術讓複雜資訊更易理解，並確保印刷品質與閱讀體驗的最佳化。',
-    image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
-    images: [
-      'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=1200'
-    ],
-    category: '平面設計',
-    technologies: ['InDesign', 'Illustrator', 'Photoshop'],
-    features: [
-      '版面設計規劃',
-      '數據視覺化圖表',
-      '印刷品質控制',
-      '多語言版本製作',
-      '互動式 PDF 功能',
-      '品牌一致性維護',
-      '圖像處理優化',
-      '色彩管理',
-      '字體排版設計',
-      '封面與內頁設計'
-    ],
-    challenges: [
-      '大量數據的視覺化呈現',
-      '保持設計一致性與可讀性',
-      '平衡美觀與資訊密度',
-      '印刷與數位版本的最佳化',
-      '多語言版本的版面調整'
-    ],
-    solutions: [
-      '建立模組化的設計系統',
-      '運用圖表和資訊圖表簡化複雜數據',
-      '採用網格系統確保版面一致性',
-      '建立完整的色彩和字體規範',
-      '製作詳細的印刷規格文件'
-    ],
-    results: [
-      '年報獲得業界設計獎項肯定',
-      '股東滿意度提升 40%',
-      '印刷品質達到國際標準',
-      '數位版本下載量增加 60%',
-      '客戶續約率達 95%'
-    ],
-    timeline: '3 個月',
-    client: 'TechCorp Inc.',
-    year: '2024',
-    status: '已完成',
-    teamSize: 3,
-    role: '主視覺設計師',
-    testimonial: {
-      text: '年報設計專業且具有現代感，完美呈現了我們公司的成長軌跡。股東們都給予高度評價！',
-      author: '王總經理',
-      position: '總經理',
-      company: 'TechCorp Inc.'
-    }
+  id: 3,
+  title: '臺科大國手計畫成果冊',
+  description: '將國手在計劃期間內的成果紀實，結合視覺設計與圖文編輯呈現專業形象',
+  fullDescription: '本專案為臺灣科技大學國手培訓計畫成果紀錄冊，內容涵蓋學生訓練過程、比賽現場紀實與獲獎成果，並透過設計與攝影編排整合，打造具備代表性的形象冊。從風格規劃、排版設計、到高品質印刷交付，完整呈現計劃亮點。',
+  image: 'https://images.pexels.com/photos/19886862/pexels-photo-19886862.jpeg?auto=compress&cs=tinysrgb&w=800',
+  images: [
+    'https://images.pexels.com/photos/19886862/pexels-photo-19886862.jpeg?auto=compress&cs=tinysrgb&w=1200'
+  ],
+  category: 'graphic',
+  technologies: ['Adobe Illustrator', '攝影', '排版', '印刷'],
+  features: [
+    '活動成果紀錄設計',
+    '圖文編輯與版面規劃',
+    '高品質印刷與裝訂',
+    '結合照片與設計整合性'
+  ],
+  challenges: [
+    '資料量大、素材零散，需有效統整編排',
+    '時間緊湊，需短期內完成設計與校稿流程'
+  ],
+  solutions: [
+    '建立圖文樣式模板快速編排',
+    '提前規劃書冊結構與分頁配置',
+    '採用高品質紙材與裝訂方式，強化質感'
+  ],
+  results: [
+    '成功於 10 天內完成設計與交付',
+    '成品應用於校內宣傳與對外展示，廣受好評',
+    '獲承辦人推薦並爭取後續延伸設計'
+  ],
+  timeline: '10 天',
+  client: '台灣科技大學',
+  year: '2025',
+  teamSize: 1,
+  role: '整體設計與排版主導',
+  liveUrl: '',
+  githubUrl: '',
+  status: '已交付',
+  testimonial: {
+    text: '成果冊設計高品質又準時交付，整體視覺呈現出色，協助我們清楚傳遞國手計畫的精神。',
+    author: '楊先生',
+    position: '承辦人',
+    company: '台灣科技大學'
+  }
   },
   {
     id: 3,
