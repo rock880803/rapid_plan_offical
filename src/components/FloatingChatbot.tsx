@@ -1,10 +1,45 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 const FloatingChatbot: React.FC = () => {
+  const [scrollY, setScrollY] = useState(0);
+  const y = useMotionValue(0);
+  
+  // 使用 useSpring 創建彈性動畫效果
+  const springY = useSpring(y, {
+    stiffness: 100,
+    damping: 20,
+    mass: 1
+  });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollDelta = currentScrollY - scrollY;
+      
+      // 根據滾動方向和速度調整位移
+      const inertiaOffset = Math.min(Math.max(scrollDelta * 0.1, -10), 10);
+      y.set(inertiaOffset);
+      
+      setScrollY(currentScrollY);
+      
+      // 延遲回到原位
+      setTimeout(() => {
+        y.set(0);
+      }, 150);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrollY, y]);
+
   return (
     <motion.div
       className="fixed bottom-6 left-6 z-50"
+      style={{ y: springY }}
       initial={{ opacity: 0, scale: 0.8, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 1 }}
