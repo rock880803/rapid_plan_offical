@@ -31,7 +31,7 @@ const DevelopmentPage = () => {
   liveUrl: 'https://example.com',
   githubUrl: 'https://github.com/example',
   status: '已交付'
-}
+   },
     {
       id: 2,
       title: '任務管理系統',
