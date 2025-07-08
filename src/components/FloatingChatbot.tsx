@@ -18,7 +18,7 @@ const FloatingChatbot: React.FC = () => {
       const scrollDelta = currentScrollY - scrollY;
       
       // 根據滾動方向和速度調整位移
-      const inertiaOffset = Math.min(Math.max(scrollDelta * 0.1, -10), 10);
+      const inertiaOffset = Math.min(Math.max(scrollDelta * 0.4, -40), 40);
       y.set(inertiaOffset);
       
       setScrollY(currentScrollY);
