@@ -38,7 +38,7 @@ export const projectsData: Project[] = [
     'https://images.pexels.com/photos/1629212/pexels-photo-1629212.jpeg?auto=compress&cs=tinysrgb&w=1200',
     'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1200'
   ],
-  category: 'graphic',
+  category: '品牌設計',
   technologies: ['Adobe Illustrator'],
   features: [
     '品牌識別 Logo 設計',
