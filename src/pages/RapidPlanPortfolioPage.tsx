@@ -171,35 +171,6 @@ const RapidPlanPortfolioPage = () => {
                     </motion.div>
                   </div>
 
-                  {/* 快速連結按鈕 */}
-                  <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                    {project.liveUrl && (
-                      <motion.a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-white/90 text-gray-900 p-2 rounded-full hover:bg-white transition-colors shadow-lg"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        title="查看線上版本"
-                      >
-                        <FontAwesomeIcon icon={faExternalLinkAlt} size="sm" />
-                      </motion.a>
-                    )}
-                    {project.githubUrl && (
-                      <motion.a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-white/90 text-gray-900 p-2 rounded-full hover:bg-white transition-colors shadow-lg"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        title="查看原始碼"
-                      >
-                        <FontAwesomeIcon icon={faGithub} size="sm" />
-                      </motion.a>
-                    )}
-                  </div>
                 </div>
                 
                 <div className="p-6">
