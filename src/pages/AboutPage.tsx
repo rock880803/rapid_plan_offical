@@ -105,7 +105,7 @@ const AboutPage = () => {
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <img 
-                    src="/images/profile-photo.jpg" 
+                    src="/images/profile_photo.jpg" 
                     alt="Alan Huang" 
                     className="w-full h-full object-cover"
                   />
