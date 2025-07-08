@@ -169,7 +169,7 @@ const HomePage = () => {
         >
           <motion.div className="mb-8" variants={fadeInUp}>
             <motion.div 
-              className="w-32 h-32 rounded-2xl mx-auto mb-8 flex items-center justify-center shadow-2xl glow-card overflow-hidden"
+              className="w-32 h-32 bg-gradient-to-br from-blue-600 to-purple-700 rounded-2xl mx-auto mb-8 flex items-center justify-center shadow-2xl glow-card overflow-hidden"
               whileHover={{ scale: 1.05, rotate: 2 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
