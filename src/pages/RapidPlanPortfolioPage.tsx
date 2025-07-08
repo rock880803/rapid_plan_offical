@@ -171,7 +171,9 @@ const RapidPlanPortfolioPage = () => {
             我們很樂意和您討論新的專案機會
           </p>
           <motion.a
-            href="mailto:contact@rapidplan.com"
+            href="https://rock83-n8n-free.hf.space/form/9eac0b65-e87c-43f5-949e-93b2c54d8382"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

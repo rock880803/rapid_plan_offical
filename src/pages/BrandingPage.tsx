@@ -234,7 +234,9 @@ const BrandingPage = () => {
               讓我們一起創造令人難忘的品牌體驗
             </p>
             <motion.a
-              href="mailto:your.email@example.com"
+              href="https://rock83-n8n-free.hf.space/form/9eac0b65-e87c-43f5-949e-93b2c54d8382"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-200 transition-colors shadow-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
