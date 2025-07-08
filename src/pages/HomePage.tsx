@@ -169,11 +169,15 @@ const HomePage = () => {
         >
           <motion.div className="mb-8" variants={fadeInUp}>
             <motion.div 
-              className="w-32 h-32 bg-gradient-to-br from-blue-600 to-purple-700 rounded-2xl mx-auto mb-8 flex items-center justify-center text-white text-4xl font-bold shadow-2xl glow-card"
+              className="w-32 h-32 rounded-2xl mx-auto mb-8 flex items-center justify-center shadow-2xl glow-card overflow-hidden"
               whileHover={{ scale: 1.05, rotate: 2 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              RP
+              <img 
+                src="/images/logo_transparent.png" 
+                alt="Rapid Plan Logo" 
+                className="w-full h-full object-contain"
+              />
             </motion.div>
           </motion.div>
           
