@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 深夜模式螢光效果 */
+@layer utilities {
+  /* 主標題螢光效果 */
+  .dark .glow-title {
+    text-shadow: 
+      0 0 5px rgba(59, 130, 246, 0.3),
+      0 0 10px rgba(59, 130, 246, 0.2),
+      0 0 15px rgba(59, 130, 246, 0.1);
+  }
+  
+  /* 副標題螢光效果 */
+  .dark .glow-subtitle {
+    text-shadow: 
+      0 0 3px rgba(147, 51, 234, 0.4),
+      0 0 6px rgba(147, 51, 234, 0.2),
+      0 0 9px rgba(147, 51, 234, 0.1);
+  }
+  
+  /* 品牌名稱螢光效果 */
+  .dark .glow-brand {
+    text-shadow: 
+      0 0 8px rgba(59, 130, 246, 0.4),
+      0 0 16px rgba(147, 51, 234, 0.3),
+      0 0 24px rgba(59, 130, 246, 0.2);
+  }
+  
+  /* 導航連結螢光效果 */
+  .dark .glow-nav:hover {
+    text-shadow: 
+      0 0 4px rgba(59, 130, 246, 0.5),
+      0 0 8px rgba(59, 130, 246, 0.3);
+    transition: text-shadow 0.3s ease;
+  }
+  
+  /* 按鈕螢光效果 */
+  .dark .glow-button {
+    box-shadow: 
+      0 0 10px rgba(59, 130, 246, 0.3),
+      0 0 20px rgba(59, 130, 246, 0.2),
+      0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .dark .glow-button:hover {
+    box-shadow: 
+      0 0 15px rgba(59, 130, 246, 0.4),
+      0 0 30px rgba(59, 130, 246, 0.3),
+      0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* 卡片螢光邊框效果 */
+  .dark .glow-card {
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 
+      0 0 20px rgba(59, 130, 246, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark .glow-card:hover {
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 
+      0 0 30px rgba(59, 130, 246, 0.2),
+      0 10px 40px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  
+  /* 圖標螢光效果 */
+  .dark .glow-icon {
+    filter: drop-shadow(0 0 3px rgba(59, 130, 246, 0.4));
+  }
+  
+  /* 文字內容微弱螢光 */
+  .dark .glow-text {
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
+  }
+  
+  /* 特殊強調文字螢光 */
+  .dark .glow-accent {
+    text-shadow: 
+      0 0 5px rgba(34, 197, 94, 0.4),
+      0 0 10px rgba(34, 197, 94, 0.2);
+  }
+  
+  /* 橫幅標題螢光效果 */
+  .dark .glow-banner {
+    text-shadow: 
+      0 0 10px rgba(255, 255, 255, 0.3),
+      0 0 20px rgba(59, 130, 246, 0.2),
+      0 0 30px rgba(147, 51, 234, 0.1);
+  }
+  
+  /* 統計數字螢光效果 */
+  .dark .glow-stats {
+    text-shadow: 
+      0 0 6px rgba(255, 255, 255, 0.4),
+      0 0 12px rgba(59, 130, 246, 0.3);
+  }
+}
