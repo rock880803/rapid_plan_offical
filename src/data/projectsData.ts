@@ -29,67 +29,53 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
-    id: 1,
-    title: '電商購物平台',
-    description: '完整的電商解決方案，包含商品管理、購物車、結帳流程等功能',
-    fullDescription: '這是一個為中小企業打造的全功能電商平台，整合了現代化的使用者介面設計與強大的後端管理系統。平台支援多種支付方式、庫存管理、訂單追蹤、會員系統等完整功能，並具備響應式設計，確保在各種裝置上都能提供優質的購物體驗。',
-    image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-    images: [
-      'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200'
-    ],
-    category: 'web',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Redux', 'Express', 'JWT', 'Cloudinary'],
-    features: [
-      '響應式設計',
-      '支付整合 (Stripe)',
-      '庫存管理系統',
-      '訂單追蹤',
-      '會員註冊登入',
-      '商品搜尋與篩選',
-      '購物車功能',
-      '管理員後台',
-      '郵件通知系統',
-      'SEO 優化'
-    ],
-    challenges: [
-      '複雜的購物車邏輯處理',
-      '多種支付方式整合',
-      '大量商品數據的效能優化',
-      '庫存即時同步問題',
-      '跨瀏覽器兼容性'
-    ],
-    solutions: [
-      '使用 Redux 進行狀態管理，確保購物車數據一致性',
-      '整合 Stripe API 提供安全可靠的支付處理',
-      '實作分頁載入和圖片懶載入優化效能',
-      '建立即時庫存更新機制',
-      '進行全面的跨瀏覽器測試與優化'
-    ],
-    results: [
-      '成功提升客戶線上銷售額 40%',
-      '使用者轉換率提高 25%',
-      '頁面載入速度優化至 2 秒內',
-      '獲得客戶 95% 滿意度評價',
-      '月活躍用戶增長 60%'
-    ],
-    timeline: '3 個月',
-    client: 'TechMart 電商',
-    year: '2024',
-    liveUrl: 'https://example-ecommerce.com',
-    githubUrl: 'https://github.com/example/ecommerce',
-    status: '已上線',
-    teamSize: 4,
-    role: '前端開發主導 & UI/UX 設計',
-    testimonial: {
-      text: '這個電商平台完全超出了我們的期望！不僅功能完整，使用體驗也非常流暢。自從上線後，我們的銷售額有了顯著提升。',
-      author: '王小明',
-      position: '執行長',
-      company: 'TechMart 電商'
-    }
-  },
+  id: 2,
+  title: '臺科大國手計畫 LOGO',
+  description: '國際技能競賽「臺科大國手計畫」專屬識別設計，展現專業與國際感',
+  fullDescription: '本專案為臺灣科技大學舉辦之「國手培訓計畫」量身打造品牌識別 Logo，視覺風格結合技能競賽的專業性與臺科大的國際形象，應用範圍包含官方文宣、展架、隊服與簡報封面。整體設計以明確、現代、具識別度為核心，讓品牌在各式競賽與推廣活動中具有辨識優勢。',
+  image: 'https://images.pexels.com/photos/1629212/pexels-photo-1629212.jpeg?auto=compress&cs=tinysrgb&w=800',
+  images: [
+    'https://images.pexels.com/photos/1629212/pexels-photo-1629212.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1200'
+  ],
+  category: 'graphic',
+  technologies: ['Adobe Illustrator'],
+  features: [
+    '品牌識別 Logo 設計',
+    '設計提案與版本迭代',
+    '活動應用展示（展架／服裝）',
+    'AI 向量圖格式輸出'
+  ],
+  challenges: [
+    '需在短時間內凝聚國際技能意象與臺科大品牌精神',
+    '需讓 LOGO 能應用於各式物件（小至胸章，大至布旗）',
+    '配合不同承辦單位需求快速修正'
+  ],
+  solutions: [
+    '建立品牌色與圖形模組，確保延展性',
+    '使用幾何構圖提升比例與製作方便性',
+    '提供不同版本輸出格式（PDF, SVG, PNG）應對不同應用'
+  ],
+  results: [
+    '4 日內完成設計、提案、確認交付',
+    '成功應用於培訓服裝、布條與形象影片',
+    '獲主辦單位肯定並推薦後續其他競賽活動設計'
+  ],
+  timeline: '4 天',
+  client: '台灣科技大學',
+  year: '2025',
+  liveUrl: '',
+  githubUrl: '',
+  status: '已交付',
+  teamSize: 1,
+  role: '視覺設計與提案主導',
+  testimonial: {
+    text: '設計溝通順暢、成品品質高，讓我們能快速完成推廣材料製作。時間緊迫仍交出令人滿意的成果，非常推薦！',
+    author: '楊先生',
+    position: '承辦人',
+    company: '台灣科技大學'
+  }
+},
   {
     id: 2,
     title: '任務管理系統',
