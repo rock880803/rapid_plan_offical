@@ -171,20 +171,19 @@ const Navbar = () => {
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.3, delay: 0.2 }}
                 >
-                  <div className="font-medium text-gray-900 dark:text-white mb-2">專案作品</div>
-                  <div className="pl-4 space-y-2">
-                    <Link
-                      to="/portfolio"
-                      onClick={() => setIsMenuOpen(false)}
-                      className={`transition-colors font-medium block px-3 py-2 rounded-lg glow-nav ${
-                        isPortfolioActive()
-                          ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30'
-                          : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800'
-                      }`}
-                    >
-                      專案作品
-                    </Link>
-                  </div>
+                  <Link
+                    to="/portfolio"
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`relative transition-colors font-medium block px-3 py-2 rounded-lg glow-nav group ${
+                      isPortfolioActive()
+                        ? 'text-blue-600 dark:text-blue-400'
+                        : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                    }`}
+                  >
+                    專案作品
+                    {/* Bottom line indicator for hover */}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                  </Link>
                 </motion.div>
                 
                 {/* Mobile Theme Toggle */}
