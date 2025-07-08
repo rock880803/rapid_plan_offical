@@ -6,6 +6,7 @@ import AnimatedRoutes from './components/AnimatedRoutes';
 import Footer from './components/Footer';
 import BackgroundMusic from './components/BackgroundMusic';
 import ScrollToTop from './components/ScrollToTop';
+import FloatingChatbot from './components/FloatingChatbot';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           </main>
           <Footer />
           <BackgroundMusic />
+          <FloatingChatbot />
         </div>
       </Router>
     </ThemeProvider>
