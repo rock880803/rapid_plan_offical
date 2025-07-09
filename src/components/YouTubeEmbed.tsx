@@ -117,7 +117,7 @@ const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({ videoUrl, title, className 
             <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
               <div className="flex flex-col items-center gap-3">
                 <div className="w-8 h-8 border-2 border-red-600 border-t-transparent rounded-full animate-spin"></div>
-                <p className="text-sm text-gray-600 dark:text-gray-300">載入影片中...</p>
+                <p className="text-sm text-gray-600 dark:text-gray-300">載入影片中...若長時間無回應請點擊下方替代連結</p>
               </div>
             </div>
           )}
