@@ -33,10 +33,12 @@ export const projectsData: Project[] = [
   title: '臺科大國手計畫 LOGO',
   description: '國際技能競賽「臺科大國手計畫」專屬識別設計，展現專業與國際感',
   fullDescription: '本專案為臺灣科技大學舉辦之「國手培訓計畫」量身打造品牌識別 Logo，視覺風格結合技能競賽的專業性與臺科大的國際形象，應用範圍包含官方文宣、展架、隊服與簡報封面。整體設計以明確、現代、具識別度為核心，讓品牌在各式競賽與推廣活動中具有辨識優勢。',
-  image: 'https://images.pexels.com/photos/1629212/pexels-photo-1629212.jpeg?auto=compress&cs=tinysrgb&w=800',
+  image: '/images/project_images/臺科大國手計畫_LOGO_1.svg',
   images: [
-    'https://images.pexels.com/photos/1629212/pexels-photo-1629212.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1200'
+    '/images/project_images/臺科大國手計畫_LOGO_1.svg',
+    '/images/project_images/臺科大國手計畫_LOGO_2.svg',
+    '/images/project_images/臺科大國手計畫_LOGO_3.svg',
+    '/images/project_images/臺科大國手計畫_LOGO_4.svg'
   ],
   category: '品牌設計',
   technologies: ['Adobe Illustrator'],
