@@ -290,7 +290,7 @@ export const projectsData: Project[] = [
     'https://images.pexels.com/photos/2566582/pexels-photo-2566582.jpeg?auto=compress&cs=tinysrgb&w=1200',
     'https://images.pexels.com/photos/1591060/pexels-photo-1591060.jpeg?auto=compress&cs=tinysrgb&w=1200'
   ],
-  category: 'web',
+  category: '專案開發',
   technologies: ['HTML', 'CSS','模組化 Web 應用架構',
   '互動式地圖 API',
   'Canvas 與 SVG 資料視覺化技術'],
