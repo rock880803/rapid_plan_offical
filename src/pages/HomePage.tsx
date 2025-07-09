@@ -528,30 +528,22 @@ const HomePage = () => {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="relative overflow-hidden">
-                {project.videoIframe ? (
-                  <div className="relative">
-                    <IframeEmbed
-                      iframeHtml={project.videoIframe}
-                      title={project.title}
-                      alternativeLink={project.videoAlternativeLink}
-                      className="h-48"
-                    />
-                    {/* 影片標識 */}
-                    <div className="absolute top-2 left-2 bg-red-600 text-white px-2 py-1 rounded text-xs font-medium flex items-center gap-1">
-                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
-                      </svg>
-                      影片
-                    </div>
+                <ProjectImage
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                  showPlaceholderText={true}
+                />
+                
+                {/* 影片標識 - 只在有影片的專案上顯示 */}
+                {project.videoIframe && (
+                  <div className="absolute top-2 left-2 bg-red-600 text-white px-2 py-1 rounded text-xs font-medium flex items-center gap-1">
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
+                    </svg>
+                    影片
                   </div>
-                ) : (
-                  <ProjectImage
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                    showPlaceholderText={true}
-                  />
                 )}
                 
                 {/* 查看詳情按鈕 */}

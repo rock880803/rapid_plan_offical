@@ -151,46 +151,36 @@ const RapidPlanPortfolioPage = () => {
                 layout
               >
                 <div className="relative overflow-hidden">
-                  {project.videoIframe ? (
-                    <div className="relative">
-                      <IframeEmbed
-                        iframeHtml={project.videoIframe}
-                        title={project.title}
-                        alternativeLink={project.videoAlternativeLink}
-                        className="h-48"
-                      />
-                      {/* 影片標識 */}
-                      <div className="absolute top-2 left-2 bg-red-600 text-white px-2 py-1 rounded text-xs font-medium flex items-center gap-1">
-                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
-                        </svg>
-                        影片
-                      </div>
+                  <ProjectImage
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 transition-transform duration-500 ease-out group-hover:scale-110"
+                    loading="lazy"
+                    showPlaceholderText={true}
+                  />
+                  
+                  {/* 影片標識 - 只在有影片的專案上顯示 */}
+                  {project.videoIframe && (
+                    <div className="absolute top-2 left-2 bg-red-600 text-white px-2 py-1 rounded text-xs font-medium flex items-center gap-1">
+                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
+                      </svg>
+                      影片
                     </div>
-                  ) : (
-                    <ProjectImage
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-48 transition-transform duration-500 ease-out group-hover:scale-110"
-                      loading="lazy"
-                      showPlaceholderText={true}
-                    />
                   )}
                   
-                  {/* 滑動遮罩效果 - 只在正常圖片時顯示 */}
-                  {!project.videoIframe && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out"></div>
-                  )}
+                  {/* 滑動遮罩效果 */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out"></div>
                   
                   {/* 專案分類標籤 */}
-                  <div className={`absolute top-4 ${project.videoIframe ? 'right-4' : 'left-4'} transform transition-all duration-300 group-hover:scale-105`}>
+                  <div className="absolute top-4 left-4 transform transition-all duration-300 group-hover:scale-105">
                     <span className={`${getCategoryColor(project.category)} px-3 py-1 rounded-full text-sm font-medium`}>
                       {getCategoryName(project.category)}
                     </span>
                   </div>
 
                   {/* 專案狀態標籤 */}
-                  <div className={`absolute ${project.videoIframe ? 'top-12 right-4' : 'top-4 right-4'} transform transition-all duration-300 group-hover:scale-105`}>
+                  <div className="absolute top-4 right-4 transform transition-all duration-300 group-hover:scale-105">
                     <span className={`px-3 py-1 rounded-full text-sm font-medium ${
                       project.status === '已上線' ? 'bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300' :
                       project.status === '開發中' ? 'bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300' :
