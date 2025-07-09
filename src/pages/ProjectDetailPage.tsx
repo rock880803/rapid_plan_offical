@@ -157,10 +157,51 @@ const ProjectDetailPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 glow-subtitle">專案展示</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 glow-subtitle">
+            {project.videoUrl ? '專案影片與展示' : '專案展示'}
+          </h2>
+          
+          {/* Video Section */}
+          {project.videoUrl && (
+            <div className="mb-8">
+              <motion.div
+                className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg bg-gray-100 dark:bg-gray-800"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <iframe
+                  src={project.videoUrl}
+                  title={`${project.title} - 專案影片`}
+                  className="w-full h-full"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </motion.div>
+              
+              {/* Video Description */}
+              <motion.div
+                className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-700"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <FontAwesomeIcon icon={faExternalLinkAlt} className="text-blue-600 dark:text-blue-400" />
+                  <h3 className="font-semibold text-gray-900 dark:text-white">專案影片</h3>
+                </div>
+                <p className="text-gray-700 dark:text-gray-300 text-sm">
+                  觀看完整的專案展示影片，了解設計理念、製作過程與最終成果。
+                </p>
+              </motion.div>
+            </div>
+          )}
           
           {/* Main Image */}
-          <div className="relative mb-6 group">
+          {project.images.length > 0 && (
+            <div className="relative mb-6 group">
             <motion.img
               src={project.images[currentImageIndex]}
               alt={`${project.title} - 圖片 ${currentImageIndex + 1}`}
@@ -196,7 +237,8 @@ const ProjectDetailPage = () => {
             <div className="absolute bottom-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
               {currentImageIndex + 1} / {project.images.length}
             </div>
-          </div>
+            </div>
+          )}
           
           {/* Thumbnail Gallery */}
           {project.images.length > 1 && (

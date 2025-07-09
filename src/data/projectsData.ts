@@ -5,6 +5,7 @@ export interface Project {
   fullDescription: string;
   image: string;
   images: string[];
+  videoUrl?: string;
   category: string;
   technologies: string[];
   features: string[];
@@ -133,6 +134,7 @@ export const projectsData: Project[] = [
   images: [
     'https://images.pexels.com/photos/5864277/pexels-photo-5864277.jpeg?auto=compress&cs=tinysrgb&w=1200'
   ],
+  videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   category: '影片創作',
   technologies: ['DaVinci Resolve', '影片剪輯', 'AI 音樂創作'],
   features: [
@@ -226,6 +228,7 @@ export const projectsData: Project[] = [
     'https://images.pexels.com/photos/1670176/pexels-photo-1670176.jpeg?auto=compress&cs=tinysrgb&w=1200',
     'https://images.pexels.com/photos/700669/pexels-photo-700669.jpeg?auto=compress&cs=tinysrgb&w=1200'
   ],
+  videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   category: '影片創作',
   technologies: ['Davinci Resolve', 'AI 音樂創作', 'Photoshop'],
   features: [
