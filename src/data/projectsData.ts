@@ -176,7 +176,7 @@ export const projectsData: Project[] = [
   images: [
     'https://images.pexels.com/photos/2649473/pexels-photo-2649473.jpeg?auto=compress&cs=tinysrgb&w=1200'
   ],
-  category: '平面設計喔',
+  category: '平面設計',
   technologies: ['Adobe Illustrator', '排版設計', '燙金 CK-11', 'A4 雙面雪銅上霧'],
   features: [
     '三折頁版面設計',
