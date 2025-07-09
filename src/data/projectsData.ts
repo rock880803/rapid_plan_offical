@@ -243,7 +243,7 @@ export const projectsData: Project[] = [
       '/images/project_images/5-4.png'
     ],
     videoIframe: '<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="臺科大電子系 50 週年懷舊影片" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-    videoAlternativeLink: 'https://vimeo.com/your-video-id',
+    videoAlternativeLink: 'https://youtu.be/fhICyAKCv6U',
     category: '影片創作',
     technologies: ['Davinci Resolve', 'AI 音樂創作', 'Photoshop'],
     features: [
