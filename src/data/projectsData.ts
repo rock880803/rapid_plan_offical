@@ -279,7 +279,56 @@ export const projectsData: Project[] = [
       position: '系主任',
       company: '台灣科技大學'
     }
+  },
+  {
+  id: 6,
+  title: '臺北市城鎮韌性演習兵推系統',
+  description: '協助臺北市政府及外部廠商開發兵推系統，在大螢幕即時展示演習流程，實現無腳本演練',
+  fullDescription: '為提升城市災害應變與決策演練效率，協助兵役局開發「城鎮韌性兵推系統」。此系統支援大型觸控顯示，提供即時事件更新、角色切換與視覺化流程呈現，協助多單位同步演練。過程中需整合地圖標記工具、繪圖模組與多角色介面，挑戰在於無腳本流程下的彈性與穩定性。',
+  image: 'https://images.pexels.com/photos/2566582/pexels-photo-2566582.jpeg?auto=compress&cs=tinysrgb&w=800',
+  images: [
+    'https://images.pexels.com/photos/2566582/pexels-photo-2566582.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    'https://images.pexels.com/photos/1591060/pexels-photo-1591060.jpeg?auto=compress&cs=tinysrgb&w=1200'
+  ],
+  category: 'web',
+  technologies: ['HTML', 'CSS', 'Bolt.New 技術架構', '地圖套件', '繪圖工具'],
+  features: [
+    '多單位角色模擬操作',
+    '大型觸控螢幕互動介面',
+    '模組化地圖事件標示',
+    '實時兵推流程控制與視覺化'
+  ],
+  challenges: [
+    '需整合多方單位邏輯，並支援突發事件快速應變',
+    '無腳本兵推需高度互動與即時流程切換',
+    '系統需兼顧效能與穩定性，能在大型投影環境中順暢運作'
+  ],
+  solutions: [
+    '採用模組化架構，分離前端介面與事件邏輯模組',
+    '設計彈性地圖標註系統與角色操作框架',
+    '優化前端效能，確保高效渲染與穩定互動'
+  ],
+  results: [
+    '系統已於 2025 年 Q2 兵推演習中成功上線並實測',
+    '協助多單位完成即時應變模擬，提升演習效率',
+    '獲兵役局與技術廠商一致好評，作為未來兵推常態工具'
+  ],
+  timeline: '90 天',
+  client: '臺北市兵役局',
+  year: '2025',
+  teamSize: 3,
+  role: '介面設計與互動流程整合',
+  liveUrl: '',
+  githubUrl: '',
+  status: '已上線',
+  testimonial: {
+    text: '系統即時性強、視覺清楚、能靈活支援演習現場，是我們首次真正做到「無腳本演練」的重要工具。',
+    author: '蔡先生',
+    position: '科長',
+    company: '臺北市兵役局'
   }
+}
+
 ];
 
 export const getProjectById = (id: number): Project | undefined => {
