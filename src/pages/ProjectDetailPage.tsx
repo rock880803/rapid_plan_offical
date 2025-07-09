@@ -260,19 +260,26 @@ const ProjectDetailPage = () => {
           {project.images.length > 1 && (
             <div className="flex gap-4 overflow-x-auto pb-2">
               {project.images.map((image, index) => (
-                <ProjectImage
+                <motion.div
                   key={index}
-                  src={image}
-                  alt={`${project.title} - 縮圖 ${index + 1}`}
-                  className={`w-20 h-20 rounded-lg cursor-pointer flex-shrink-0 transition-all ${
+                  className={`relative w-20 h-20 rounded-lg cursor-pointer flex-shrink-0 transition-all ${
                     index === currentImageIndex 
                       ? 'ring-2 ring-blue-500 opacity-100' 
                       : 'opacity-60 hover:opacity-100'
                   }`}
                   onClick={() => setCurrentImageIndex(index)}
-                  loading="lazy"
-                  showPlaceholderText={false}
-                />
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <ProjectImage
+                    src={image}
+                    alt={`${project.title} - 縮圖 ${index + 1}`}
+                    className="w-full h-full rounded-lg"
+                    loading="lazy"
+                    showPlaceholderText={false}
+                  />
+                  {/* 移除黑色遮罩，因為它會干擾點擊 */}
+                </motion.div>
               ))}
             </div>
           )}
