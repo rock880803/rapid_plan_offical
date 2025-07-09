@@ -75,7 +75,7 @@ export const projectsData: Project[] = [
     teamSize: 1,
     role: '視覺設計與提案主導',
     testimonial: {
-      text: '設計溝通順暢、成品品質高，讓我們能快速完成推廣材料製作。時間緊迫仍交出令人滿意的成果，非常推薦！',
+      text: '設計溝通順暢、成品品質高，時間緊迫仍交出令人滿意的成果，非常推薦！',
       author: '楊先生',
       position: '承辦人',
       company: '台灣科技大學'
