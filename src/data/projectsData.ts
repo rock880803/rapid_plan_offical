@@ -242,7 +242,7 @@ export const projectsData: Project[] = [
       '/images/project_images/5-3.png',
       '/images/project_images/5-4.png'
     ],
-    videoIframe: '<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="臺科大電子系 50 週年懷舊影片" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+    videoIframe: '<iframe width="560" height="315" src="https://www.youtube.com/embed/fhICyAKCv6U?si=p_tyXTD_UrdDjp9D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
     videoAlternativeLink: 'https://youtu.be/fhICyAKCv6U',
     category: '影片創作',
     technologies: ['Davinci Resolve', 'AI 音樂創作', 'Photoshop'],
