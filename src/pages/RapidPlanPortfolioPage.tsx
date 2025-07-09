@@ -156,6 +156,7 @@ const RapidPlanPortfolioPage = () => {
                       <IframeEmbed
                         iframeHtml={project.videoIframe}
                         title={project.title}
+                        alternativeLink={project.videoAlternativeLink}
                         className="h-48"
                       />
                       {/* 影片標識 */}

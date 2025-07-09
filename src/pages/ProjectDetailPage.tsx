@@ -173,18 +173,45 @@ const ProjectDetailPage = () => {
               
               {/* Video Description */}
               <motion.div
-                className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-700"
+                className="mt-4 p-6 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-700"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center gap-2 mb-3">
                   <FontAwesomeIcon icon={faExternalLinkAlt} className="text-blue-600 dark:text-blue-400" />
                   <h3 className="font-semibold text-gray-900 dark:text-white">專案影片</h3>
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 text-sm">
+                <p className="text-gray-700 dark:text-gray-300 text-sm mb-4">
                   觀看完整的專案展示影片，了解設計理念、製作過程與最終成果。
                 </p>
+                
+                {/* 替代連結 */}
+                {project.videoAlternativeLink && (
+                  <motion.div
+                    className="pt-3 border-t border-blue-200 dark:border-blue-600"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.7 }}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-gray-600 dark:text-gray-400">
+                        替代觀看連結：
+                      </span>
+                      <motion.a
+                        href={project.videoAlternativeLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-sm font-medium transition-colors"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <FontAwesomeIcon icon={faExternalLinkAlt} size="sm" />
+                        開啟替代連結
+                      </motion.a>
+                    </div>
+                  </motion.div>
+                )}
               </motion.div>
             </div>
           )}

@@ -6,10 +6,11 @@ import { faPlay, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 interface IframeEmbedProps {
   iframeHtml: string;
   title: string;
+  alternativeLink?: string;
   className?: string;
 }
 
-const IframeEmbed: React.FC<IframeEmbedProps> = ({ iframeHtml, title, className = '' }) => {
+const IframeEmbed: React.FC<IframeEmbedProps> = ({ iframeHtml, title, alternativeLink, className = '' }) => {
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -39,7 +40,7 @@ const IframeEmbed: React.FC<IframeEmbedProps> = ({ iframeHtml, title, className 
   const src = extractSrc(iframeHtml);
   const videoId = extractVideoId(src);
   const thumbnailUrl = videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : '';
-  const watchUrl = videoId ? `https://www.youtube.com/watch?v=${videoId}` : src;
+  const watchUrl = alternativeLink || (videoId ? `https://www.youtube.com/watch?v=${videoId}` : src);
   const safeIframeHtml = createSafeIframe(iframeHtml);
 
   const handleLoad = () => {
@@ -87,7 +88,7 @@ const IframeEmbed: React.FC<IframeEmbedProps> = ({ iframeHtml, title, className 
               whileTap={{ scale: 0.95 }}
             >
               <FontAwesomeIcon icon={faExternalLinkAlt} />
-              {videoId ? '在 YouTube 觀看' : '開啟影片連結'}
+              {alternativeLink ? '開啟替代連結' : (videoId ? '在 YouTube 觀看' : '開啟影片連結')}
             </motion.a>
           </div>
         </div>
