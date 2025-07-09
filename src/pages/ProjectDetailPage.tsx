@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useTransform, PanInfo } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faArrowLeft, 
@@ -40,6 +40,11 @@ const ProjectDetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+  const [dragDirection, setDragDirection] = useState(0);
+  
+  // 用於拖拽手勢的motion values
+  const x = useMotionValue(0);
+  const opacity = useTransform(x, [-200, 0, 200], [0.5, 1, 0.5]);
   
   if (!id) {
     return <Navigate to="/portfolio" replace />;
@@ -70,12 +75,53 @@ const ProjectDetailPage = () => {
     setCurrentImageIndex((prev) => 
       prev === project.images.length - 1 ? 0 : prev + 1
     );
+    setDragDirection(1);
   };
 
   const prevImage = () => {
     setCurrentImageIndex((prev) => 
       prev === 0 ? project.images.length - 1 : prev - 1
     );
+    setDragDirection(-1);
+  };
+
+  // 處理拖拽結束
+  const handleDragEnd = (event: any, info: PanInfo) => {
+    const threshold = 50;
+    if (info.offset.x > threshold) {
+      prevImage();
+    } else if (info.offset.x < -threshold) {
+      nextImage();
+    }
+  };
+
+  // 圖片切換動畫變體
+  const imageVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 300 : -300,
+      opacity: 0,
+      scale: 0.9
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        x: { type: "spring", stiffness: 300, damping: 30 },
+        opacity: { duration: 0.3 },
+        scale: { type: "spring", stiffness: 300, damping: 30 }
+      }
+    },
+    exit: (direction: number) => ({
+      x: direction > 0 ? -300 : 300,
+      opacity: 0,
+      scale: 0.9,
+      transition: {
+        x: { type: "spring", stiffness: 300, damping: 30 },
+        opacity: { duration: 0.2 },
+        scale: { type: "spring", stiffness: 300, damping: 30 }
+      }
+    })
   };
 
   return (
@@ -218,31 +264,56 @@ const ProjectDetailPage = () => {
           
           {/* Main Image */}
           {project.images.length > 0 && (
-            <div className="relative mb-6 group">
-              <ProjectImage
-                src={project.images[currentImageIndex]}
-                alt={`${project.title} - 圖片 ${currentImageIndex + 1}`}
-                className="w-full h-96 md:h-[500px] rounded-xl shadow-lg cursor-pointer"
-                onClick={() => setIsImageModalOpen(true)}
-                showPlaceholderText={true}
-              />
+            <div className="relative mb-6 group overflow-hidden rounded-xl">
+              <div className="relative w-full h-96 md:h-[500px]">
+                <AnimatePresence mode="wait" custom={dragDirection}>
+                  <motion.div
+                    key={currentImageIndex}
+                    custom={dragDirection}
+                    variants={imageVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    className="absolute inset-0 cursor-pointer"
+                    onClick={() => setIsImageModalOpen(true)}
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.2}
+                    onDragEnd={handleDragEnd}
+                    style={{ x, opacity }}
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  >
+                    <ProjectImage
+                      src={project.images[currentImageIndex]}
+                      alt={`${project.title} - 圖片 ${currentImageIndex + 1}`}
+                      className="w-full h-full rounded-xl shadow-lg"
+                      showPlaceholderText={true}
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             
             {/* Navigation Arrows */}
             {project.images.length > 1 && (
               <>
                 <motion.button
                   onClick={prevImage}
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
+                  initial={{ x: -10 }}
+                  whileInView={{ x: 0 }}
                 >
                   <FontAwesomeIcon icon={faChevronLeft} />
                 </motion.button>
                 <motion.button
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
+                  initial={{ x: 10 }}
+                  whileInView={{ x: 0 }}
                 >
                   <FontAwesomeIcon icon={faChevronRight} />
                 </motion.button>
@@ -250,26 +321,61 @@ const ProjectDetailPage = () => {
             )}
             
             {/* Image Counter */}
-            <div className="absolute bottom-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
-              {currentImageIndex + 1} / {project.images.length}
-            </div>
+            <motion.div 
+              className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium z-10"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <span className="text-blue-300">{currentImageIndex + 1}</span>
+              <span className="mx-1 opacity-60">/</span>
+              <span className="opacity-80">{project.images.length}</span>
+            </motion.div>
+            
+            {/* 拖拽提示 */}
+            {project.images.length > 1 && (
+              <motion.div 
+                className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 0, x: 0 }}
+                whileInView={{ opacity: 0 }}
+              >
+                ← 拖拽切換 →
+              </motion.div>
+            )}
             </div>
           )}
           
           {/* Thumbnail Gallery */}
           {project.images.length > 1 && (
-            <div className="flex gap-4 overflow-x-auto pb-2">
+            <motion.div 
+              className="flex gap-4 overflow-x-auto pb-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
               {project.images.map((image, index) => (
                 <motion.div
                   key={index}
                   className={`relative w-20 h-20 rounded-lg cursor-pointer flex-shrink-0 transition-all ${
                     index === currentImageIndex 
-                      ? 'ring-2 ring-blue-500 opacity-100' 
-                      : 'opacity-60 hover:opacity-100'
+                      ? 'ring-2 ring-blue-500 opacity-100 shadow-lg' 
+                      : 'opacity-60 hover:opacity-100 hover:shadow-md'
                   }`}
-                  onClick={() => setCurrentImageIndex(index)}
+                  onClick={() => {
+                    setDragDirection(index > currentImageIndex ? 1 : -1);
+                    setCurrentImageIndex(index);
+                  }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: index === currentImageIndex ? 1 : 0.6, scale: 1 }}
+                  transition={{ 
+                    delay: index * 0.05,
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 25
+                  }}
                 >
                   <ProjectImage
                     src={image}
@@ -278,10 +384,19 @@ const ProjectDetailPage = () => {
                     loading="lazy"
                     showPlaceholderText={false}
                   />
-                  {/* 移除黑色遮罩，因為它會干擾點擊 */}
+                  
+                  {/* 選中指示器 */}
+                  {index === currentImageIndex && (
+                    <motion.div
+                      className="absolute inset-0 bg-blue-500/20 rounded-lg"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.2 }}
+                    />
+                  )}
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           )}
         </motion.div>
 
@@ -538,46 +653,72 @@ const ProjectDetailPage = () => {
             exit={{ opacity: 0 }}
             onClick={() => setIsImageModalOpen(false)}
           >
-            <motion.div
-              className="relative max-w-6xl max-h-full"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <ProjectImage
-                src={project.images[currentImageIndex]}
-                alt={`${project.title} - 大圖`}
-                className="max-w-full max-h-full rounded-lg"
-                showPlaceholderText={true}
-              />
+            <div className="relative max-w-6xl max-h-full overflow-hidden rounded-lg">
+              <AnimatePresence mode="wait" custom={dragDirection}>
+                <motion.div
+                  key={`modal-${currentImageIndex}`}
+                  custom={dragDirection}
+                  variants={imageVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  className="relative"
+                  onClick={(e) => e.stopPropagation()}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.2}
+                  onDragEnd={handleDragEnd}
+                >
+                  <ProjectImage
+                    src={project.images[currentImageIndex]}
+                    alt={`${project.title} - 大圖`}
+                    className="max-w-full max-h-full rounded-lg"
+                    showPlaceholderText={true}
+                  />
+                </motion.div>
+              </AnimatePresence>
               
               {/* Close Button */}
-              <button
+              <motion.button
                 onClick={() => setIsImageModalOpen(false)}
-                className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors z-20"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2 }}
               >
                 <FontAwesomeIcon icon={faTimes} />
-              </button>
+              </motion.button>
               
               {/* Navigation in Modal */}
               {project.images.length > 1 && (
                 <>
-                  <button
+                  <motion.button
                     onClick={prevImage}
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors"
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors z-20"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3 }}
                   >
                     <FontAwesomeIcon icon={faChevronLeft} />
-                  </button>
-                  <button
+                  </motion.button>
+                  <motion.button
                     onClick={nextImage}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors"
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors z-20"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3 }}
                   >
                     <FontAwesomeIcon icon={faChevronRight} />
-                  </button>
+                  </motion.button>
                 </>
               )}
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
