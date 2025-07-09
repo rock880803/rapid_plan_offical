@@ -33,17 +33,22 @@ const DevelopmentPage = () => {
   status: '已交付'
    },
     {
-      id: 2,
-      title: '任務管理系統',
-      description: '團隊協作的任務管理和專案追蹤系統，支援即時協作和進度監控',
-      image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
-      category: 'SaaS 平台',
-      technologies: ['Vue.js', 'Express', 'PostgreSQL', 'Socket.io'],
-      features: ['即時協作', '甘特圖', '時間追蹤', '報表分析'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example',
-      status: '開發中'
-    },
+  id: 2,
+  title: '臺科大國手計畫成果冊',
+  description: '將國手在計劃期間內的成果紀實，結合視覺設計與圖文編輯呈現專業形象',
+  image: 'https://images.pexels.com/photos/19886862/pexels-photo-19886862.jpeg?auto=compress&cs=tinysrgb&w=800',
+  category: 'graphic',
+  technologies: ['Adobe Illustrator', '攝影', '排版', '印刷'],
+  features: [
+    '活動成果紀錄設計',
+    '圖文編輯與版面規劃',
+    '高品質印刷與裝訂',
+    '結合照片與設計整合性'
+  ],
+  liveUrl: '',
+  githubUrl: '',
+  status: '已交付'
+},
     {
       id: 3,
       title: '健身追蹤 App',
