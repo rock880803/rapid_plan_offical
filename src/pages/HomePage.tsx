@@ -535,9 +535,6 @@ const HomePage = () => {
                   showPlaceholderText={true}
                 />
                 
-                {/* 滑動遮罩效果 */}
-                <div className="absolute inset-0 bg-black/60 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
-                
                 {/* 查看詳情按鈕 */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 delay-200">
                   <motion.div

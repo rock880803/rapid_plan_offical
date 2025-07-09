@@ -203,13 +203,13 @@ const ProjectDetailPage = () => {
           {/* Main Image */}
           {project.images.length > 0 && (
             <div className="relative mb-6 group">
-            <ProjectImage
-              src={project.images[currentImageIndex]}
-              alt={`${project.title} - 圖片 ${currentImageIndex + 1}`}
-              className="w-full h-96 md:h-[500px] rounded-xl shadow-lg cursor-pointer"
-              onClick={() => setIsImageModalOpen(true)}
-              showPlaceholderText={true}
-            />
+              <ProjectImage
+                src={project.images[currentImageIndex]}
+                alt={`${project.title} - 圖片 ${currentImageIndex + 1}`}
+                className="w-full h-96 md:h-[500px] rounded-xl shadow-lg cursor-pointer"
+                onClick={() => setIsImageModalOpen(true)}
+                showPlaceholderText={true}
+              />
             
             {/* Navigation Arrows */}
             {project.images.length > 1 && (

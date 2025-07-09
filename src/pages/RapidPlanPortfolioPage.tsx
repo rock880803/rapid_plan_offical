@@ -150,15 +150,13 @@ const RapidPlanPortfolioPage = () => {
                 layout
               >
                 <div className="relative overflow-hidden">
-                  <img
+                  <ProjectImage
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                    className="w-full h-48 transition-transform duration-500 ease-out group-hover:scale-110"
                     loading="lazy"
+                    showPlaceholderText={true}
                   />
-                  
-                  {/* 滑動遮罩效果 */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out"></div>
                   
                   {/* 專案分類標籤 */}
                   <div className="absolute top-4 left-4 transform transition-all duration-300 group-hover:scale-105">
@@ -205,7 +203,10 @@ const RapidPlanPortfolioPage = () => {
                   </div>
                   
                   <ProjectImage
+                    src={project.image}
+                    alt={project.title}
                     className="w-full h-48 transition-transform duration-500 ease-out group-hover:scale-110"
+                    loading="lazy"
                     showPlaceholderText={true}
                   />
                 </div>

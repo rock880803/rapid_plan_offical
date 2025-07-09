@@ -39,7 +39,7 @@ const ProjectImage: React.FC<ProjectImageProps> = ({
         src={hasError ? fallbackSrc : src}
         alt={alt}
         className={`w-full h-full object-cover transition-all duration-300 ${
-          hasError ? 'object-contain bg-gray-100 dark:bg-gray-800' : ''
+          hasError ? 'object-contain bg-gray-100 dark:bg-gray-800 p-4' : ''
         } ${onClick ? 'cursor-pointer' : ''}`}
         onError={handleError}
         onLoad={handleLoad}
@@ -56,7 +56,7 @@ const ProjectImage: React.FC<ProjectImageProps> = ({
         </div>
       )}
 
-      {/* 錯誤狀態覆蓋層 */}
+      {/* 錯誤狀態覆蓋層 - 只在使用 fallback 圖片時顯示 */}
       {hasError && showPlaceholderText && (
         <motion.div
           className="absolute inset-0 bg-black/60 flex items-center justify-center"
@@ -81,6 +81,11 @@ const ProjectImage: React.FC<ProjectImageProps> = ({
       {/* 小型錯誤指示器（用於縮圖） */}
       {hasError && !showPlaceholderText && (
         <div className="absolute top-1 right-1 w-3 h-3 bg-yellow-500 rounded-full border border-white shadow-sm"></div>
+      )}
+
+      {/* 黑色遮罩效果 - 只在正常圖片時顯示 */}
+      {!hasError && (
+        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
       )}
     </div>
   );
