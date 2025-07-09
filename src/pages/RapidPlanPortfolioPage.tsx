@@ -307,7 +307,6 @@ const RapidPlanPortfolioPage = () => {
           >
             {[
               { number: `${projectsData.length}+`, label: '完成專案' },
-              { number: '98%', label: '客戶滿意度' },
               { number: '100%', label: '準時交付' },
               { number: '24/7', label: '技術支援' }
             ].map((stat, index) => (
