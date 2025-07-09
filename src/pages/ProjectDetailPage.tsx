@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { motion, AnimatePresence, useMotionValue, useTransform, PanInfo } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useTransform, PanInfo, useSpring } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faArrowLeft, 
@@ -41,10 +41,19 @@ const ProjectDetailPage = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const [dragDirection, setDragDirection] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
   
   // 用於拖拽手勢的motion values
   const x = useMotionValue(0);
-  const opacity = useTransform(x, [-200, 0, 200], [0.5, 1, 0.5]);
+  const opacity = useTransform(x, [-150, 0, 150], [0.7, 1, 0.7]);
+  const scale = useTransform(x, [-150, 0, 150], [0.95, 1, 0.95]);
+  
+  // 使用 spring 動畫讓拖拽更順暢
+  const springX = useSpring(x, { 
+    stiffness: 400, 
+    damping: 40,
+    mass: 0.8
+  });
   
   if (!id) {
     return <Navigate to="/portfolio" replace />;
@@ -87,39 +96,96 @@ const ProjectDetailPage = () => {
 
   // 處理拖拽結束
   const handleDragEnd = (event: any, info: PanInfo) => {
-    const threshold = 50;
+    setIsDragging(false);
+    const threshold = 80;
+    const velocity = Math.abs(info.velocity.x);
+    
+    // 考慮速度和距離
     if (info.offset.x > threshold) {
       prevImage();
     } else if (info.offset.x < -threshold) {
       nextImage();
+    } else if (velocity > 500) {
+      // 快速滑動時降低閾值
+      if (info.offset.x > 30) {
+        prevImage();
+      } else if (info.offset.x < -30) {
+        nextImage();
+      }
     }
+    
+    // 重置拖拽值
+    x.set(0);
+  };
+
+  const handleDragStart = () => {
+    setIsDragging(true);
   };
 
   // 圖片切換動畫變體
   const imageVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 300 : -300,
+      x: direction > 0 ? 400 : -400,
       opacity: 0,
-      scale: 0.9
+      scale: 0.85,
+      rotateY: direction > 0 ? 15 : -15
     }),
     center: {
       x: 0,
       opacity: 1,
       scale: 1,
+      rotateY: 0,
       transition: {
-        x: { type: "spring", stiffness: 300, damping: 30 },
-        opacity: { duration: 0.3 },
-        scale: { type: "spring", stiffness: 300, damping: 30 }
+        x: { 
+          type: "spring", 
+          stiffness: 400, 
+          damping: 35,
+          mass: 0.8
+        },
+        opacity: { 
+          duration: 0.4,
+          ease: [0.25, 0.46, 0.45, 0.94]
+        },
+        scale: { 
+          type: "spring", 
+          stiffness: 400, 
+          damping: 35,
+          mass: 0.8
+        },
+        rotateY: {
+          type: "spring",
+          stiffness: 400,
+          damping: 35
+        }
       }
     },
     exit: (direction: number) => ({
-      x: direction > 0 ? -300 : 300,
+      x: direction > 0 ? -400 : 400,
       opacity: 0,
-      scale: 0.9,
+      scale: 0.85,
+      rotateY: direction > 0 ? -15 : 15,
       transition: {
-        x: { type: "spring", stiffness: 300, damping: 30 },
-        opacity: { duration: 0.2 },
-        scale: { type: "spring", stiffness: 300, damping: 30 }
+        x: { 
+          type: "spring", 
+          stiffness: 500, 
+          damping: 40,
+          mass: 0.6
+        },
+        opacity: { 
+          duration: 0.25,
+          ease: [0.4, 0, 0.6, 1]
+        },
+        scale: { 
+          type: "spring", 
+          stiffness: 500, 
+          damping: 40,
+          mass: 0.6
+        },
+        rotateY: {
+          type: "spring",
+          stiffness: 500,
+          damping: 40
+        }
       }
     })
   };
@@ -264,7 +330,7 @@ const ProjectDetailPage = () => {
           
           {/* Main Image */}
           {project.images.length > 0 && (
-            <div className="relative mb-6 group overflow-hidden rounded-xl">
+            <div className="relative mb-6 group overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800">
               <div className="relative w-full h-96 md:h-[500px]">
                 <AnimatePresence mode="wait" custom={dragDirection}>
                   <motion.div
@@ -277,17 +343,23 @@ const ProjectDetailPage = () => {
                     className="absolute inset-0 cursor-pointer"
                     onClick={() => setIsImageModalOpen(true)}
                     drag="x"
-                    dragConstraints={{ left: 0, right: 0 }}
-                    dragElastic={0.2}
+                    dragConstraints={{ left: -200, right: 200 }}
+                    dragElastic={0.1}
+                    dragMomentum={false}
                     onDragEnd={handleDragEnd}
-                    style={{ x, opacity }}
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    onDragStart={handleDragStart}
+                    style={{ 
+                      x: isDragging ? x : 0, 
+                      opacity: isDragging ? opacity : 1,
+                      scale: isDragging ? scale : 1
+                    }}
+                    whileHover={{ scale: isDragging ? 1 : 1.02 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 35 }}
                   >
                     <ProjectImage
                       src={project.images[currentImageIndex]}
                       alt={`${project.title} - 圖片 ${currentImageIndex + 1}`}
-                      className="w-full h-full rounded-xl shadow-lg"
+                      className="w-full h-full rounded-xl shadow-lg select-none"
                       showPlaceholderText={true}
                     />
                   </motion.div>
@@ -299,21 +371,29 @@ const ProjectDetailPage = () => {
               <>
                 <motion.button
                   onClick={prevImage}
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
-                  whileHover={{ scale: 1.1 }}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 backdrop-blur-sm text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 shadow-lg"
+                  whileHover={{ 
+                    scale: 1.15,
+                    backgroundColor: "rgba(0, 0, 0, 0.9)"
+                  }}
                   whileTap={{ scale: 0.9 }}
                   initial={{ x: -10 }}
                   whileInView={{ x: 0 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 >
                   <FontAwesomeIcon icon={faChevronLeft} />
                 </motion.button>
                 <motion.button
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
-                  whileHover={{ scale: 1.1 }}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 backdrop-blur-sm text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 shadow-lg"
+                  whileHover={{ 
+                    scale: 1.15,
+                    backgroundColor: "rgba(0, 0, 0, 0.9)"
+                  }}
                   whileTap={{ scale: 0.9 }}
                   initial={{ x: 10 }}
                   whileInView={{ x: 0 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 >
                   <FontAwesomeIcon icon={faChevronRight} />
                 </motion.button>
@@ -322,12 +402,17 @@ const ProjectDetailPage = () => {
             
             {/* Image Counter */}
             <motion.div 
-              className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium z-10"
+              className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-medium z-10 shadow-lg border border-white/10"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+              transition={{ 
+                delay: 0.3,
+                type: "spring",
+                stiffness: 400,
+                damping: 25
+              }}
             >
-              <span className="text-blue-300">{currentImageIndex + 1}</span>
+              <span className="text-blue-400 font-semibold">{currentImageIndex + 1}</span>
               <span className="mx-1 opacity-60">/</span>
               <span className="opacity-80">{project.images.length}</span>
             </motion.div>
@@ -335,12 +420,17 @@ const ProjectDetailPage = () => {
             {/* 拖拽提示 */}
             {project.images.length > 1 && (
               <motion.div 
-                className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+                className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 shadow-lg border border-white/10"
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 0, x: 0 }}
                 whileInView={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
               >
-                ← 拖拽切換 →
+                <span className="flex items-center gap-1">
+                  <span>←</span>
+                  <span className="text-blue-300">拖拽切換</span>
+                  <span>→</span>
+                </span>
               </motion.div>
             )}
             </div>
@@ -366,14 +456,18 @@ const ProjectDetailPage = () => {
                     setDragDirection(index > currentImageIndex ? 1 : -1);
                     setCurrentImageIndex(index);
                   }}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ 
+                    scale: 1.08,
+                    y: -2,
+                    boxShadow: "0 8px 25px rgba(0, 0, 0, 0.15)"
+                  }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: index === currentImageIndex ? 1 : 0.6, scale: 1 }}
                   transition={{ 
                     delay: index * 0.05,
                     type: "spring",
-                    stiffness: 300,
+                    stiffness: 400,
                     damping: 25
                   }}
                 >
@@ -388,7 +482,7 @@ const ProjectDetailPage = () => {
                   {/* 選中指示器 */}
                   {index === currentImageIndex && (
                     <motion.div
-                      className="absolute inset-0 bg-blue-500/20 rounded-lg"
+                      className="absolute inset-0 bg-blue-500/25 rounded-lg border-2 border-blue-400/50"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.2 }}
@@ -653,7 +747,7 @@ const ProjectDetailPage = () => {
             exit={{ opacity: 0 }}
             onClick={() => setIsImageModalOpen(false)}
           >
-            <div className="relative max-w-6xl max-h-full overflow-hidden rounded-lg">
+            <div className="relative max-w-6xl max-h-full overflow-hidden rounded-lg bg-black/20">
               <AnimatePresence mode="wait" custom={dragDirection}>
                 <motion.div
                   key={`modal-${currentImageIndex}`}
@@ -665,9 +759,14 @@ const ProjectDetailPage = () => {
                   className="relative"
                   onClick={(e) => e.stopPropagation()}
                   drag="x"
-                  dragConstraints={{ left: 0, right: 0 }}
-                  dragElastic={0.2}
+                  dragConstraints={{ left: -300, right: 300 }}
+                  dragElastic={0.1}
+                  dragMomentum={false}
                   onDragEnd={handleDragEnd}
+                  onDragStart={handleDragStart}
+                  style={{ 
+                    x: isDragging ? x : 0
+                  }}
                 >
                   <ProjectImage
                     src={project.images[currentImageIndex]}
@@ -681,12 +780,20 @@ const ProjectDetailPage = () => {
               {/* Close Button */}
               <motion.button
                 onClick={() => setIsImageModalOpen(false)}
-                className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors z-20"
-                whileHover={{ scale: 1.1 }}
+                className="absolute top-4 right-4 bg-black/60 hover:bg-black/80 backdrop-blur-sm text-white p-3 rounded-full transition-colors z-20 shadow-lg"
+                whileHover={{ 
+                  scale: 1.15,
+                  backgroundColor: "rgba(0, 0, 0, 0.9)"
+                }}
                 whileTap={{ scale: 0.9 }}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2 }}
+                transition={{ 
+                  delay: 0.2,
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 25
+                }}
               >
                 <FontAwesomeIcon icon={faTimes} />
               </motion.button>
@@ -696,23 +803,39 @@ const ProjectDetailPage = () => {
                 <>
                   <motion.button
                     onClick={prevImage}
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors z-20"
-                    whileHover={{ scale: 1.1 }}
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 backdrop-blur-sm text-white p-3 rounded-full transition-colors z-20 shadow-lg"
+                    whileHover={{ 
+                      scale: 1.15,
+                      backgroundColor: "rgba(0, 0, 0, 0.9)"
+                    }}
                     whileTap={{ scale: 0.9 }}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 }}
+                    transition={{ 
+                      delay: 0.3,
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 25
+                    }}
                   >
                     <FontAwesomeIcon icon={faChevronLeft} />
                   </motion.button>
                   <motion.button
                     onClick={nextImage}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors z-20"
-                    whileHover={{ scale: 1.1 }}
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 backdrop-blur-sm text-white p-3 rounded-full transition-colors z-20 shadow-lg"
+                    whileHover={{ 
+                      scale: 1.15,
+                      backgroundColor: "rgba(0, 0, 0, 0.9)"
+                    }}
                     whileTap={{ scale: 0.9 }}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 }}
+                    transition={{ 
+                      delay: 0.3,
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 25
+                    }}
                   >
                     <FontAwesomeIcon icon={faChevronRight} />
                   </motion.button>
