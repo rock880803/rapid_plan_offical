@@ -316,38 +316,6 @@ const AboutPage = () => {
                     </div>
                   </motion.div>
                 ))}
-                
-                {/* Skills Summary Card */}
-                <motion.div
-                  className="bg-gradient-to-r from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-600 border border-blue-200 dark:border-gray-600 rounded-xl p-6 text-gray-800 dark:text-white"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="text-center">
-                    <h4 className="text-lg font-bold mb-3">技能整合優勢</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                      結合技術實作、視覺設計與專案管理能力，能夠在跨領域團隊中發揮橋樑作用，
-                      將複雜需求轉化為可執行的解決方案。
-                    </p>
-                  </div>
-                  
-                  <div className="grid grid-cols-3 gap-4 mt-6">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">30+</div>
-                      <div className="text-xs text-gray-500 dark:text-gray-500">完成專案</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">3</div>
-                      <div className="text-xs text-gray-500 dark:text-gray-500">專業領域</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-green-600 dark:text-green-400">5+</div>
-                      <div className="text-xs text-gray-500 dark:text-gray-500">年經驗</div>
-                    </div>
-                  </div>
-                </motion.div>
               </div>
             </motion.div>
 
