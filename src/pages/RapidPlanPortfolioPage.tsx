@@ -105,7 +105,7 @@ const RapidPlanPortfolioPage = () => {
               whileTap={{ scale: 0.95 }}
             >
               {category.name}
-                <ProjectImage
+            </motion.button>
           ))}
         </motion.div>
 
@@ -202,9 +202,12 @@ const RapidPlanPortfolioPage = () => {
                         查看詳情
                       </Link>
                     </motion.div>
-                  className="w-full h-48 transition-transform duration-500 ease-out group-hover:scale-110"
-
-                  showPlaceholderText={true}
+                  </div>
+                  
+                  <ProjectImage
+                    className="w-full h-48 transition-transform duration-500 ease-out group-hover:scale-110"
+                    showPlaceholderText={true}
+                  />
                 </div>
                 
                 <div className="p-6">
