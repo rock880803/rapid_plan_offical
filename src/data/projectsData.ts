@@ -28,7 +28,7 @@ export interface Project {
   fullDescription: string;
   image: string;
   images: string[];
-  videoUrl?: string;
+  videoIframe?: string;
   category: string;
   technologies: string[];
   features: string[];
@@ -144,8 +144,7 @@ export const projectsData: Project[] = [
     description: '將國手在計劃期間內的成果紀實，以影音形式呈現精神與亮點',
     fullDescription: '本專案為臺科大國手計畫打造專屬宣傳影片，從內容規劃、剪輯到配樂製作，整合比賽現場、訓練過程與訪談素材，完整傳遞選手的努力歷程與國手精神。影片長度約 2 分鐘，支援在簡報、社群媒體、活動播放使用。',
     ...generateProjectImagePaths('臺科大國手計畫宣傳影片', 2),
-    videoUrl: 'https://www.youtube.com/watch?v=xHonIgLCehw',
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/xHonIgLCehw?si=ogwpiTFGJ53jccFL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    videoIframe: '<iframe width="560" height="315" src="https://www.youtube.com/embed/xHonIgLCehw?si=ogwpiTFGJ53jccFL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
     category: '影片創作',
     technologies: ['DaVinci Resolve', '影片剪輯', 'AI 音樂創作'],
     features: [
@@ -232,7 +231,7 @@ export const projectsData: Project[] = [
     description: '以敘事節奏與懷舊素材，紀錄電子系 50 年發展歷程，融合音樂與影像創造回憶感',
     fullDescription: '為了紀念台科大電子系創立 50 週年，我製作了一支具備情感節奏與歷史重量的懷舊影片。影片以創系照片開場，採用「翻開相簿」的敘事方式，引導觀眾進入電子系的成長回憶。時間軸採順敘手法編排歷史活動，並使用 AI 創作音樂搭配轉場節奏。結尾部分呼應開頭，將相簿合上，形成完整的記憶循環。',
     ...generateProjectImagePaths('臺科大電子系 50 週年懷舊影片', 2),
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    videoIframe: '<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="臺科大電子系 50 週年懷舊影片" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
     category: '影片創作',
     technologies: ['Davinci Resolve', 'AI 音樂創作', 'Photoshop'],
     features: [

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import ProjectImage from '../components/ProjectImage';
-import YouTubeEmbed from '../components/YouTubeEmbed';
+import IframeEmbed from '../components/IframeEmbed';
 import { projectsData } from '../data/projectsData';
 
 const fadeInUp = {
@@ -151,10 +151,10 @@ const RapidPlanPortfolioPage = () => {
                 layout
               >
                 <div className="relative overflow-hidden">
-                  {project.videoUrl ? (
+                  {project.videoIframe ? (
                     <div className="relative">
-                      <YouTubeEmbed
-                        videoUrl={project.videoUrl}
+                      <IframeEmbed
+                        iframeHtml={project.videoIframe}
                         title={project.title}
                         className="h-48"
                       />
@@ -177,19 +177,19 @@ const RapidPlanPortfolioPage = () => {
                   )}
                   
                   {/* 滑動遮罩效果 - 只在正常圖片時顯示 */}
-                  {!project.videoUrl && (
+                  {!project.videoIframe && (
                     <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out"></div>
                   )}
                   
                   {/* 專案分類標籤 */}
-                  <div className={`absolute top-4 ${project.videoUrl ? 'right-4' : 'left-4'} transform transition-all duration-300 group-hover:scale-105`}>
+                  <div className={`absolute top-4 ${project.videoIframe ? 'right-4' : 'left-4'} transform transition-all duration-300 group-hover:scale-105`}>
                     <span className={`${getCategoryColor(project.category)} px-3 py-1 rounded-full text-sm font-medium`}>
                       {getCategoryName(project.category)}
                     </span>
                   </div>
 
                   {/* 專案狀態標籤 */}
-                  <div className={`absolute ${project.videoUrl ? 'top-12 right-4' : 'top-4 right-4'} transform transition-all duration-300 group-hover:scale-105`}>
+                  <div className={`absolute ${project.videoIframe ? 'top-12 right-4' : 'top-4 right-4'} transform transition-all duration-300 group-hover:scale-105`}>
                     <span className={`px-3 py-1 rounded-full text-sm font-medium ${
                       project.status === '已上線' ? 'bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300' :
                       project.status === '開發中' ? 'bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300' :

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faLightbulb, faBullseye, faShield, faUsers, faAward, faZap, faChevronDown, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { projectsData } from '../data/projectsData';
 import ProjectImage from '../components/ProjectImage';
-import YouTubeEmbed from '../components/YouTubeEmbed';
+import IframeEmbed from '../components/IframeEmbed';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -528,10 +528,10 @@ const HomePage = () => {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="relative overflow-hidden">
-                {project.videoUrl ? (
+                {project.videoIframe ? (
                   <div className="relative">
-                    <YouTubeEmbed
-                      videoUrl={project.videoUrl}
+                    <IframeEmbed
+                      iframeHtml={project.videoIframe}
                       title={project.title}
                       className="h-48"
                     />
