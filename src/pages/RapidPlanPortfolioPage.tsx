@@ -407,7 +407,7 @@ const RapidPlanPortfolioPage = () => {
                       ease: [0.25, 0.46, 0.45, 0.94]
                     }}
                   >
-                    <span className="text-blue-200">
+                    <span className="text-white">
                       {displayNumber}
                     </span>
                     <span className="text-white">
@@ -428,7 +428,7 @@ const RapidPlanPortfolioPage = () => {
                       ease: [0.25, 0.46, 0.45, 0.94]
                     }}
                   >
-                    <span className="text-blue-200">
+                    <span className="text-white">
                       {stat.number}
                     </span>
                     <span className="text-white">
