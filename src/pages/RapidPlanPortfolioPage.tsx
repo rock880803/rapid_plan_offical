@@ -269,7 +269,7 @@ const RapidPlanPortfolioPage = () => {
                           transition: { delay: index * 0.1 + techIndex * 0.05 }
                         }}
                       >
-                        {project.title}
+                        {tech}
                       </motion.span>
                     ))}
                     {project.technologies.length > 3 && (
