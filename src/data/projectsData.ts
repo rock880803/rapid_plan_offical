@@ -122,64 +122,51 @@ export const projectsData: Project[] = [
   }
   },
   {
-    id: 3,
-    title: '咖啡品牌識別',
-    description: '為新興咖啡品牌設計的完整視覺識別系統',
-    fullDescription: '為一家精品咖啡品牌打造的完整視覺識別系統，從品牌 Logo 設計到包裝設計、店面視覺規劃等。設計理念融合了現代簡約風格與咖啡文化的溫暖感受，創造出獨特且具有辨識度的品牌形象。',
-    image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
-    images: [
-      'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=1200'
-    ],
-    category: '品牌設計',
-    technologies: ['Illustrator', 'Photoshop', 'InDesign', 'Figma'],
-    features: [
-      'Logo 設計',
-      '品牌色彩規劃',
-      '字體系統設計',
-      '包裝設計系列',
-      '店面視覺規劃',
-      '名片與文具設計',
-      '社群媒體模板',
-      '品牌指南手冊',
-      '廣告素材設計',
-      '網站視覺規劃'
-    ],
-    challenges: [
-      '在競爭激烈的咖啡市場中建立獨特性',
-      '平衡現代感與溫暖感的視覺表現',
-      '確保品牌在不同媒介上的一致性',
-      '符合目標客群的審美偏好',
-      '控制製作成本與品質'
-    ],
-    solutions: [
-      '深入研究目標市場和競爭對手',
-      '創造獨特的視覺語言和色彩系統',
-      '建立完整的品牌應用規範',
-      '進行多輪用戶測試和反饋收集',
-      '選擇高品質且經濟的製作方案'
-    ],
-    results: [
-      '品牌知名度提升 80%',
-      '社群媒體關注度增長 150%',
-      '獲得設計獎項肯定',
-      '客戶滿意度達 98%',
-      '成功拓展至 5 個城市'
-    ],
-    timeline: '2 個月',
-    client: 'Artisan Coffee Co.',
-    year: '2024',
-    status: '已完成',
-    teamSize: 2,
-    role: '品牌設計主導',
-    testimonial: {
-      text: '新的品牌識別完全改變了我們的形象！顧客們都說我們看起來更專業、更有質感了。銷售額也有明顯提升。',
-      author: '陳老闆',
-      position: '創辦人',
-      company: 'Artisan Coffee Co.'
-    }
-  },
+  id: 4,
+  title: '臺科大國手計畫宣傳影片',
+  description: '將國手在計劃期間內的成果紀實，以影音形式呈現精神與亮點',
+  fullDescription: '本專案為臺科大國手計畫打造專屬宣傳影片，從內容規劃、剪輯到配樂製作，整合比賽現場、訓練過程與訪談素材，完整傳遞選手的努力歷程與國手精神。影片長度約 2 分鐘，支援在簡報、社群媒體、活動播放使用。',
+  image: 'https://images.pexels.com/photos/5864277/pexels-photo-5864277.jpeg?auto=compress&cs=tinysrgb&w=800',
+  images: [
+    'https://images.pexels.com/photos/5864277/pexels-photo-5864277.jpeg?auto=compress&cs=tinysrgb&w=1200'
+  ],
+  category: 'video',
+  technologies: ['DaVinci Resolve', '影片剪輯', 'AI 音樂創作'],
+  features: [
+    '影片腳本與畫面分鏡',
+    '剪輯與視覺節奏設計',
+    'AI 音樂音效創作與混音',
+    '支援社群與簡報播放格式'
+  ],
+  challenges: [
+    '素材來源多元，需有效統整風格一致',
+    '短時間內需完成剪輯與配樂、導出多種格式'
+  ],
+  solutions: [
+    '制定內容腳本，搭配畫面節奏剪輯強化情緒',
+    '導入 AI 音樂生成工具，快速建立風格一致的配樂',
+    '輸出多種尺寸與格式，適應不同播放情境'
+  ],
+  results: [
+    '成功於 11 天內完成剪輯、調色與交付',
+    '影片於成果發表會現場播放，獲得高度回響',
+    '後續應用於 LINE 官方帳號、招生簡報與形象網站'
+  ],
+  timeline: '11 天',
+  client: '台灣科技大學',
+  year: '2025',
+  teamSize: 1,
+  role: '影片規劃與剪輯主導',
+  liveUrl: '',
+  githubUrl: '',
+  status: '已交付',
+  testimonial: {
+    text: '影片整體節奏與視覺呈現令人驚豔，充分展現國手的努力與精神，非常加分！',
+    author: '楊先生',
+    position: '承辦人',
+    company: '台灣科技大學'
+  }
+},
   {
     id: 4,
     title: '音樂節海報系列',
