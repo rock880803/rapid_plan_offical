@@ -317,7 +317,7 @@ export const projectsData: Project[] = [
   timeline: '90 天',
   client: '臺北市兵役局',
   year: '2025',
-  teamSize: 3,
+  teamSize: 1,
   role: '介面設計與互動流程整合',
   liveUrl: '',
   githubUrl: '',
