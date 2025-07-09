@@ -1,26 +1,4 @@
-// 輔助函數：將專案標題轉換為適合檔案名稱的格式
-export const formatTitleForFilename = (title: string): string => {
-  return title
-    .replace(/\s+/g, '_')  // 將空格替換為底線
-    .replace(/[^\w\u4e00-\u9fff_]/g, '')  // 移除特殊字符，保留中文、英文、數字和底線
-    .trim();
-};
-
-// 輔助函數：根據專案標題和圖片數量生成圖片路徑陣列
-export const generateProjectImagePaths = (title: string, imageCount: number = 5): { image: string; images: string[] } => {
-  const formattedTitle = formatTitleForFilename(title);
-  const basePath = `/images/project_images/${formattedTitle}`;
-  
-  const images = Array.from({ length: imageCount }, (_, index) => 
-    `${basePath}_${index + 1}.png`
-  );
-  
-  return {
-    image: images[0], // 主圖片使用第一張
-    images: images
-  };
-};
-
+// 專案資料
 export interface Project {
   id: number;
   title: string;
@@ -107,8 +85,15 @@ export const projectsData: Project[] = [
     id: 2,
     title: '臺科大國手計畫成果冊',
     description: '將國手在計劃期間內的成果紀實，結合視覺設計與圖文編輯呈現專業形象',
-    fullDescription: '本專案為臺灣科技大學國手培訓計畫成果紀錄冊，內容涵蓋學生訓練過程、比賽現場紀實與獲獎成果，並透過設計與攝影編排整合，打造具備代表性的形象冊。從風格規劃、排版設計、到高品質印刷交付，完整呈現計劃亮點。',
-    ...generateProjectImagePaths('臺科大國手計畫成果冊', 5),
+    fullDescription: '本專案為臺灣科技大學國手培訓計劃成果紀錄冊，內容涵蓋學生訓練過程、比賽現場紀實與獲獎成果，並透過設計與攝影編排整合，打造具備代表性的形象冊。從風格規劃、排版設計、到高品質印刷交付，完整呈現計劃亮點。',
+    image: 'https://images.pexels.com/photos/19886862/pexels-photo-19886862.jpeg?auto=compress&cs=tinysrgb&w=800',
+    images: [
+      'https://images.pexels.com/photos/19886862/pexels-photo-19886862.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ],
     category: '平面設計',
     technologies: ['Adobe Illustrator', '攝影', '排版', '印刷'],
     features: [
@@ -151,7 +136,15 @@ export const projectsData: Project[] = [
     title: '臺科大國手計畫宣傳影片',
     description: '將國手在計劃期間內的成果紀實，以影音形式呈現精神與亮點',
     fullDescription: '本專案為臺科大國手計畫打造專屬宣傳影片，從內容規劃、剪輯到配樂製作，整合比賽現場、訓練過程與訪談素材，完整傳遞選手的努力歷程與國手精神。影片長度約 2 分鐘，支援在簡報、社群媒體、活動播放使用。',
-    ...generateProjectImagePaths('臺科大國手計畫宣傳影片', 2),
+    image: '/images/project_images/3-1.png',
+    images: [
+      '/images/project_images/3-1.png',
+      '/images/project_images/3-2.png',
+      '/images/project_images/3-3.png',
+      '/images/project_images/3-4.png',
+      '/images/project_images/3-5.png'
+    ],
+    videoIframe: '<iframe width="560" height="315" src="https://www.youtube.com/embed/xHonIgLCehw?si=ogwpiTFGJ53jccFL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
     videoAlternativeLink: 'https://www.youtube.com/watch?v=xHonIgLCehw',
     category: '影片創作',
     technologies: ['DaVinci Resolve', '影片剪輯', 'AI 音樂創作'],
@@ -195,7 +188,12 @@ export const projectsData: Project[] = [
     title: '臺科大國手計畫三折頁',
     description: '簡介國手計畫需知事項，透過創意時間線與版面配置，提升閱讀與記憶效率',
     fullDescription: '為提升國手對計畫內容的理解與記憶，我設計了一份結合燙金工藝與創意排版的三折頁，精準傳遞重要流程與注意事項。特別以「多條時間線視覺」為核心概念，幫助選手快速掌握培訓、競賽、申報等階段流程。紙材選用 A4 雙面雪銅上霧，搭配 CK-11 燙金點綴，提升整體質感。',
-    ...generateProjectImagePaths('臺科大國手計畫三折頁', 3),
+    image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
+    images: [
+      'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ],
     category: '平面設計',
     technologies: ['Adobe Illustrator', '排版設計', '燙金 CK-11', 'A4 雙面雪銅上霧'],
     features: [
@@ -238,7 +236,11 @@ export const projectsData: Project[] = [
     title: '臺科大電子系 50 週年懷舊影片',
     description: '以敘事節奏與懷舊素材，紀錄電子系 50 年發展歷程，融合音樂與影像創造回憶感',
     fullDescription: '為了紀念台科大電子系創立 50 週年，我製作了一支具備情感節奏與歷史重量的懷舊影片。影片以創系照片開場，採用「翻開相簿」的敘事方式，引導觀眾進入電子系的成長回憶。時間軸採順敘手法編排歷史活動，並使用 AI 創作音樂搭配轉場節奏。結尾部分呼應開頭，將相簿合上，形成完整的記憶循環。',
-    ...generateProjectImagePaths('臺科大電子系 50 週年懷舊影片', 2),
+    image: 'https://images.pexels.com/photos/1670176/pexels-photo-1670176.jpeg?auto=compress&cs=tinysrgb&w=800',
+    images: [
+      'https://images.pexels.com/photos/1670176/pexels-photo-1670176.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/5864277/pexels-photo-5864277.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ],
     videoIframe: '<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="臺科大電子系 50 週年懷舊影片" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
     videoAlternativeLink: 'https://vimeo.com/your-video-id',
     category: '影片創作',
