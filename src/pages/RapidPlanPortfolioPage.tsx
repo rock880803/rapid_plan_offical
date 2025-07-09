@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -27,125 +27,6 @@ const staggerContainer = {
       delayChildren: 0.1
     }
   }
-};
-
-// 數字動畫 Hook
-const useCountUp = (end: number, duration: number = 2000, delay: number = 0) => {
-  const [count, setCount] = useState(0);
-  const [hasStarted, setHasStarted] = useState(false);
-
-  const startAnimation = () => {
-    if (hasStarted) return;
-    setHasStarted(true);
-    
-    setTimeout(() => {
-      const startTime = Date.now();
-      const animate = () => {
-        const now = Date.now();
-        const progress = Math.min((now - startTime) / duration, 1);
-        
-        // 使用 easeOutCubic 緩動函數
-        const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
-        const easedProgress = easeOutCubic(progress);
-        
-        setCount(Math.floor(easedProgress * end));
-        
-        if (progress < 1) {
-          requestAnimationFrame(animate);
-        } else {
-          setCount(end);
-        }
-      };
-      animate();
-    }, delay);
-  };
-
-  return { count, startAnimation, hasStarted };
-};
-
-// 動畫統計組件
-const AnimatedStat: React.FC<{
-  number: string;
-  label: string;
-  index: number;
-  disableAnimation?: boolean;
-}> = ({ number, label, index, disableAnimation = false }) => {
-  // 提取數字部分進行動畫
-  const numericValue = parseInt(number.replace(/[^0-9]/g, '')) || 0;
-  const suffix = number.replace(/[0-9]/g, '');
-  
-  const { count, startAnimation, hasStarted } = useCountUp(
-    numericValue, 
-    2000 + index * 200, // 每個統計項目稍微錯開動畫時間
-    index * 300 // 延遲啟動時間
-  );
-
-  return (
-    <motion.div 
-      className="text-center"
-      initial={{ opacity: 0, y: 30, scale: 0.8 }}
-      whileInView={{ 
-        opacity: 1, 
-        y: 0, 
-        scale: 1,
-        transition: {
-          duration: 0.6,
-          delay: index * 0.15,
-          type: "spring",
-          stiffness: 200,
-          damping: 20
-        }
-      }}
-      viewport={{ once: true, margin: "-100px" }}
-      onViewportEnter={disableAnimation ? undefined : startAnimation}
-    >
-      <motion.div 
-        className="text-3xl md:text-4xl font-bold mb-2 glow-stats"
-        initial={{ scale: 0.5, opacity: 0 }}
-        animate={{ 
-          scale: disableAnimation ? 1 : (hasStarted ? 1 : 0.5), 
-          opacity: disableAnimation ? 1 : (hasStarted ? 1 : 0)
-        }}
-        transition={{ 
-          duration: 0.8, 
-          delay: index * 0.15 + 0.3,
-          type: "spring", 
-          stiffness: 200,
-          damping: 15
-        }}
-      >
-        {disableAnimation ? (
-          <span>{number.replace(/[^0-9]/g, '')}</span>
-        ) : (
-          <motion.span
-            key={count}
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ 
-              duration: 0.3,
-              type: "spring",
-              stiffness: 300,
-              damping: 25
-            }}
-          >
-            {count}
-          </motion.span>
-        )}
-        <span className="text-blue-200">{suffix}</span>
-      </motion.div>
-      <motion.div 
-        className="text-lg opacity-90 tracking-wide glow-text"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 0.9, y: 0 }}
-        transition={{ 
-          duration: 0.5, 
-          delay: index * 0.15 + 0.6 
-        }}
-      >
-        {label}
-      </motion.div>
-    </motion.div>
-  );
 };
 
 const RapidPlanPortfolioPage = () => {
@@ -429,13 +310,28 @@ const RapidPlanPortfolioPage = () => {
               { number: '100%', label: '準時交付' },
               { number: '24/7', label: '技術支援' }
             ].map((stat, index) => (
-              <AnimatedStat
+              <motion.div 
                 key={index}
-                number={stat.number}
-                label={stat.label}
-                index={index}
-                disableAnimation={stat.number === '24/7'}
-              />
+                variants={fadeInUp}
+                className="text-center"
+              >
+                <motion.div 
+                  className="text-3xl md:text-4xl font-bold mb-2 glow-stats"
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: index * 0.15, 
+                    type: "spring", 
+                    stiffness: 200,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }}
+                >
+                  {stat.number}
+                </motion.div>
+                <div className="text-lg opacity-90 tracking-wide glow-text">{stat.label}</div>
+              </motion.div>
             ))}
           </motion.div>
         </motion.div>
