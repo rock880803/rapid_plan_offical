@@ -20,6 +20,7 @@ import {
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { getProjectById, getRelatedProjects } from '../data/projectsData';
 import ProjectImage from '../components/ProjectImage';
+import YouTubeEmbed from '../components/YouTubeEmbed';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -165,22 +166,10 @@ const ProjectDetailPage = () => {
           {/* Video Section */}
           {project.videoUrl && (
             <div className="mb-8">
-              <motion.div
-                className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg bg-gray-100 dark:bg-gray-800"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <iframe
-                  src={project.videoUrl}
-                  title={`${project.title} - 專案影片`}
-                  className="w-full h-full"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-              </motion.div>
+              <YouTubeEmbed
+                videoUrl={project.videoUrl}
+                title={`${project.title} - 專案影片`}
+              />
               
               {/* Video Description */}
               <motion.div

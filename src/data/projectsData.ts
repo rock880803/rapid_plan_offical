@@ -231,7 +231,7 @@ export const projectsData: Project[] = [
     description: '以敘事節奏與懷舊素材，紀錄電子系 50 年發展歷程，融合音樂與影像創造回憶感',
     fullDescription: '為了紀念台科大電子系創立 50 週年，我製作了一支具備情感節奏與歷史重量的懷舊影片。影片以創系照片開場，採用「翻開相簿」的敘事方式，引導觀眾進入電子系的成長回憶。時間軸採順敘手法編排歷史活動，並使用 AI 創作音樂搭配轉場節奏。結尾部分呼應開頭，將相簿合上，形成完整的記憶循環。',
     ...generateProjectImagePaths('臺科大電子系 50 週年懷舊影片', 2),
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     category: '影片創作',
     technologies: ['Davinci Resolve', 'AI 音樂創作', 'Photoshop'],
     features: [
