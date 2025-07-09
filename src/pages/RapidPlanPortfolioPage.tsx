@@ -159,16 +159,6 @@ const RapidPlanPortfolioPage = () => {
                     showPlaceholderText={true}
                   />
                   
-                  {/* 影片標識 - 只在有影片的專案上顯示 */}
-                  {project.videoIframe && (
-                    <div className="absolute top-2 left-2 bg-red-600 text-white px-2 py-1 rounded text-xs font-medium flex items-center gap-1">
-                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
-                      </svg>
-                      影片
-                    </div>
-                  )}
-                  
                   {/* 滑動遮罩效果 */}
                   <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out"></div>
                   
@@ -247,21 +237,6 @@ const RapidPlanPortfolioPage = () => {
                     {project.description}
                   </motion.p>
 
-                  {/* 專案資訊 */}
-                  <motion.div 
-                    className="mb-4"
-                    whileHover={{ y: -2 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  >
-                    <div className="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mb-2">
-                      <span>客戶：{project.client}</span>
-                      <span>{project.timeline}</span>
-                    </div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400">
-                      團隊規模：{project.teamSize} 人 | 角色：{project.role}
-                    </div>
-                  </motion.div>
-                  
                   {/* 技術標籤 */}
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.slice(0, 3).map((tech, techIndex) => (
