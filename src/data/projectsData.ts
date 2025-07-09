@@ -214,66 +214,52 @@ export const projectsData: Project[] = [
   }
 },
   {
-    id: 5,
-    title: '任務管理系統',
-    description: '團隊協作的任務管理和專案追蹤系統',
-    fullDescription: '為企業團隊開發的綜合性任務管理和專案追蹤系統，支援多人協作、即時通訊、進度追蹤、報表分析等功能。系統採用現代化的介面設計，提供直觀的操作體驗，幫助團隊提高工作效率和協作品質。',
-    image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
-    images: [
-      'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=1200'
-    ],
-    category: '專案開發',
-    technologies: ['Vue.js', 'Express', 'PostgreSQL', 'Socket.io', 'Redis', 'Docker', 'AWS'],
-    features: [
-      '即時協作功能',
-      '甘特圖專案視圖',
-      '時間追蹤系統',
-      '報表分析儀表板',
-      '檔案共享管理',
-      '通知提醒系統',
-      '權限管理',
-      '多專案支援',
-      '行動裝置適配',
-      'API 整合能力'
-    ],
-    challenges: [
-      '即時協作的技術實現',
-      '大量數據的效能優化',
-      '複雜的權限管理邏輯',
-      '跨時區的時間處理',
-      '系統擴展性設計'
-    ],
-    solutions: [
-      '使用 WebSocket 實現即時通訊',
-      '實作數據庫索引和快取機制',
-      '設計靈活的角色權限系統',
-      '統一使用 UTC 時間處理',
-      '採用微服務架構確保擴展性'
-    ],
-    results: [
-      '團隊工作效率提升 35%',
-      '專案完成率提高 28%',
-      '用戶滿意度達 92%',
-      '系統穩定性達 99.9%',
-      '成功服務 50+ 企業客戶'
-    ],
-    timeline: '5 個月',
-    client: 'ProductivePro 企業',
-    year: '2024',
-    liveUrl: 'https://taskmanager-pro.com',
-    githubUrl: 'https://github.com/example/task-manager',
-    status: '開發中',
-    teamSize: 5,
-    role: '全端開發 & 系統架構',
-    testimonial: {
-      text: '這套系統大幅改善了我們的專案管理流程，團隊協作變得更加順暢，強烈推薦給其他企業！',
-      author: '張經理',
-      position: '專案經理',
-      company: 'ProductivePro 企業'
-    }
-  },
+  id: 5,
+  title: '臺科大電子系 50 週年懷舊影片',
+  description: '以敘事節奏與懷舊素材，紀錄電子系 50 年發展歷程，融合音樂與影像創造回憶感',
+  fullDescription: '為了紀念台科大電子系創立 50 週年，我製作了一支具備情感節奏與歷史重量的懷舊影片。影片以創系照片開場，採用「翻開相簿」的敘事方式，引導觀眾進入電子系的成長回憶。時間軸採順敘手法編排歷史活動，並使用 AI 創作音樂搭配轉場節奏。結尾部分呼應開頭，將相簿合上，形成完整的記憶循環。',
+  image: 'https://images.pexels.com/photos/1670176/pexels-photo-1670176.jpeg?auto=compress&cs=tinysrgb&w=800',
+  images: [
+    'https://images.pexels.com/photos/1670176/pexels-photo-1670176.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    'https://images.pexels.com/photos/700669/pexels-photo-700669.jpeg?auto=compress&cs=tinysrgb&w=1200'
+  ],
+  category: 'video',
+  technologies: ['Davinci Resolve', 'AI 音樂創作', 'Photoshop'],
+  features: [
+    '首尾呼應式影片節奏',
+    '懷舊照片掃描與後製',
+    'AI 音樂節奏配合畫面',
+    '時間軸敘事剪輯風格'
+  ],
+  challenges: [
+    '需要在短時間內整合 50 年活動素材與照片',
+    '保持畫面與音樂節奏一致，避免突兀感'
+  ],
+  solutions: [
+    '建立素材時間軸與編年清單，分類整理提升效率',
+    '以 AI 音樂生成工具製作符合節奏的背景配樂',
+    '將創系照片進行修圖與翻頁動畫設計'
+  ],
+  results: [
+    '3 天內完成影片剪輯與交付',
+    '成功於 50 週年紀念活動首播，獲得熱烈反響',
+    '主任與師生高度評價影片溫度與敘事節奏'
+  ],
+  timeline: '3 天',
+  client: '台灣科技大學',
+  year: '2025',
+  teamSize: 1,
+  role: '影像編導與剪輯統籌',
+  liveUrl: '',
+  githubUrl: '',
+  status: '已交付',
+  testimonial: {
+    text: '影片讓我們彷彿走過了 50 年電子系的旅程，從影像到音樂節奏都很細膩、動人。',
+    author: '林主任',
+    position: '系主任',
+    company: '台灣科技大學'
+  }
+},
   {
     id: 6,
     title: '美食部落格',
