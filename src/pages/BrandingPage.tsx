@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt, faPalette, faBullseye, faAward } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import ProjectImage from '../components/ProjectImage';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -165,13 +166,13 @@ const BrandingPage = () => {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="relative overflow-hidden">
-                <img
+                <ProjectImage
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-48 group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
+                  showPlaceholderText={true}
                 />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
                 
                 {/* Overlay with category */}
                 <div className="absolute top-4 left-4">

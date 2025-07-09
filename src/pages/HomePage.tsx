@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faLightbulb, faBullseye, faShield, faUsers, faAward, faZap, faChevronDown, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { projectsData } from '../data/projectsData';
+import ProjectImage from '../components/ProjectImage';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -526,11 +527,12 @@ const HomePage = () => {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="relative overflow-hidden">
-                <img
+                <ProjectImage
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-48 group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
+                  showPlaceholderText={true}
                 />
                 
                 {/* 滑動遮罩效果 */}

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import ProjectImage from '../components/ProjectImage';
 import { projectsData } from '../data/projectsData';
 
 const fadeInUp = {
@@ -104,7 +105,7 @@ const RapidPlanPortfolioPage = () => {
               whileTap={{ scale: 0.95 }}
             >
               {category.name}
-            </motion.button>
+                <ProjectImage
           ))}
         </motion.div>
 
@@ -201,8 +202,9 @@ const RapidPlanPortfolioPage = () => {
                         查看詳情
                       </Link>
                     </motion.div>
-                  </div>
+                  className="w-full h-48 transition-transform duration-500 ease-out group-hover:scale-110"
 
+                  showPlaceholderText={true}
                 </div>
                 
                 <div className="p-6">

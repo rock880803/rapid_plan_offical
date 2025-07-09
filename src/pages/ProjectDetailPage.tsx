@@ -19,6 +19,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { getProjectById, getRelatedProjects } from '../data/projectsData';
+import ProjectImage from '../components/ProjectImage';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -202,13 +203,12 @@ const ProjectDetailPage = () => {
           {/* Main Image */}
           {project.images.length > 0 && (
             <div className="relative mb-6 group">
-            <motion.img
+            <ProjectImage
               src={project.images[currentImageIndex]}
               alt={`${project.title} - 圖片 ${currentImageIndex + 1}`}
-              className="w-full h-96 md:h-[500px] object-cover rounded-xl shadow-lg cursor-pointer"
+              className="w-full h-96 md:h-[500px] rounded-xl shadow-lg cursor-pointer"
               onClick={() => setIsImageModalOpen(true)}
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
+              showPlaceholderText={true}
             />
             
             {/* Navigation Arrows */}
@@ -244,19 +244,18 @@ const ProjectDetailPage = () => {
           {project.images.length > 1 && (
             <div className="flex gap-4 overflow-x-auto pb-2">
               {project.images.map((image, index) => (
-                <motion.img
+                <ProjectImage
                   key={index}
                   src={image}
                   alt={`${project.title} - 縮圖 ${index + 1}`}
-                  className={`w-20 h-20 object-cover rounded-lg cursor-pointer flex-shrink-0 transition-all ${
+                  className={`w-20 h-20 rounded-lg cursor-pointer flex-shrink-0 transition-all ${
                     index === currentImageIndex 
                       ? 'ring-2 ring-blue-500 opacity-100' 
                       : 'opacity-60 hover:opacity-100'
                   }`}
                   onClick={() => setCurrentImageIndex(index)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
                   loading="lazy"
+                  showPlaceholderText={false}
                 />
               ))}
             </div>
@@ -482,13 +481,13 @@ const ProjectDetailPage = () => {
                     className="block bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-shadow overflow-hidden group glow-card"
                   >
                     <div className="relative overflow-hidden">
-                      <img
+                      <ProjectImage
                         src={relatedProject.image}
                         alt={relatedProject.title}
-                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-48 group-hover:scale-105 transition-transform duration-300"
                         loading="lazy"
+                        showPlaceholderText={true}
                       />
-                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
                     </div>
                     <div className="p-6">
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 glow-subtitle">
@@ -523,10 +522,11 @@ const ProjectDetailPage = () => {
               exit={{ scale: 0.8, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <img
+              <ProjectImage
                 src={project.images[currentImageIndex]}
                 alt={`${project.title} - 大圖`}
-                className="max-w-full max-h-full object-contain rounded-lg"
+                className="max-w-full max-h-full rounded-lg"
+                showPlaceholderText={true}
               />
               
               {/* Close Button */}
