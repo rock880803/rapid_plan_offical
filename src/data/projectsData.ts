@@ -86,13 +86,12 @@ export const projectsData: Project[] = [
     title: '臺科大國手計畫成果冊',
     description: '將國手在計劃期間內的成果紀實，結合視覺設計與圖文編輯呈現專業形象',
     fullDescription: '本專案為臺灣科技大學國手培訓計劃成果紀錄冊，內容涵蓋學生訓練過程、比賽現場紀實與獲獎成果，並透過設計與攝影編排整合，打造具備代表性的形象冊。從風格規劃、排版設計、到高品質印刷交付，完整呈現計劃亮點。',
-    image: 'https://images.pexels.com/photos/19886862/pexels-photo-19886862.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/images/project_images/2-1.png',
     images: [
-      'https://images.pexels.com/photos/19886862/pexels-photo-19886862.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800'
+      '/images/project_images/2-1.png',
+      '/images/project_images/2-2.png',
+      '/images/project_images/2-3.png',
+      '/images/project_images/2-4.png'
     ],
     category: '平面設計',
     technologies: ['Adobe Illustrator', '攝影', '排版', '印刷'],
