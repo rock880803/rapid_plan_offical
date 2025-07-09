@@ -187,11 +187,11 @@ export const projectsData: Project[] = [
     title: '臺科大國手計畫三折頁',
     description: '簡介國手計畫需知事項，透過創意時間線與版面配置，提升閱讀與記憶效率',
     fullDescription: '為提升國手對計畫內容的理解與記憶，我設計了一份結合燙金工藝與創意排版的三折頁，精準傳遞重要流程與注意事項。特別以「多條時間線視覺」為核心概念，幫助選手快速掌握培訓、競賽、申報等階段流程。紙材選用 A4 雙面雪銅上霧，搭配 CK-11 燙金點綴，提升整體質感。',
-    image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/images/project_images/4-1.png',
     images: [
-      'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800'
+      '/images/project_images/4-1.png',
+      '/images/project_images/4-2.png',
+      '/images/project_images/4-3.png'
     ],
     category: '平面設計',
     technologies: ['Adobe Illustrator', '排版設計', '燙金 CK-11', 'A4 雙面雪銅上霧'],
