@@ -68,7 +68,8 @@ const AnimatedStat: React.FC<{
   number: string;
   label: string;
   index: number;
-}> = ({ number, label, index }) => {
+  disableAnimation?: boolean;
+}> = ({ number, label, index, disableAnimation = false }) => {
   // 提取數字部分進行動畫
   const numericValue = parseInt(number.replace(/[^0-9]/g, '')) || 0;
   const suffix = number.replace(/[0-9]/g, '');
@@ -96,14 +97,14 @@ const AnimatedStat: React.FC<{
         }
       }}
       viewport={{ once: true, margin: "-100px" }}
-      onViewportEnter={startAnimation}
+      onViewportEnter={disableAnimation ? undefined : startAnimation}
     >
       <motion.div 
         className="text-3xl md:text-4xl font-bold mb-2 glow-stats"
         initial={{ scale: 0.5, opacity: 0 }}
         animate={{ 
-          scale: hasStarted ? 1 : 0.5, 
-          opacity: hasStarted ? 1 : 0 
+          scale: disableAnimation ? 1 : (hasStarted ? 1 : 0.5), 
+          opacity: disableAnimation ? 1 : (hasStarted ? 1 : 0)
         }}
         transition={{ 
           duration: 0.8, 
@@ -113,19 +114,23 @@ const AnimatedStat: React.FC<{
           damping: 15
         }}
       >
-        <motion.span
-          key={count}
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ 
-            duration: 0.3,
-            type: "spring",
-            stiffness: 300,
-            damping: 25
-          }}
-        >
-          {count}
-        </motion.span>
+        {disableAnimation ? (
+          <span>{number.replace(/[^0-9]/g, '')}</span>
+        ) : (
+          <motion.span
+            key={count}
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ 
+              duration: 0.3,
+              type: "spring",
+              stiffness: 300,
+              damping: 25
+            }}
+          >
+            {count}
+          </motion.span>
+        )}
         <span className="text-blue-200">{suffix}</span>
       </motion.div>
       <motion.div 
@@ -429,6 +434,7 @@ const RapidPlanPortfolioPage = () => {
                 number={stat.number}
                 label={stat.label}
                 index={index}
+                disableAnimation={stat.number === '24/7'}
               />
             ))}
           </motion.div>
