@@ -68,17 +68,22 @@ const DevelopmentPage = () => {
   status: '已交付'
 },
     {
-      id: 4,
-      title: '線上學習平台',
-      description: '提供課程管理、影片播放、作業提交、成績管理的完整學習管理系統',
-      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
-      category: 'EdTech',
-      technologies: ['Next.js', 'Prisma', 'MySQL', 'AWS'],
-      features: ['課程管理', '影片串流', '互動測驗', '證書系統'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example',
-      status: '已上線'
-    },
+  id: 4,
+  title: '臺科大國手計畫三折頁',
+  description: '簡介國手計畫需知事項，透過創意時間線與版面配置，提升閱讀與記憶效率',
+  image: 'https://images.pexels.com/photos/2649473/pexels-photo-2649473.jpeg?auto=compress&cs=tinysrgb&w=800',
+  category: 'graphic',
+  technologies: ['Adobe Illustrator', '排版設計', '燙金 CK-11', 'A4 雙面雪銅上霧'],
+  features: [
+    '三折頁版面設計',
+    '多時間線圖示創意表現',
+    '燙金應用與紙材規劃',
+    '重要資訊可視化與分區設計'
+  ],
+  liveUrl: '',
+  githubUrl: '',
+  status: '已交付'
+},
    {
   id: 5,
   title: '臺科大電子系 50 週年懷舊影片',
