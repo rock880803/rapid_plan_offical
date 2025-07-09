@@ -97,16 +97,25 @@ const DevelopmentPage = () => {
   status: '已交付'
 },
     {
-      id: 6,
-      title: '庫存管理系統',
-      description: '為中小企業設計的庫存管理和進銷存系統，支援多倉庫管理',
-      image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
-      category: 'ERP 系統',
-      technologies: ['Laravel', 'Vue.js', 'MySQL', 'Redis'],
-      features: ['多倉庫管理', '自動補貨', '報表分析', 'API 整合'],
-      githubUrl: 'https://github.com/example',
-      status: '維護中'
-    }
+  id: 6,
+  title: '臺北市城鎮韌性演習兵推系統',
+  description: '協助臺北市政府及外部廠商開發兵推系統，在大螢幕即時展示演習流程，實現無腳本演練',
+  image: 'https://images.pexels.com/photos/2566582/pexels-photo-2566582.jpeg?auto=compress&cs=tinysrgb&w=800',
+  category: 'web',
+  technologies: ['HTML', 'CSS', '模組化 Web 應用架構',
+  '互動式地圖 API',
+  'Canvas 與 SVG 資料視覺化技術'], 
+  features: [
+    '多單位角色模擬操作',
+    '大型觸控螢幕互動介面',
+    '模組化地圖事件標示',
+    '實時兵推流程控制與視覺化'
+  ],
+  liveUrl: '',
+  githubUrl: '',
+  status: '測試中' 
+}
+
   ];
 
   const developmentServices = [
