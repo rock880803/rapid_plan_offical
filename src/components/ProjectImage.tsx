@@ -84,7 +84,7 @@ const ProjectImage: React.FC<ProjectImageProps> = ({
       )}
 
       {/* 黑色遮罩效果 - 只在正常圖片時顯示 */}
-      {!hasError && (
+      {!hasError && onClick && (
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
       )}
     </div>

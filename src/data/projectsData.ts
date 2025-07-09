@@ -100,7 +100,7 @@ export const projectsData: Project[] = [
     title: '臺科大國手計畫成果冊',
     description: '將國手在計劃期間內的成果紀實，結合視覺設計與圖文編輯呈現專業形象',
     fullDescription: '本專案為臺灣科技大學國手培訓計畫成果紀錄冊，內容涵蓋學生訓練過程、比賽現場紀實與獲獎成果，並透過設計與攝影編排整合，打造具備代表性的形象冊。從風格規劃、排版設計、到高品質印刷交付，完整呈現計劃亮點。',
-    ...generateProjectImagePaths('臺科大國手計畫成果冊', 3),
+    ...generateProjectImagePaths('臺科大國手計畫成果冊', 5),
     category: '平面設計',
     technologies: ['Adobe Illustrator', '攝影', '排版', '印刷'],
     features: [
