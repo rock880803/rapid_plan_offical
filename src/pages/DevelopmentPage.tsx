@@ -50,16 +50,23 @@ const DevelopmentPage = () => {
   status: '已交付'
 },
     {
-      id: 3,
-      title: '健身追蹤 App',
-      description: '幫助使用者記錄運動數據和制定健身計劃的移動應用程式',
-      image: 'https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=800',
-      category: '移動應用',
-      technologies: ['React Native', 'Firebase', 'Redux'],
-      features: ['運動記錄', '計劃制定', '進度追蹤', '社群分享'],
-      liveUrl: 'https://example.com',
-      status: '已上線'
-    },
+  id: 3,
+  title: '臺科大國手計畫宣傳影片',
+  description: '將國手在計劃期間內的成果紀實，以影音形式呈現精神與亮點',
+  image: 'https://images.pexels.com/photos/5864277/pexels-photo-5864277.jpeg?auto=compress&cs=tinysrgb&w=800',
+  category: 'video',
+  technologies: ['DaVinci Resolve', '影片剪輯', 'AI 音樂創作'],
+  features: [
+    '影片腳本與畫面分鏡',
+    '剪輯與視覺節奏設計',
+    'AI 音樂音效創作與混音',
+    '支援社群與簡報播放格式'
+  ],
+  liveUrl: '',
+  githubUrl: '',
+  status: '已交付'
+}
+,
     {
       id: 4,
       title: '線上學習平台',
