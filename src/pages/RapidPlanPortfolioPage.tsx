@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,6 +7,57 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import ProjectImage from '../components/ProjectImage';
 import IframeEmbed from '../components/IframeEmbed';
 import { projectsData } from '../data/projectsData';
+
+// 數字動畫 Hook
+const useCountUp = (end: number, duration: number = 2000, shouldStart: boolean = false) => {
+  const [count, setCount] = useState(0);
+  const countRef = useRef(0);
+  const startTimeRef = useRef<number | null>(null);
+  const animationRef = useRef<number>();
+
+  useEffect(() => {
+    if (!shouldStart) {
+      setCount(0);
+      return;
+    }
+
+    const animate = (timestamp: number) => {
+      if (!startTimeRef.current) {
+        startTimeRef.current = timestamp;
+      }
+
+      const progress = Math.min((timestamp - startTimeRef.current) / duration, 1);
+      
+      // 使用 easeOutCubic 緩動函數讓動畫更自然
+      const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+      const easedProgress = easeOutCubic(progress);
+      
+      const currentCount = Math.floor(easedProgress * end);
+      
+      if (currentCount !== countRef.current) {
+        countRef.current = currentCount;
+        setCount(currentCount);
+      }
+
+      if (progress < 1) {
+        animationRef.current = requestAnimationFrame(animate);
+      } else {
+        setCount(end);
+      }
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+      startTimeRef.current = null;
+    };
+  }, [end, duration, shouldStart]);
+
+  return count;
+};
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -31,6 +82,18 @@ const staggerContainer = {
 
 const RapidPlanPortfolioPage = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [shouldAnimateStats, setShouldAnimateStats] = useState(false);
+
+  // 統計數據
+  const statsData = [
+    { key: 'projects', number: projectsData.length, suffix: '+', label: '完成專案', animated: true },
+    { key: 'delivery', number: 100, suffix: '%', label: '準時交付', animated: true },
+    { key: 'support', number: 24, suffix: '/7', label: '技術支援', animated: false }
+  ];
+
+  // 使用動畫 hooks
+  const projectCount = useCountUp(projectsData.length, 2000, shouldAnimateStats);
+  const deliveryRate = useCountUp(100, 2500, shouldAnimateStats);
 
   const categories = [
     { id: 'all', name: '全部專案' },
@@ -303,36 +366,80 @@ const RapidPlanPortfolioPage = () => {
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ 
+              once: true, 
+              margin: "-50px",
+              amount: 0.3
+            }}
+            onViewportEnter={() => {
+              // 延遲啟動動畫，讓容器動畫先完成
+              setTimeout(() => setShouldAnimateStats(true), 500);
+            }}
           >
-            {[
-              { number: `${projectsData.length}+`, label: '完成專案' },
-              { number: '100%', label: '準時交付' },
-              { number: '24/7', label: '技術支援' }
-            ].map((stat, index) => (
+            {statsData.map((stat, index) => {
+              // 根據統計項目獲取對應的動畫值
+              let displayNumber;
+              if (stat.key === 'projects') {
+                displayNumber = projectCount;
+              } else if (stat.key === 'delivery') {
+                displayNumber = deliveryRate;
+              } else {
+                displayNumber = stat.number;
+              }
+
+              return (
               <motion.div 
-                key={index}
+                key={stat.key}
                 variants={fadeInUp}
                 className="text-center"
               >
-                <motion.div 
-                  className="text-3xl md:text-4xl font-bold mb-2 glow-stats"
-                  initial={{ scale: 0, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ 
-                    duration: 0.8, 
-                    delay: index * 0.15, 
-                    type: "spring", 
-                    stiffness: 200,
-                    ease: [0.25, 0.46, 0.45, 0.94]
-                  }}
-                >
-                  {stat.number}
-                </motion.div>
+                {stat.animated ? (
+                  <motion.div 
+                    className="text-3xl md:text-4xl font-bold mb-2 glow-stats"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ 
+                      duration: 0.8, 
+                      delay: index * 0.15, 
+                      type: "spring", 
+                      stiffness: 200,
+                      ease: [0.25, 0.46, 0.45, 0.94]
+                    }}
+                  >
+                    <span className="text-blue-200">
+                      {displayNumber}
+                    </span>
+                    <span className="text-white">
+                      {stat.suffix}
+                    </span>
+                  </motion.div>
+                ) : (
+                  <motion.div 
+                    className="text-3xl md:text-4xl font-bold mb-2 glow-stats"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ 
+                      duration: 0.8, 
+                      delay: index * 0.15, 
+                      type: "spring", 
+                      stiffness: 200,
+                      ease: [0.25, 0.46, 0.45, 0.94]
+                    }}
+                  >
+                    <span className="text-blue-200">
+                      {stat.number}
+                    </span>
+                    <span className="text-white">
+                      {stat.suffix}
+                    </span>
+                  </motion.div>
+                )}
                 <div className="text-lg opacity-90 tracking-wide glow-text">{stat.label}</div>
               </motion.div>
-            ))}
+              );
+            })}
           </motion.div>
         </motion.div>
 
