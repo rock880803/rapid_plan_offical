@@ -227,7 +227,6 @@ export const projectsData: Project[] = [
   technologies: ['Davinci Resolve', 'AI 音樂創作', 'Photoshop'],
   features: [
     '首尾呼應式影片節奏',
-    '懷舊照片掃描與後製',
     'AI 音樂節奏配合畫面',
     '時間軸敘事剪輯風格'
   ],
