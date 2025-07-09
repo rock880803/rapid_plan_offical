@@ -223,7 +223,7 @@ export const projectsData: Project[] = [
     'https://images.pexels.com/photos/1670176/pexels-photo-1670176.jpeg?auto=compress&cs=tinysrgb&w=1200',
     'https://images.pexels.com/photos/700669/pexels-photo-700669.jpeg?auto=compress&cs=tinysrgb&w=1200'
   ],
-  category: 'video',
+  category: '影片創作',
   technologies: ['Davinci Resolve', 'AI 音樂創作', 'Photoshop'],
   features: [
     '首尾呼應式影片節奏',
