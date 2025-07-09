@@ -285,11 +285,13 @@ export const projectsData: Project[] = [
   title: '臺北市城鎮韌性演習兵推系統',
   description: '協助臺北市政府及外部廠商開發兵推系統，在大螢幕即時展示演習流程，實現無腳本演練',
   fullDescription: '為提升城市災害應變與決策演練效率，協助兵役局開發「城鎮韌性兵推系統」。此系統支援大型觸控顯示，提供即時事件更新、角色切換與視覺化流程呈現，協助多單位同步演練。過程中需整合地圖標記工具、繪圖模組與多角色介面，挑戰在於無腳本流程下的彈性與穩定性。',
-  image: 'https://images.pexels.com/photos/2566582/pexels-photo-2566582.jpeg?auto=compress&cs=tinysrgb&w=800',
-  images: [
-    'https://images.pexels.com/photos/2566582/pexels-photo-2566582.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    'https://images.pexels.com/photos/1591060/pexels-photo-1591060.jpeg?auto=compress&cs=tinysrgb&w=1200'
-  ],
+   image: '/images/project_images/6-1.png',
+    images: [
+      '/images/project_images/6-1.png',
+      '/images/project_images/6-2.png',
+      '/images/project_images/6-3.png',
+      '/images/project_images/6-4.png'
+    ],
   category: '專案開發',
   technologies: ['HTML', 'CSS','模組化 Web 應用架構',
   '互動式地圖 API',
