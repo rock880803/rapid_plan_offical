@@ -291,7 +291,9 @@ export const projectsData: Project[] = [
     'https://images.pexels.com/photos/1591060/pexels-photo-1591060.jpeg?auto=compress&cs=tinysrgb&w=1200'
   ],
   category: 'web',
-  technologies: ['HTML', 'CSS', 'Bolt.New 技術架構', '地圖套件', '繪圖工具'],
+  technologies: ['HTML', 'CSS','模組化 Web 應用架構',
+  '互動式地圖 API',
+  'Canvas 與 SVG 資料視覺化技術'],
   features: [
     '多單位角色模擬操作',
     '大型觸控螢幕互動介面',
@@ -309,9 +311,8 @@ export const projectsData: Project[] = [
     '優化前端效能，確保高效渲染與穩定互動'
   ],
   results: [
-    '系統已於 2025 年 Q2 兵推演習中成功上線並實測',
-    '協助多單位完成即時應變模擬，提升演習效率',
-    '獲兵役局與技術廠商一致好評，作為未來兵推常態工具'
+    '系統已於 2025 年 Q3 兵推演習中實測',
+    '協助多單位完成即時應變模擬，提升演習效率'
   ],
   timeline: '90 天',
   client: '臺北市兵役局',
