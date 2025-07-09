@@ -168,64 +168,51 @@ export const projectsData: Project[] = [
   }
 },
   {
-    id: 4,
-    title: '音樂節海報系列',
-    description: '為夏日音樂節設計的視覺識別系列，包含主視覺、海報、周邊商品',
-    fullDescription: '為大型夏日音樂節設計的完整視覺識別系列，包含主視覺海報、宣傳物料、舞台背景、周邊商品等。設計風格融合了音樂的律動感與夏日的活力，運用鮮明的色彩和動感的圖形元素，成功營造出節慶的熱鬧氛圍。',
-    image: 'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=800',
-    images: [
-      'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=1200'
-    ],
-    category: '平面設計',
-    technologies: ['Illustrator', 'Photoshop'],
-    features: [
-      '主視覺海報設計',
-      '系列宣傳物料',
-      '舞台背景設計',
-      '周邊商品設計',
-      '社群媒體素材',
-      '票券設計',
-      '指標系統設計',
-      '活動手冊設計',
-      '數位廣告素材',
-      '品牌應用規範'
-    ],
-    challenges: [
-      '在眾多音樂節中建立獨特視覺識別',
-      '平衡多位藝人的視覺呈現',
-      '確保設計在不同尺寸媒介上的效果',
-      '符合年輕族群的審美趣味',
-      '控制大量印刷品的成本與品質'
-    ],
-    solutions: [
-      '建立強烈的視覺主題和色彩系統',
-      '設計模組化的版面系統',
-      '進行多種尺寸的測試和調整',
-      '研究目標族群的視覺偏好',
-      '選擇合適的印刷工藝和材質'
-    ],
-    results: [
-      '音樂節門票銷售提升 45%',
-      '社群媒體分享率增加 200%',
-      '獲得平面設計獎項肯定',
-      '周邊商品銷售額增長 80%',
-      '品牌知名度大幅提升'
-    ],
-    timeline: '1.5 個月',
-    client: 'Summer Beats Festival',
-    year: '2024',
-    status: '已完成',
-    teamSize: 2,
-    role: '主視覺設計師',
-    testimonial: {
-      text: '海報設計充滿活力且具有強烈的視覺衝擊力，完美捕捉了音樂節的精神。參與者都對視覺設計讚不絕口！',
-      author: '李製作人',
-      position: '活動製作人',
-      company: 'Summer Beats Festival'
-    }
-  },
+  id: 4,
+  title: '臺科大國手計畫三折頁',
+  description: '簡介國手計畫需知事項，透過創意時間線與版面配置，提升閱讀與記憶效率',
+  fullDescription: '為提升國手對計畫內容的理解與記憶，我設計了一份結合燙金工藝與創意排版的三折頁，精準傳遞重要流程與注意事項。特別以「多條時間線視覺」為核心概念，幫助選手快速掌握培訓、競賽、申報等階段流程。紙材選用 A4 雙面雪銅上霧，搭配 CK-11 燙金點綴，提升整體質感。',
+  image: 'https://images.pexels.com/photos/2649473/pexels-photo-2649473.jpeg?auto=compress&cs=tinysrgb&w=800',
+  images: [
+    'https://images.pexels.com/photos/2649473/pexels-photo-2649473.jpeg?auto=compress&cs=tinysrgb&w=1200'
+  ],
+  category: 'graphic',
+  technologies: ['Adobe Illustrator', '排版設計', '燙金 CK-11', 'A4 雙面雪銅上霧'],
+  features: [
+    '三折頁版面設計',
+    '多時間線圖示創意表現',
+    '燙金應用與紙材規劃',
+    '重要資訊可視化與分區設計'
+  ],
+  challenges: [
+    '需在有限空間內呈現大量內容，並避免資訊過載',
+    '需符合印刷廠裁切與折頁技術條件'
+  ],
+  solutions: [
+    '採用多層級排版策略分區資訊，提升可讀性',
+    '與印刷廠協作調整安全邊界與折線配置',
+    '加入品牌識別設計元素，保持一致性'
+  ],
+  results: [
+    '於 8 天內完成設計、校稿與交印',
+    '成功分送給全體國手與指導老師使用',
+    '獲校內行政單位肯定，作為優化資訊設計的範例'
+  ],
+  timeline: '8 天',
+  client: '台灣科技大學',
+  year: '2025',
+  teamSize: 1,
+  role: '整體設計與印製對接',
+  liveUrl: '',
+  githubUrl: '',
+  status: '已交付',
+  testimonial: {
+    text: '三折頁排版清楚，時間線設計很有創意，我們與選手們都覺得資訊吸收變得更有效率。',
+    author: '楊先生',
+    position: '承辦人',
+    company: '台灣科技大學'
+  }
+},
   {
     id: 5,
     title: '任務管理系統',
