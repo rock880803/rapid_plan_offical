@@ -84,7 +84,7 @@ export const projectsData: Project[] = [
   images: [
     'https://images.pexels.com/photos/19886862/pexels-photo-19886862.jpeg?auto=compress&cs=tinysrgb&w=1200'
   ],
-  category: 'graphic',
+  category: '平面設計',
   technologies: ['Adobe Illustrator', '攝影', '排版', '印刷'],
   features: [
     '活動成果紀錄設計',
@@ -122,7 +122,7 @@ export const projectsData: Project[] = [
   }
   },
   {
-  id: 4,
+  id: 3,
   title: '臺科大國手計畫宣傳影片',
   description: '將國手在計劃期間內的成果紀實，以影音形式呈現精神與亮點',
   fullDescription: '本專案為臺科大國手計畫打造專屬宣傳影片，從內容規劃、剪輯到配樂製作，整合比賽現場、訓練過程與訪談素材，完整傳遞選手的努力歷程與國手精神。影片長度約 2 分鐘，支援在簡報、社群媒體、活動播放使用。',
@@ -130,7 +130,7 @@ export const projectsData: Project[] = [
   images: [
     'https://images.pexels.com/photos/5864277/pexels-photo-5864277.jpeg?auto=compress&cs=tinysrgb&w=1200'
   ],
-  category: 'video',
+  category: '影片創作',
   technologies: ['DaVinci Resolve', '影片剪輯', 'AI 音樂創作'],
   features: [
     '影片腳本與畫面分鏡',
