@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faLightbulb, faBullseye, faShield, faUsers, faAward, faZap, faChevronDown, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { projectsData } from '../data/projectsData';
 import ProjectImage from '../components/ProjectImage';
+import YouTubeEmbed from '../components/YouTubeEmbed';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -527,13 +528,30 @@ const HomePage = () => {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="relative overflow-hidden">
-                <ProjectImage
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                  showPlaceholderText={true}
-                />
+                {project.videoUrl ? (
+                  <div className="relative">
+                    <YouTubeEmbed
+                      videoUrl={project.videoUrl}
+                      title={project.title}
+                      className="h-48"
+                    />
+                    {/* 影片標識 */}
+                    <div className="absolute top-2 left-2 bg-red-600 text-white px-2 py-1 rounded text-xs font-medium flex items-center gap-1">
+                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
+                      </svg>
+                      影片
+                    </div>
+                  </div>
+                ) : (
+                  <ProjectImage
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                    showPlaceholderText={true}
+                  />
+                )}
                 
                 {/* 查看詳情按鈕 */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 delay-200">
