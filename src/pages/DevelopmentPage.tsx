@@ -78,17 +78,23 @@ const DevelopmentPage = () => {
       githubUrl: 'https://github.com/example',
       status: '已上線'
     },
-    {
-      id: 5,
-      title: '房地產搜尋平台',
-      description: '整合地圖搜尋、篩選條件、虛擬看房等功能的房地產平台',
-      image: 'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=800',
-      category: 'Web 應用',
-      technologies: ['Angular', 'Django', 'PostgreSQL', 'Google Maps'],
-      features: ['地圖搜尋', '進階篩選', '虛擬導覽', '價格分析'],
-      liveUrl: 'https://example.com',
-      status: '已上線'
-    },
+   {
+  id: 5,
+  title: '臺科大電子系 50 週年懷舊影片',
+  description: '以敘事節奏與懷舊素材，紀錄電子系 50 年發展歷程，融合音樂與影像創造回憶感',
+  image: 'https://images.pexels.com/photos/1670176/pexels-photo-1670176.jpeg?auto=compress&cs=tinysrgb&w=800',
+  category: 'video',
+  technologies: ['Davinci Resolve', 'AI 音樂創作', 'Photoshop'],
+  features: [
+    '首尾呼應式影片節奏',
+    '懷舊照片掃描與後製',
+    'AI 音樂節奏配合畫面',
+    '時間軸敘事剪輯風格'
+  ],
+  liveUrl: '',
+  githubUrl: '',
+  status: '已交付'
+},
     {
       id: 6,
       title: '庫存管理系統',
