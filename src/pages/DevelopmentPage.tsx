@@ -65,8 +65,7 @@ const DevelopmentPage = () => {
   liveUrl: '',
   githubUrl: '',
   status: '已交付'
-}
-,
+},
     {
       id: 4,
       title: '線上學習平台',
