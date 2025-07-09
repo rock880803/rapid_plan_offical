@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,6 +6,57 @@ import { faArrowRight, faLightbulb, faBullseye, faShield, faUsers, faAward, faZa
 import { projectsData } from '../data/projectsData';
 import ProjectImage from '../components/ProjectImage';
 import IframeEmbed from '../components/IframeEmbed';
+
+// 數字動畫 Hook
+const useCountUp = (end: number, duration: number = 2000, shouldStart: boolean = false) => {
+  const [count, setCount] = useState(0);
+  const countRef = useRef(0);
+  const startTimeRef = useRef<number | null>(null);
+  const animationRef = useRef<number>();
+
+  useEffect(() => {
+    if (!shouldStart) {
+      setCount(0);
+      return;
+    }
+
+    const animate = (timestamp: number) => {
+      if (!startTimeRef.current) {
+        startTimeRef.current = timestamp;
+      }
+
+      const progress = Math.min((timestamp - startTimeRef.current) / duration, 1);
+      
+      // 使用 easeOutCubic 緩動函數讓動畫更自然
+      const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+      const easedProgress = easeOutCubic(progress);
+      
+      const currentCount = Math.floor(easedProgress * end);
+      
+      if (currentCount !== countRef.current) {
+        countRef.current = currentCount;
+        setCount(currentCount);
+      }
+
+      if (progress < 1) {
+        animationRef.current = requestAnimationFrame(animate);
+      } else {
+        setCount(end);
+      }
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+      startTimeRef.current = null;
+    };
+  }, [end, duration, shouldStart]);
+
+  return count;
+};
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -64,6 +115,7 @@ const iconHover = {
 const HomePage = () => {
   const { scrollYProgress } = useScroll();
   const navigate = useNavigate();
+  const [shouldAnimateStats, setShouldAnimateStats] = useState(false);
   
   // 視差滾動變換
   const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
@@ -72,6 +124,17 @@ const HomePage = () => {
 
   // 精選專案 (取前3個專案作為精選)
   const featuredProjects = projectsData.slice(0, 3);
+
+  // 統計數據
+  const statsData = [
+    { key: 'projects', number: projectsData.length, suffix: '+', label: '完成專案', animated: true },
+    { key: 'delivery', number: 100, suffix: '%', label: '準時交付', animated: true },
+    { key: 'support', number: 24, suffix: '/7', label: '技術支援', animated: false }
+  ];
+
+  // 使用動畫 hooks
+  const projectCount = useCountUp(projectsData.length, 2000, shouldAnimateStats);
+  const deliveryRate = useCountUp(100, 2500, shouldAnimateStats);
 
   const getCategoryColor = (category: string) => {
     const colors = {
@@ -460,41 +523,84 @@ const HomePage = () => {
           </p>
           
           <motion.div 
-            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ 
+              once: true, 
+              margin: "-50px",
+              amount: 0.3
+            }}
+            onViewportEnter={() => {
+              // 延遲啟動動畫，讓容器動畫先完成
+              setTimeout(() => setShouldAnimateStats(true), 500);
+            }}
           >
-            {[
-              { number: '50+', label: '完成專案' },
-              { number: '30+', label: '滿意客戶' },
-              { number: '5+', label: '年經驗' },
-              { number: '100%', label: '準時交付' }
-            ].map((stat, index) => (
+            {statsData.map((stat, index) => {
+              // 根據統計項目獲取對應的動畫值
+              let displayNumber;
+              if (stat.key === 'projects') {
+                displayNumber = projectCount;
+              } else if (stat.key === 'delivery') {
+                displayNumber = deliveryRate;
+              } else {
+                displayNumber = stat.number;
+              }
+
+              return (
               <motion.div 
-                key={index}
+                key={stat.key}
                 variants={smoothFadeInUp}
                 className="text-center"
               >
-                <motion.div 
-                  className="text-3xl md:text-4xl font-bold mb-2 glow-stats"
-                  initial={{ scale: 0, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ 
-                    duration: 0.8, 
-                    delay: index * 0.15, 
-                    type: "spring", 
-                    stiffness: 200,
-                    ease: [0.25, 0.46, 0.45, 0.94]
-                  }}
-                >
-                  {stat.number}
-                </motion.div>
+                {stat.animated ? (
+                  <motion.div 
+                    className="text-3xl md:text-4xl font-bold mb-2 glow-stats"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ 
+                      duration: 0.8, 
+                      delay: index * 0.15, 
+                      type: "spring", 
+                      stiffness: 200,
+                      ease: [0.25, 0.46, 0.45, 0.94]
+                    }}
+                  >
+                    <span className="text-white">
+                      {displayNumber}
+                    </span>
+                    <span className="text-white">
+                      {stat.suffix}
+                    </span>
+                  </motion.div>
+                ) : (
+                  <motion.div 
+                    className="text-3xl md:text-4xl font-bold mb-2 glow-stats"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ 
+                      duration: 0.8, 
+                      delay: index * 0.15, 
+                      type: "spring", 
+                      stiffness: 200,
+                      ease: [0.25, 0.46, 0.45, 0.94]
+                    }}
+                  >
+                    <span className="text-white">
+                      {stat.number}
+                    </span>
+                    <span className="text-white">
+                      {stat.suffix}
+                    </span>
+                  </motion.div>
+                )}
                 <div className="text-lg opacity-90 tracking-wide glow-text">{stat.label}</div>
               </motion.div>
-            ))}
+              );
+            })}
           </motion.div>
         </motion.div>
       </section>
