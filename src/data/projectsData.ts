@@ -175,7 +175,7 @@ export const projectsData: Project[] = [
     year: '2025',
     teamSize: 1,
     role: '影片規劃與剪輯主導',
-    featured: false, // 設為精選專案
+    featured: true, // 設為精選專案
     liveUrl: '',
     githubUrl: '',
     status: '已交付',
