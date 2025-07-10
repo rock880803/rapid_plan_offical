@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import HomePage from '../pages/HomePage';
 import RapidPlanPortfolioPage from '../pages/RapidPlanPortfolioPage';
 import ProjectDetailPage from '../pages/ProjectDetailPage';
+import ServicesPage from '../pages/ServicesPage';
 import AboutPage from '../pages/AboutPage';
 import BrandingPage from '../pages/BrandingPage';
 import DevelopmentPage from '../pages/DevelopmentPage';
@@ -37,6 +38,14 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <ProjectDetailPage />
+            </PageTransition>
+          } 
+        />
+        <Route 
+          path="/services" 
+          element={
+            <PageTransition>
+              <ServicesPage />
             </PageTransition>
           } 
         />
