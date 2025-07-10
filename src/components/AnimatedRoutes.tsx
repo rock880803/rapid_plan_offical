@@ -48,6 +48,30 @@ const AnimatedRoutes = () => {
             </PageTransition>
           } 
         />
+        <Route 
+          path="/branding" 
+          element={
+            <PageTransition>
+              <BrandingPage />
+            </PageTransition>
+          } 
+        />
+        <Route 
+          path="/development" 
+          element={
+            <PageTransition>
+              <DevelopmentPage />
+            </PageTransition>
+          } 
+        />
+        <Route 
+          path="/graphic" 
+          element={
+            <PageTransition>
+              <GraphicPage />
+            </PageTransition>
+          } 
+        />
       </Routes>
     </AnimatePresence>
   );
