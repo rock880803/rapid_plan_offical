@@ -122,8 +122,8 @@ const HomePage = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '200%']);
   const cardY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
-  // 精選專案 (根據 featured 屬性篩選)
-  const featuredProjects = getFeaturedProjects(3);
+  // 精選專案 (根據 featured 屬性篩選，最多顯示6個)
+  const featuredProjects = getFeaturedProjects(6);
 
   // 統計數據
   const statsData = [
@@ -619,7 +619,14 @@ const HomePage = () => {
         </motion.div>
         
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+          className={`grid gap-8 mb-12 ${
+            featuredProjects.length === 1 ? 'grid-cols-1 max-w-md mx-auto' :
+            featuredProjects.length === 2 ? 'grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto' :
+            featuredProjects.length <= 3 ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' :
+            featuredProjects.length <= 4 ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4' :
+            featuredProjects.length <= 6 ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' :
+            'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+          }`}
           variants={staggerContainer}
           initial="initial"
           whileInView="animate"

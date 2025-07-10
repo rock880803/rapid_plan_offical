@@ -352,8 +352,13 @@ export const getRelatedProjects = (currentId: number, category: string, limit: n
 };
 
 // 新增：獲取精選專案
-export const getFeaturedProjects = (limit: number = 3): Project[] => {
+export const getFeaturedProjects = (limit: number = 6): Project[] => {
   return projectsData
     .filter(project => project.featured === true)
     .slice(0, limit);
+};
+
+// 新增：獲取精選專案總數
+export const getFeaturedProjectsCount = (): number => {
+  return projectsData.filter(project => project.featured === true).length;
 };
