@@ -15,7 +15,7 @@ const BackgroundMusic: React.FC = () => {
 
     // 設置音頻屬性
     audio.loop = true;
-    audio.volume = 0.3; // 設置較低的音量
+    audio.volume = 0.2; // 設置較低的音量
     
     // 嘗試自動播放（某些瀏覽器可能會阻止）
     const playAudio = async () => {
