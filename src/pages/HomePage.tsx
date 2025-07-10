@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faLightbulb, faBullseye, faShield, faUsers, faAward, faZap, faChevronDown, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import { projectsData } from '../data/projectsData';
+import { projectsData, getFeaturedProjects } from '../data/projectsData';
 import ProjectImage from '../components/ProjectImage';
 import IframeEmbed from '../components/IframeEmbed';
 
@@ -122,8 +122,8 @@ const HomePage = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '200%']);
   const cardY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
-  // 精選專案 (取前3個專案作為精選)
-  const featuredProjects = projectsData.slice(0, 3);
+  // 精選專案 (根據 featured 屬性篩選)
+  const featuredProjects = getFeaturedProjects(3);
 
   // 統計數據
   const statsData = [

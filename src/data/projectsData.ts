@@ -22,6 +22,7 @@ export interface Project {
   status: string;
   teamSize: number;
   role: string;
+  featured?: boolean; // 新增：是否為精選專案
   testimonial?: {
     text: string;
     author: string;
@@ -74,6 +75,7 @@ export const projectsData: Project[] = [
     status: '已交付',
     teamSize: 1,
     role: '視覺設計與提案主導',
+    featured: true, // 設為精選專案
     testimonial: {
       text: '設計溝通順暢、成品品質高，時間緊迫仍交出令人滿意的成果，非常推薦！',
       author: '楊先生',
@@ -120,6 +122,7 @@ export const projectsData: Project[] = [
     year: '2025',
     teamSize: 1,
     role: '整體設計與排版主導',
+    featured: false, // 不是精選專案
     liveUrl: '',
     githubUrl: '',
     status: '已交付',
@@ -172,6 +175,7 @@ export const projectsData: Project[] = [
     year: '2025',
     teamSize: 1,
     role: '影片規劃與剪輯主導',
+    featured: true, // 設為精選專案
     liveUrl: '',
     githubUrl: '',
     status: '已交付',
@@ -220,6 +224,7 @@ export const projectsData: Project[] = [
     year: '2025',
     teamSize: 1,
     role: '整體設計與印製對接',
+    featured: false, // 不是精選專案
     liveUrl: '',
     githubUrl: '',
     status: '已交付',
@@ -270,6 +275,7 @@ export const projectsData: Project[] = [
     year: '2025',
     teamSize: 1,
     role: '影像編導與剪輯統籌',
+    featured: false, // 不是精選專案
     liveUrl: '',
     githubUrl: '',
     status: '已交付',
@@ -321,6 +327,7 @@ export const projectsData: Project[] = [
   year: '2025',
   teamSize: 1,
   role: '介面設計與互動流程整合',
+  featured: true, // 設為精選專案
   liveUrl: '',
   githubUrl: '',
   status: '已上線',
@@ -341,5 +348,12 @@ export const getProjectById = (id: number): Project | undefined => {
 export const getRelatedProjects = (currentId: number, category: string, limit: number = 3): Project[] => {
   return projectsData
     .filter(project => project.id !== currentId && project.category === category)
+    .slice(0, limit);
+};
+
+// 新增：獲取精選專案
+export const getFeaturedProjects = (limit: number = 3): Project[] => {
+  return projectsData
+    .filter(project => project.featured === true)
     .slice(0, limit);
 };
