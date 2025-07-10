@@ -224,7 +224,7 @@ export const projectsData: Project[] = [
     year: '2025',
     teamSize: 1,
     role: '整體設計與印製對接',
-    featured: false, // 不是精選專案
+    featured: true, // 不是精選專案
     liveUrl: '',
     githubUrl: '',
     status: '已交付',
