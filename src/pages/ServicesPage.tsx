@@ -16,7 +16,6 @@ import {
   faHeart,
   faTrophy,
   faGift,
-  faSparkles,
   faMagic
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -195,7 +194,7 @@ const ServicesPage = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <FontAwesomeIcon icon={faSparkles} className="text-yellow-300" />
+              <FontAwesomeIcon icon={faMagic} className="text-yellow-300" />
               <span className="text-sm font-medium">專業 EDM 行銷服務</span>
             </motion.div>
 
