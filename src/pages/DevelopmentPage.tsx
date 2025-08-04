@@ -75,7 +75,7 @@ const DevelopmentPage = () => {
 },
     {
   id: 6,
-  title: '臺北市城鎮韌性演習兵推系統',
+  title: '互動式情境模擬系統',
   description: '協助臺北市政府及外部廠商開發兵推系統，在大螢幕即時展示演習流程，實現無腳本演練',
   image: 'https://images.pexels.com/photos/2566582/pexels-photo-2566582.jpeg?auto=compress&cs=tinysrgb&w=800',
   category: 'web',
