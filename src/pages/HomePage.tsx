@@ -394,7 +394,7 @@ const HomePage = () => {
               whileTap={{ scale: 0.95 }}
             >
               <Link
-                to="/portfolio/branding"
+                to="/portfolio"
                 className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/30 transition-all"
               >
                 探索品牌作品
@@ -445,7 +445,7 @@ const HomePage = () => {
               whileTap={{ scale: 0.95 }}
             >
               <Link
-                to="/portfolio/development"
+                to="/portfolio"
                 className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/30 transition-all"
               >
                 探索開發作品
@@ -496,7 +496,7 @@ const HomePage = () => {
               whileTap={{ scale: 0.95 }}
             >
               <Link
-                to="/portfolio/graphic"
+                to="/portfolio"
                 className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/30 transition-all"
               >
                 探索設計作品
