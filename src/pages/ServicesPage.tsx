@@ -3,10 +3,9 @@ import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faEnvelope, 
-  faChartLine, 
   faPalette, 
-  faUsers, 
-  faRocket,
+  faCode, 
+  faVideo,
   faCheckCircle,
   faArrowRight,
   faBullseye,
@@ -16,7 +15,14 @@ import {
   faHeart,
   faTrophy,
   faGift,
-  faMagic
+  faMagic,
+  faRocket,
+  faUsers,
+  faChartLine,
+  faCog,
+  faDesktop,
+  faMobile,
+  faPrint
 } from '@fortawesome/free-solid-svg-icons';
 
 const fadeInUp = {
@@ -34,62 +40,62 @@ const staggerContainer = {
 };
 
 const ServicesPage = () => {
-  const edmServices = [
+  const mainServices = [
     {
       icon: faPalette,
-      title: 'EDM 視覺設計',
-      subtitle: '專業美觀的電子報設計',
-      description: '打造符合品牌形象的專業 EDM 視覺設計，提升開信率與點擊率',
+      title: '品牌設計服務',
+      subtitle: '打造獨特品牌識別',
+      description: '從 Logo 設計到完整視覺識別系統，為您的品牌創造獨特且具有影響力的視覺形象，讓品牌在市場中脫穎而出。',
       features: [
-        '響應式設計，完美適配各種裝置',
-        '品牌一致性視覺規劃與色彩搭配',
-        '吸睛的視覺層次與排版設計',
-        '優化的閱讀體驗與互動元素'
+        'Logo 設計與品牌識別系統',
+        '企業視覺規範手冊制定',
+        '品牌應用設計（名片、文宣品）',
+        '品牌策略諮詢與定位'
       ],
       color: 'from-purple-500 to-pink-500',
       bgColor: 'from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20',
       borderColor: 'border-purple-200 dark:border-purple-700'
     },
     {
-      icon: faChartLine,
-      title: 'EDM 策略規劃',
-      subtitle: '數據驅動的行銷策略',
-      description: '基於數據分析的 EDM 行銷策略，精準觸及目標受眾，提升轉換效果',
+      icon: faCode,
+      title: '網站開發服務',
+      subtitle: '專業網站建置與維護',
+      description: '提供響應式網站設計、網頁應用程式開發，以及完整的技術支援服務，確保您的數位平台穩定運行。',
       features: [
-        '目標受眾深度分析與精準分群',
-        '個人化內容策略與發送規劃',
-        '最佳發送時機與頻率優化',
-        '完整成效追蹤與數據分析報告'
+        '響應式網站設計與開發',
+        '電商平台建置與整合',
+        '網站維護與技術支援',
+        'SEO 優化與效能提升'
       ],
       color: 'from-blue-500 to-cyan-500',
       bgColor: 'from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20',
       borderColor: 'border-blue-200 dark:border-blue-700'
     },
     {
-      icon: faUsers,
-      title: 'EDM 內容創作',
-      subtitle: '引人入勝的內容策劃',
-      description: '專業的 EDM 內容創作服務，提升用戶參與度與品牌黏著度',
+      icon: faPrint,
+      title: '平面設計服務',
+      subtitle: '專業視覺設計解決方案',
+      description: '涵蓋印刷品設計、數位媒體設計等多元化平面設計服務，為您的行銷活動提供強力的視覺支援。',
       features: [
-        '吸引人的主旨與標題設計',
-        '個人化內容規劃與客製化訊息',
-        '強效行動呼籲（CTA）優化',
-        '多語言內容支援與在地化'
+        '海報、傳單、手冊設計',
+        '包裝設計與產品視覺',
+        '社群媒體視覺內容',
+        '展覽活動視覺規劃'
       ],
       color: 'from-green-500 to-emerald-500',
       bgColor: 'from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20',
       borderColor: 'border-green-200 dark:border-green-700'
     },
     {
-      icon: faRocket,
-      title: 'EDM 自動化系統',
-      subtitle: '智能化行銷自動化',
-      description: '建置完整的 EDM 自動化流程，提升行銷效率與客戶體驗',
+      icon: faVideo,
+      title: '影片製作服務',
+      subtitle: '專業影音內容創作',
+      description: '從企業形象影片到產品宣傳片，提供完整的影片製作服務，幫助您的品牌故事生動呈現。',
       features: [
-        '智能自動化流程設計與建置',
-        '觸發式郵件與行為追蹤設定',
-        '完整客戶旅程規劃與優化',
-        'A/B 測試與持續效果優化'
+        '企業形象影片製作',
+        '產品介紹與宣傳影片',
+        '活動紀錄與剪輯',
+        '動畫製作與後製特效'
       ],
       color: 'from-orange-500 to-red-500',
       bgColor: 'from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20',
@@ -97,75 +103,63 @@ const ServicesPage = () => {
     }
   ];
 
-  const successStories = [
+  const companyAdvantages = [
     {
       icon: faTrophy,
-      metric: '300%',
-      label: '平均開信率提升',
-      description: '透過專業設計與策略優化'
+      title: '專業經驗',
+      description: '多年設計與開發經驗，服務過各行各業客戶'
+    },
+    {
+      icon: faRocket,
+      title: '快速交付',
+      description: '高效的工作流程，確保專案準時完成'
     },
     {
       icon: faHeart,
-      metric: '85%',
-      label: '客戶滿意度',
-      description: '超過 50+ 企業客戶好評'
+      title: '客戶至上',
+      description: '以客戶需求為核心，提供貼心的服務體驗'
+    },
+    {
+      icon: faShield,
+      title: '品質保證',
+      description: '嚴格的品質控制，確保每個作品都達到最高標準'
+    },
+    {
+      icon: faUsers,
+      title: '團隊合作',
+      description: '跨領域專業團隊，提供全方位的解決方案'
     },
     {
       icon: faStar,
-      metric: '24H',
-      label: '快速回應時間',
-      description: '專業團隊即時支援服務'
+      title: '創新思維',
+      description: '持續關注最新趋势，為客戶提供創新的設計方案'
     }
   ];
 
-  const pricingPlans = [
+  const workProcess = [
     {
-      name: '基礎方案',
-      price: '8,800',
-      period: '月',
-      description: '適合小型企業與新創公司',
-      features: [
-        '每月 2 次 EDM 設計',
-        '基礎數據分析報告',
-        '響應式設計',
-        '7 天修改期',
-        '電話與 Email 支援'
-      ],
-      popular: false,
-      color: 'from-gray-600 to-gray-700'
+      step: '01',
+      title: '需求分析',
+      description: '深入了解客戶需求與目標',
+      icon: faLightbulb
     },
     {
-      name: '專業方案',
-      price: '15,800',
-      period: '月',
-      description: '最受歡迎的企業選擇',
-      features: [
-        '每月 4 次 EDM 設計',
-        '進階策略規劃',
-        'A/B 測試優化',
-        '詳細成效分析',
-        '優先客服支援',
-        '自動化流程設定'
-      ],
-      popular: true,
-      color: 'from-blue-600 to-purple-600'
+      step: '02',
+      title: '方案規劃',
+      description: '制定詳細的執行計畫',
+      icon: faBullseye
     },
     {
-      name: '企業方案',
-      price: '28,800',
-      period: '月',
-      description: '大型企業專屬服務',
-      features: [
-        '無限次 EDM 設計',
-        '專屬客戶經理',
-        '完整自動化系統',
-        '即時數據儀表板',
-        '24/7 技術支援',
-        '客製化整合服務',
-        '專業培訓課程'
-      ],
-      popular: false,
-      color: 'from-purple-600 to-pink-600'
+      step: '03',
+      title: '設計執行',
+      description: '專業團隊進行創作與開發',
+      icon: faCog
+    },
+    {
+      step: '04',
+      title: '成果交付',
+      description: '完成品質檢核並交付成果',
+      icon: faCheckCircle
     }
   ];
 
@@ -187,7 +181,7 @@ const ServicesPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Header Badge */}
+            {/* Company Badge */}
             <motion.div
               className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 mb-6 border border-white/30"
               initial={{ opacity: 0, scale: 0.8 }}
@@ -195,7 +189,7 @@ const ServicesPage = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <FontAwesomeIcon icon={faMagic} className="text-yellow-300" />
-              <span className="text-sm font-medium">專業 EDM 行銷服務</span>
+              <span className="text-sm font-medium">Rapid Plan 專業服務</span>
             </motion.div>
 
             <motion.h1 
@@ -204,10 +198,10 @@ const ServicesPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              EDM 電子報
+              我們的
               <br />
               <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
-                行銷專家
+                專業服務
               </span>
             </motion.h1>
             
@@ -217,9 +211,9 @@ const ServicesPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              透過精心設計的電子報行銷，與您的客戶建立持續且有價值的溝通管道，
+              從品牌設計到網站開發，從平面設計到影片製作，
               <br className="hidden md:block" />
-              提升品牌影響力與業務成長
+              我們提供全方位的數位創意解決方案
             </motion.p>
             
             <motion.div
@@ -237,7 +231,7 @@ const ServicesPage = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <FontAwesomeIcon icon={faRocket} className="mr-2" />
-                立即開始 EDM 行銷
+                立即諮詢服務
               </motion.a>
               
               <motion.a
@@ -253,43 +247,62 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      {/* Success Metrics */}
-      <section className="py-16 bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+      {/* Company Introduction */}
+      <section className="py-16 bg-white dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full px-4 py-2 mb-4">
+              <FontAwesomeIcon icon={faUsers} />
+              <span className="text-sm font-medium">關於 Rapid Plan</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 glow-title">
+              專業團隊，創新服務
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed glow-text">
+              Rapid Plan 致力於為企業提供全方位的數位創意服務。我們擁有專業的設計與開發團隊，
+              結合創新思維與豐富經驗，為每位客戶量身打造最適合的解決方案。
+              從品牌識別到數位平台，我們協助企業在競爭激烈的市場中建立獨特的品牌形象。
+            </p>
+          </motion.div>
+
+          {/* Company Advantages */}
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
           >
-            {successStories.map((story, index) => (
+            {companyAdvantages.map((advantage, index) => (
               <motion.div
                 key={index}
-                className="text-center"
+                className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 text-center hover:shadow-lg transition-all glow-card"
                 variants={fadeInUp}
-                whileHover={{ y: -5 }}
+                whileHover={{ y: -5, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <FontAwesomeIcon icon={story.icon} className="text-blue-600 dark:text-blue-400" size="lg" />
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <FontAwesomeIcon icon={advantage.icon} className="text-blue-600 dark:text-blue-400" />
                 </div>
-                <div className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2 glow-stats">
-                  {story.metric}
-                </div>
-                <div className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
-                  {story.label}
-                </div>
-                <div className="text-gray-600 dark:text-gray-300 text-sm">
-                  {story.description}
-                </div>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 glow-subtitle">
+                  {advantage.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm glow-text">
+                  {advantage.description}
+                </p>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Main Services Section */}
       <section id="services" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -299,15 +312,15 @@ const ServicesPage = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full px-4 py-2 mb-4">
+            <div className="inline-flex items-center gap-2 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400 rounded-full px-4 py-2 mb-4">
               <FontAwesomeIcon icon={faMagic} />
-              <span className="text-sm font-medium">專業服務項目</span>
+              <span className="text-sm font-medium">核心服務項目</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 glow-title">
-              完整 EDM 解決方案
+              我們提供的專業服務
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto glow-text">
-              從策略規劃到執行優化，提供一站式 EDM 電子報行銷服務
+              四大核心服務領域，為您的企業提供完整的數位創意解決方案
             </p>
           </motion.div>
           
@@ -318,7 +331,7 @@ const ServicesPage = () => {
             whileInView="animate"
             viewport={{ once: true }}
           >
-            {edmServices.map((service, index) => (
+            {mainServices.map((service, index) => (
               <motion.div
                 key={index}
                 className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${service.bgColor} border ${service.borderColor} p-8 glow-card`}
@@ -355,7 +368,7 @@ const ServicesPage = () => {
                 
                 {/* Service Features */}
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-4">核心功能特色：</h4>
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-4">服務內容包含：</h4>
                   {service.features.map((feature, featureIndex) => (
                     <motion.div
                       key={featureIndex}
@@ -386,7 +399,7 @@ const ServicesPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    立即諮詢
+                    了解更多
                     <FontAwesomeIcon icon={faArrowRight} />
                   </motion.a>
                 </motion.div>
@@ -396,7 +409,7 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Work Process */}
       <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -407,116 +420,48 @@ const ServicesPage = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="inline-flex items-center gap-2 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 rounded-full px-4 py-2 mb-4">
-              <FontAwesomeIcon icon={faGift} />
-              <span className="text-sm font-medium">彈性方案選擇</span>
+              <FontAwesomeIcon icon={faCog} />
+              <span className="text-sm font-medium">工作流程</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 glow-title">
-              選擇適合的方案
+              專業的服務流程
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto glow-text">
-              根據您的需求選擇最適合的 EDM 服務方案，所有方案都包含專業支援
+              透過標準化的工作流程，確保每個專案都能達到最佳成果
             </p>
           </motion.div>
 
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
           >
-            {pricingPlans.map((plan, index) => (
+            {workProcess.map((process, index) => (
               <motion.div
                 key={index}
-                className={`relative bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden glow-card ${
-                  plan.popular ? 'ring-2 ring-blue-500 scale-105' : ''
-                }`}
+                className="text-center"
                 variants={fadeInUp}
-                whileHover={{ 
-                  y: -8,
-                  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
-                }}
+                whileHover={{ y: -5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                {plan.popular && (
-                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-2 text-sm font-semibold">
-                    <FontAwesomeIcon icon={faStar} className="mr-1" />
-                    最受歡迎
+                <div className="relative mb-6">
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full mx-auto flex items-center justify-center shadow-lg">
+                    <FontAwesomeIcon icon={process.icon} className="text-white" size="lg" />
                   </div>
-                )}
-                
-                <div className={`p-8 ${plan.popular ? 'pt-12' : ''}`}>
-                  <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                      {plan.name}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-400 mb-4">
-                      {plan.description}
-                    </p>
-                    <div className="flex items-baseline justify-center gap-1">
-                      <span className="text-sm text-gray-500 dark:text-gray-400">NT$</span>
-                      <span className="text-4xl font-bold text-gray-900 dark:text-white">
-                        {plan.price}
-                      </span>
-                      <span className="text-gray-500 dark:text-gray-400">/{plan.period}</span>
-                    </div>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                    {process.step}
                   </div>
-
-                  <ul className="space-y-4 mb-8">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start gap-3">
-                        <FontAwesomeIcon 
-                          icon={faCheckCircle} 
-                          className="text-green-500 mt-1 flex-shrink-0" 
-                        />
-                        <span className="text-gray-700 dark:text-gray-300">
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <motion.a
-                    href="https://rock83-n8n-free.hf.space/form/9eac0b65-e87c-43f5-949e-93b2c54d8382"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-semibold transition-all ${
-                      plan.popular
-                        ? `bg-gradient-to-r ${plan.color} text-white hover:shadow-lg`
-                        : 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700'
-                    }`}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    選擇此方案
-                    <FontAwesomeIcon icon={faArrowRight} />
-                  </motion.a>
                 </div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 glow-subtitle">
+                  {process.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 glow-text">
+                  {process.description}
+                </p>
               </motion.div>
             ))}
-          </motion.div>
-
-          <motion.div 
-            className="text-center mt-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <p className="text-gray-600 dark:text-gray-400 mb-4">
-              需要客製化方案？我們提供彈性的企業解決方案
-            </p>
-            <motion.a
-              href="https://rock83-n8n-free.hf.space/form/9eac0b65-e87c-43f5-949e-93b2c54d8382"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              聯絡我們討論客製方案
-              <FontAwesomeIcon icon={faArrowRight} />
-            </motion.a>
           </motion.div>
         </div>
       </section>
@@ -532,18 +477,18 @@ const ServicesPage = () => {
           >
             <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 mb-6 border border-white/30">
               <FontAwesomeIcon icon={faRocket} className="text-yellow-300" />
-              <span className="text-white text-sm font-medium">立即開始</span>
+              <span className="text-white text-sm font-medium">開始合作</span>
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 glow-banner">
-              準備提升您的
+              準備開始您的
               <br />
-              EDM 行銷效果？
+              數位創意專案？
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed glow-text">
-              讓我們的專業團隊為您量身打造高效的 EDM 行銷策略，
+              讓 Rapid Plan 專業團隊為您提供量身打造的創意解決方案，
               <br className="hidden md:block" />
-              提升品牌影響力與客戶參與度
+              一起創造令人驚艷的成果
             </p>
             
             <motion.div
@@ -558,7 +503,7 @@ const ServicesPage = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
-                免費諮詢 EDM 服務
+                立即聯絡我們
               </motion.a>
               
               <motion.a
@@ -579,9 +524,9 @@ const ServicesPage = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               {[
-                { icon: faCheckCircle, text: '免費策略諮詢' },
+                { icon: faCheckCircle, text: '免費初步諮詢' },
                 { icon: faCheckCircle, text: '專業團隊服務' },
-                { icon: faCheckCircle, text: '滿意度保證' }
+                { icon: faCheckCircle, text: '品質滿意保證' }
               ].map((item, index) => (
                 <div key={index} className="flex items-center justify-center gap-2 text-white/90">
                   <FontAwesomeIcon icon={item.icon} className="text-green-300" />
