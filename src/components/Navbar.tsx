@@ -21,7 +21,7 @@ const Navbar = () => {
 
   const navLinks = [
     { path: '/', label: '首頁' },
-    { path: '/services', label: '服務項目' },
+    // { path: '/services', label: '服務項目' },
     { path: '/about', label: '關於我' },
   ];
 
