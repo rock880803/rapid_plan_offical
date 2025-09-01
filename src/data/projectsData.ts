@@ -147,8 +147,7 @@ export const projectsData: Project[] = [
       '/images/project_images/3-5.png'
     ],
     videoIframe: '<iframe width="560" height="315" src="https://www.youtube.com/embed/xHonIgLCehw?si=ogwpiTFGJ53jccFL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-    videoIframe: '<iframe width="560" height="315" src="https://www.youtube.com/embed/xHonIgLCehw?si=SU1zHcC_cGg69Vcq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-    videoAlternativeLink: 'https://www.youtube.com/watch?v=xHonIgLCehw',
+       videoAlternativeLink: 'https://www.youtube.com/watch?v=xHonIgLCehw',
     category: '影片創作',
     technologies: ['DaVinci Resolve', '影片剪輯', 'AI 音樂創作'],
     features: [
