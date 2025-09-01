@@ -114,12 +114,12 @@ const IframeEmbed: React.FC<IframeEmbedProps> = ({ iframeHtml, title, alternativ
       )}
       
       {/* 替代連結按鈕 - 總是顯示 */}
-      <div className="absolute bottom-4 right-4 z-20">
+      <div className="absolute bottom-4 right-4 z-20 group">
         <motion.a
           href={watchUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-black/70 hover:bg-black/90 backdrop-blur-sm text-white px-3 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-all opacity-0 hover:opacity-100 group-hover:opacity-100"
+          className="bg-black/70 hover:bg-black/90 backdrop-blur-sm text-white px-3 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-all opacity-80 hover:opacity-100"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           title="在新視窗開啟影片"
