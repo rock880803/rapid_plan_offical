@@ -105,14 +105,34 @@ const IframeEmbed: React.FC<IframeEmbedProps> = ({ iframeHtml, title, alternativ
           )}
           
           {/* 嵌入的 iframe */}
-          <div 
-            className="w-full h-full"
-            dangerouslySetInnerHTML={{ __html: safeIframeHtml }}
+          <iframe
+            src={src}
+            title={title}
+            className="w-full h-full border-0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
             onLoad={handleLoad}
             onError={handleError}
+            loading="lazy"
           />
         </>
       )}
+      
+      {/* 替代連結按鈕 - 總是顯示 */}
+      <div className="absolute bottom-4 right-4 z-20">
+        <motion.a
+          href={watchUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-black/70 hover:bg-black/90 backdrop-blur-sm text-white px-3 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-all opacity-0 hover:opacity-100 group-hover:opacity-100"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          title="在新視窗開啟影片"
+        >
+          <FontAwesomeIcon icon={faExternalLinkAlt} size="sm" />
+          開啟連結
+        </motion.a>
+      </div>
     </motion.div>
   );
 };
