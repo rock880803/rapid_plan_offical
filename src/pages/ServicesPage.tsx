@@ -329,7 +329,7 @@ const ServicesPage = () => {
                     icon={advantage.icon} 
                     className="text-blue-600 dark:text-blue-400 transition-colors duration-300" 
                   />
-                </div>
+                </motion.div>
                 <motion.h3 
                   className="text-lg font-semibold text-gray-900 dark:text-white mb-2 glow-subtitle"
                   initial={{ opacity: 0 }}
