@@ -802,7 +802,10 @@ const ProjectDetailPage = () => {
               {project.images.length > 1 && (
                 <>
                   <motion.button
-                    onClick={prevImage}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      prevImage();
+                    }}
                     className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 backdrop-blur-sm text-white p-3 rounded-full transition-colors z-20 shadow-lg"
                     whileHover={{ 
                       scale: 1.15,
@@ -821,7 +824,10 @@ const ProjectDetailPage = () => {
                     <FontAwesomeIcon icon={faChevronLeft} />
                   </motion.button>
                   <motion.button
-                    onClick={nextImage}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      nextImage();
+                    }}
                     className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 backdrop-blur-sm text-white p-3 rounded-full transition-colors z-20 shadow-lg"
                     whileHover={{ 
                       scale: 1.15,
