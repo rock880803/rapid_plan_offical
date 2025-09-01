@@ -282,20 +282,70 @@ const ServicesPage = () => {
             {companyAdvantages.map((advantage, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 text-center hover:shadow-lg transition-all glow-card"
+                className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 text-center glow-card"
                 variants={fadeInUp}
-                whileHover={{ y: -5, scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300 }}
+                whileHover={{ 
+                  y: -8, 
+                  scale: 1.03,
+                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)",
+                  transition: { 
+                    type: "spring", 
+                    stiffness: 400, 
+                    damping: 25,
+                    mass: 0.8
+                  }
+                }}
+                whileTap={{ 
+                  scale: 0.98,
+                  transition: { 
+                    type: "spring", 
+                    stiffness: 600, 
+                    damping: 30 
+                  }
+                }}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.1,
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 25
+                }}
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <FontAwesomeIcon icon={advantage.icon} className="text-blue-600 dark:text-blue-400" />
+                <motion.div 
+                  className="w-12 h-12 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 rounded-full mx-auto mb-4 flex items-center justify-center"
+                  whileHover={{ 
+                    scale: 1.15, 
+                    rotate: 5,
+                    transition: { 
+                      type: "spring", 
+                      stiffness: 500, 
+                      damping: 20 
+                    }
+                  }}
+                >
+                  <FontAwesomeIcon 
+                    icon={advantage.icon} 
+                    className="text-blue-600 dark:text-blue-400 transition-colors duration-300" 
+                  />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 glow-subtitle">
+                <motion.h3 
+                  className="text-lg font-semibold text-gray-900 dark:text-white mb-2 glow-subtitle"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: index * 0.1 + 0.2 }}
+                >
                   {advantage.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm glow-text">
+                </motion.h3>
+                <motion.p 
+                  className="text-gray-600 dark:text-gray-300 text-sm glow-text leading-relaxed"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: index * 0.1 + 0.3 }}
+                >
                   {advantage.description}
-                </p>
+                </motion.p>
               </motion.div>
             ))}
           </motion.div>
