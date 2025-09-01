@@ -28,11 +28,19 @@ const IframeEmbed: React.FC<IframeEmbedProps> = ({ iframeHtml, title, alternativ
 
   // 創建安全的 iframe HTML
   const createSafeIframe = (html: string): string => {
-    // 確保 iframe 具有響應式類別
-    const responsiveIframe = html
-      .replace(/width="[^"]*"/, 'width="100%"')
-      .replace(/height="[^"]*"/, 'height="100%"')
-      .replace(/<iframe/, '<iframe class="w-full h-full"');
+    // 確保 iframe 具有必要的安全屬性和響應式類別
+    let responsiveIframe = html
+      .replace(/width="[^"]*"/g, 'width="100%"')
+      .replace(/height="[^"]*"/g, 'height="100%"')
+      .replace(/<iframe/g, '<iframe class="w-full h-full"');
+    
+    // 確保包含必要的安全屬性
+    if (!responsiveIframe.includes('referrerpolicy=')) {
+      responsiveIframe = responsiveIframe.replace(
+        /allowfullscreen/g, 
+        'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen'
+      );
+    }
     
     return responsiveIframe;
   };
@@ -109,11 +117,13 @@ const IframeEmbed: React.FC<IframeEmbedProps> = ({ iframeHtml, title, alternativ
             src={src}
             title={title}
             className="w-full h-full border-0"
+            referrerPolicy="strict-origin-when-cross-origin"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
             onLoad={handleLoad}
             onError={handleError}
             loading="lazy"
+            sandbox="allow-scripts allow-same-origin allow-presentation"
           />
         </>
       )}
